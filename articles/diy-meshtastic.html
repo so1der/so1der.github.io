@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статті коротко роздивимось що таке Meshtastic, та як його зібрати власноруч." />
+<meta name="keywords" content="meshtastic, diy, зв&#39;язок">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Власний вузол мережі Meshtastic!"/>
+  <meta property="og:description" content="В даній статті коротко роздивимось що таке Meshtastic, та як його зібрати власноруч."/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/diy-meshtastic.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2024-08-24 15:12:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="meshtastic"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Власний вузол мережі Meshtastic!</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="diy-meshtastic">Власний вузол мережі Meshtastic!</h1>
+    <p>
+      Опубліковано 24.08.2024, 15:12 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="Meshtastic" src="https://so1der.github.io/images/diy-meshtastic/logo.png" title="Meshtastic"></p>
+<p>Хочу показати вам процес створення власного вузла мережі <a href="https://meshtastic.org/">Meshtastic</a>.</p>
+<p>Хто не знав - <a href="https://meshtastic.org/">Meshtastic</a> - це OpenSource проєкт, це автономна децентралізована Mesh мережа, яка дозволяє людям спілкуватись між собою, навіть коли інші засоби зв'язку недоступні - будь то інтернет, мобільна мережа, або навіть супутниковий зв'язок. Це досягається за рахунок того, що кожний пристріий працює як радіо вузол-ретранслятор. Тобто наприклад якщо Ви в своєму місті зібрали цей пристрій, вузол, і незалежно від Вас його зібрав хтось ще, пристрої все одно з'єднаються, і створять свою меш мережу, або стануть частиною вже існуючої. Маючи велику кількість вузлів, можна покрити доволі велику площадь, і спілкуватись на дуже дальні відстані. </p>
+<p><img alt="Топологія Meshtastic-у" src="https://so1der.github.io/images/diy-meshtastic/lora-topology.png" title="Топологія Meshtastic-у"></p>
+<p>Варіантів використання такої мережі безліч - від зв'язку в горах, де часто з проблеми з мобільною мережею, до спілкування під час зомбі апокаліпсису, коли мобільної мережі не буде зовсім :D</p>
+<p>В обох випадках звісно можна обійтись і звичайними раціями, благо купити зараз якийсь <strong>Baofeng UV-5R</strong> чи <strong>Quansheng UV-K5(8)</strong> це взагалі не проблема. Але в них, як і в Mesh мереж, є свої сильні та слабкі сторони. Та і тим паче якщо є альтернативи, то чому б їх не розглянути. </p>
+<p><img alt="LilyGo" src="https://so1der.github.io/images/diy-meshtastic/lilygo.png" title="LilyGo"></p>
+<p>Можна купити готові пристрої, або купити певні девборди, на які достатньо буде лише залити прошивку, і можна радіти готовому пристрою, але коштують вони немало, тому в даній статті я пропоную розглянути, як можна зібрати цей вузол з окремих модулів, тим самим зекономити грошей ще й підтягнути свої скіли в мікроелектроніці.</p>
+<h2>Компоненти</h2>
+<p>Сам вузол складається з двох основних модулів, та двох опціональних.</p>
+<p><img alt="Основні компоненти" src="https://so1der.github.io/images/diy-meshtastic/main-components.png" title="Основні компоненти"></p>
+<p>До основних відносяться мікроконтролер, та радіо модуль. В моєму випадку це девборд ESP32. Коштує такий в наших магазинах приблизно 200-300 гривень. В якості радіо модуля буде LoRA Ra-01 модуль на частоти 410-525 МГц. Придбав я такий за 160 грн. Варто зазначити, що є ще версії модулів на частоти ~800-900 МГц, нам такі модулі не підходять, так як в Україні під LoRA виділені частоти саме на 70 см діапазоні, тобто 433 МГц.</p>
+<p><img alt="Опціональні компоненти" src="https://so1der.github.io/images/diy-meshtastic/sub-components.png" title="Опціональні компоненти"></p>
+<p>До опціональних відносяться - I2C OLED дисплей SSD1306, а також GPS модуль GY-GPS6MV2. Ними можна знехтувати для здешевлення проєкту. Дисплей потрібен для відображення різного роду інформації, а також pin коду для з'єднання по Bluetooth, але цей pin код можна отримати і іншим шляхом, тому дисплей не є обов'язковим, до того ж за замовчуванням pin код становить <strong>123456</strong>. Коштують вони в нас не дуже дорого, приблизно 100 грн.</p>
+<p>GPS модуль в свою чергу потрібен для того, щоб вузол міг транслювати свої координати. Це може знадобитись наприклад для того щоб побудувати точну мапу вузлів, та приблизно оцінити зону покриття. Або наприклад якщо Ви носите вузол з собою, і хочете щоб інші учасники мережі знали ваше місцезнаходження. Найдешевший GPS модуль з антеною у нас коштує від 150 до 200 грн.</p>
+<p>По ітогу ми отримуємо комплект, який хоч і має GPS модуль, але при цьому коштує дешевше ніж готові девборди які мають його не мають. Хоча в рамках даної статті я знехтую GPS модулем, і буду збирати вузол без нього, але там все дуже легко - треба всього лише під'єднати живлення та URAT до мікроконтролеру.</p>
+<h2>Прошивка мікроконтролера</h2>
+<p><img alt="Онлайн прошивальщик" src="https://so1der.github.io/images/diy-meshtastic/web-flasher.png" title="Онлайн прошивальщик"></p>
+<p>Тепер про прошивку мікроконтролеру. Ви можете скористатись <a href="https://flasher.meshtastic.org/">онлайн прошивальщиком</a> - оберіть версію плати <strong>DIY</strong>, оберіть версію прошивки, підключіть мікроконтролер, та прошивайте. Або Ви можете скомпілювати прошивку власноруч. Для цього знадобиться <a href="https://code.visualstudio.com/">середа розробки Visual Studio Code</a>, а також extension під назвою <a href="https://platformio.org/">PlatformIO</a>. До речі дуже потужна штука, якщо Ви працюєте з мікроконтролерами, будь то Arduino/AVR, ESP8266/ESP32, або навіть STM32/STM8 - раджу придивитись.</p>
+<p>Окрім цього, нам потрібно знайти <a href="https://github.com/meshtastic/firmware">гіт репозиторій проєкту</a>, і клонувати його собі, або скачати якщо у Вас немає git-у. </p>
+<div class="highlight"><pre><span></span><code><span class="go">git clone https://github.com/meshtastic/firmware</span>
+</code></pre></div>
+
+<p>Після цього, скачаний або клонований гіт репозиторій можна відкрити як проєкт у PlatformIO. Завдяки тому що проєкт дуже грамотно написаний, нам достатньо всього лише відредагувати основний файл - <code>platformio.ini</code>, і розкоментувати там необхідну для нас плату. Або замінити змінну <em>default_envs</em> на потрібну, так як в останніх версіях коду чомусь прибрали коментарі. Так як ми робимо все самі, з окремих модулів, обираємо meshtastic-diy-v1. </p>
+<div class="highlight"><pre><span></span><code><span class="na">default_envs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">meshtastic-diy-v1</span>
+</code></pre></div>
+
+<p>I все, можна натиснути на галочку, Build, щоб скомпілювати проєкт. Це може зайняти певний час, особливо якщо Ви робите це вперше, так як PlatformIO буде підвантажувати залежності і інші необхідні для роботи штуки.</p>
+<p>Якщо прошивка вдало скомпілювалась, можна завантажити її у мікроконтролер. Підключаємо мікроконтролер до комп'ютеру, і натискаємо на стрілочку Upload, і чекаємо.</p>
+<p>Тепер саме час розібратись що і куди підключати. За вказаним шляхом <code>firmware/variants/diy/v1/</code> можна знайти файлик <code>variant.h</code>, в ньому детально розписано що і до яких пінів треба підключити, наприклад піни підключення OLED дисплейчика:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// For OLED LCD</span>
+#<span class="n">define</span><span class="w"> </span><span class="n">I2C_SDA</span><span class="w"> </span><span class="mi">21</span>
+#<span class="n">define</span><span class="w"> </span><span class="n">I2C_SCL</span><span class="w"> </span><span class="mi">22</span>
+</code></pre></div>
+
+<p>Або GPS модуля:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// GPS</span>
+#<span class="n">define</span><span class="w"> </span><span class="n">GPS_RX_PIN</span><span class="w"> </span><span class="mi">12</span>
+#<span class="n">define</span><span class="w"> </span><span class="n">GPS_TX_PIN</span><span class="w"> </span><span class="mi">15</span>
+</code></pre></div>
+
+<p>І так далі.</p>
+<p><img alt="Ra-01 на платі для ESP-12" src="https://so1der.github.io/images/diy-meshtastic/soldered-ra01.jpg" title="Ra-01 на платі для ESP-12"></p>
+<p>Стосовно радіомодуля, його я припаяв на плату-перехідник для ESP-12. Так вже вийшло що в них однаковий корпус, тому можна використати цю платку. Коштує вона всього гривень 15, але в свою чергу суттєво облегшує використання модуля, хоч і збільшує його розміри, але для мене це не суттєво. З плати були прибрані резистори, а також була перерізана доріжка де колись був RESET, так як тепер там буде антена, і зайві з'єднання там ні до чого. Після пайки плата була почищена від залишків флюсу, і тепер вона готова до використання!</p>
+<p><img alt="Зібраний вузол" src="https://so1der.github.io/images/diy-meshtastic/assembled-node.jpg" title="Зібраний вузол"></p>
+<p>Достатньо просто з'єднати все як написано в файлі <code>variant.h</code>, і вузол готовий. Я зробив це на двох бредбордах купою дротів. Що в плати перехідника, що в девборда ESP32 розміри дуже незручні для макетування на бредборді, тому довелось використовувати два бредборди.</p>
+<p>Тепер достатньо підключитись по Bluetooth до нашого вузла за допомогою <a href="https://meshtastic.org/docs/software/android/installation/">офіційного додатку</a>, провести мінімальні налаштування - ввести ім'я вузла, а також обрати регіон <strong>EU_433</strong>, і все!</p>
+<p>Також треба в додатку відсканувати ось цей QR код, щоб вам додався зашифрований канал <a href="https://wikimesh.in.ua/uk/home">всеукраїнської мережі</a>:</p>
+<p><img alt="QR Код каналу" src="https://wikimesh.in.ua/qr_meshtastic_ua.jpg" title="QR Код каналу"></p>
+<p>До речі подивитись пін код можна через UART мікроконтролеру. Наприклад через програму <strong>screen</strong>, або <strong>picocom</strong> на Linux. Під час підключення нового пристрою, мікроконтролер по UART покаже pin код. Але скоріше за все у Вас він буде дефолтний - <strong>123456</strong>.</p>
+<p>Приклад використання <strong>screen</strong>:</p>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span><span class="m">115200</span>
+</code></pre></div>
+
+<p>Приклад використання <strong>picocom</strong>:</p>
+<div class="highlight"><pre><span></span><code>picocom<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span>--baud<span class="w"> </span><span class="m">115200</span>
+</code></pre></div>
+
+<p><code>/dev/ttyUSB0</code> - в даному випадку це пристрій, під яким підключився Ваш Meshtastic вузол. Можна подивитись, якщо до підключення вузла ввести наступну команду:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dmesg<span class="w"> </span>-v
+</code></pre></div>
+
+<p><code>115200</code> - стандартна швидкість передачі даних, так званий Baud Rate</p>
+<p>Щож, наш вузол готовий, і на цьому в мене все. У Вас мабуть виникає питання - а як же тести? А от не буде тестів :D</p>
+<p>Як виявилось поруч зі мною немає вузлів, з якими можна було б з'єднатись.</p>
+<p>Але якщо Ви з якогось великого міста, то скоріше за все Ви зможете до когось дотягнутись. Можете скористатись <a href="https://mesh.in.ua/grafana/d/R4RChebVk/mesh?orgId=1&amp;refresh=5s">онлайн мапою</a>, де відображаються активні вузли. Але на ній відображаються не всі вузли, так як щоб вузол на ній відображався, потрібен інтернет, та додаткові налаштування (MQTT).</p>
+<p><img alt="Вузол з акумулятором та GPS модулем" src="https://so1der.github.io/images/diy-meshtastic/full-node.jpg" title="Вузол з акумулятором та GPS модулем"></p>
+<p>В цілому, це дуже цікавий та продуманий проєкт. Все доволі легко налаштовується, є можливість підключити акумулятор щоб зробити автономний вузол. При цьому навіть можна через резистивний дільник підключити його до мікроконтролеру, щоб він розумів процент заряду, і навіть передавав його в мережу, щоб розряд акумулятора не став для Вас сюрпризом.</p>
+<p>Тож збирайте власний вузол, та приєднуйтесь до <a href="https://wikimesh.in.ua/uk/home">Української Mesh Мережі!</a></p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого першого відео. Саме відео, з цим же текстом, але і відповідним відеорядом, можна переглянути на моєму YouTube каналі, <a href="https://www.youtube.com/watch?v=TCA2lhjquZ0">за ось цим посиланням.</a></p>
+<p>Пізніше я таки зібрав ще один вузол, і навіть трішки потестував їх, але на дальні відстані потестувати їх мені так і не вдалось, бо в прифронтовому селищі мене не так зрозуміють, якщо  буду з цією штуковиною ходити.</p>
+<p><img alt="Вузол в корпусі" src="https://so1der.github.io/images/diy-meshtastic/node-in-case.jpg" title="Вузол в корпусі"></p>
+<p><img alt="Радіоаматорська Мурка" src="https://so1der.github.io/images/diy-meshtastic/cat.jpg" title="Радіоаматорська Мурка"></p>
+<p><img alt="Другий вузол" src="https://so1der.github.io/images/diy-meshtastic/second-node.jpg" title="Другий вузол"></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/meshtastic.html">meshtastic</a>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

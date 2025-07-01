@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Робимо дамп прошивки, та модифікуємо його." />
+<meta name="keywords" content="embedded, хакінг">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Хакінг роутера - частина друга"/>
+  <meta property="og:description" content="Робимо дамп прошивки, та модифікуємо його."/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/wr840n-hacking-2.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-02-12 11:59:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="embedded"/>
+  <meta property="article:tag" content="хакінг"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Хакінг роутера - частина друга</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="wr840n-hacking-2">Хакінг роутера - частина друга</h1>
+    <p>
+      Опубліковано 12.02.2025, 11:59 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <blockquote>
+<p>Дисклеймер: Розбираючи роутер, ви втрачаєте гарантію, а також можете пошкодити роутер. Сприймайте всю інформацію зі статті виключно як інформацію для ознайомлення. Вся відповідальність за ваші дії буде лежати виключно на вас.</p>
+</blockquote>
+<p>Ось і друга частина в серії відео по хакінгу, або ж реверсінжинірингу роутера. Нагадаю що в <a href="/articles/wr840n-hacking-1.html">попередній частині</a> ми знайшли UART шину роутера, та отримали через неї Root доступ до роутеру. Але UART шина була захищена паролем, і щоб його дізнатись, мені довелось здампити прошивку роутера, про це сьогодні і піде мова.</p>
+<p><strong>Дампінгом</strong> називається процес вилучення прошивки з пам'яті пристрою. В минулій статті я вже казав де саме лежить прошивка роутера, - в ось цій SPI флешці. </p>
+<p><img alt="&quot;SPI флешка на платі&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/spi-on-pcb.jpg" title="SPI флешка на платі"></p>
+<p>Відповідно якщо випаяти її, та помістити в спеціальний програматор, її можна не тільки зчитати, а й перезаписати. Звісно є способи вилучення прошивки і без випаювання мікросхеми, але ця стаття не про це. Я буду випаювати мікросхему за допомогою термофену. Але спершу давайте детальніше про саму мікросхему пам'яті.</p>
+<p><img alt="&quot;25Q64&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/25q64.jpg" title="25Q64"></p>
+<p>Це енергонезалежна пам'ять, яка використовує шину <strong>SPI</strong> у якості шини даних. Окрім <strong>SPI</strong> ще може використовуватись <strong>I2C</strong>, розрізнити їх можна за префіксом в назві мікросхеми:</p>
+<ul>
+<li>25 - SPI (наприклад <strong>25</strong>Q64)</li>
+<li>24 - I2C (наприклад <strong>24</strong>C64)</li>
+</ul>
+<p>З назви мікросхеми також можна дізнатись об'єм пам'яті мікросхеми, ось він - 25Q<strong>64</strong>. Можна подумати що це 64 Мегабайти, але ні, насправді це <strong>Мегабіти</strong>, а так як байт складається з 8 бітів, треба 64 розділити 8 і ми отримаємо 8, тобто об'єм мікросхеми - 8 Мегабайт. Це актуально і для мікросхем з I2C, але там замість <strong>Мегабітів</strong> - <strong>Кілобіти</strong>.</p>
+<p>Тобто так, ціла операційна система вмістилась в 8 Мегабайт. Це досягається за рахунок того, що ця операційна система знаходиться на флешці у стисненому вигляді, а коли роутер включається, то операційна система розпаковується в більш швидку та більш об'ємну оперативну пам'ять.</p>
+<p>Зчитати такі мікросхеми можна за допомогою спеціальних програматорів для мікросхем пам'яті. В мене є ось такий програматор Mini Programment на мікросхемі CH341A.</p>
+<p><img alt="&quot;CH341A&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/ch341a.jpg" title="CH341A"></p>
+<p>Хоч він не дуже дорогий, ще й підтримує як мікросхеми 25-ї серії, так і 24-ї, ще й може використовуватись як UART адаптер, рекомендувати до придбання його я не став би. Справа в тому що він працює лише з 5V логікою, в той час як більшість SPI мікросхем працюють з 3.3V. Окрім цього, при розводці плати китайці допустили ще декілька помилок, які в нових партіях виправляти чомусь не збираються. </p>
+<p>Я коли собі прошивав <a href="https://libreboot.org/">LibreBoot</a> на свій ThinkPad, читав інструкцію на сайті, і там вони навіть <a href="https://libreboot.org/docs/install/spi.html#do-not-buy-ch341a">окремий блок</a> виділили під те, щоб попросити людей не використовувати цей програматор, бо в деяких ноутбуках стоять мікросхеми пам'яті з напругою логіки 1.8V, від такого програматора їм майже гарантована смерть.</p>
+<p><img alt="&quot;SPI флешка на ThinkPad-і&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/t420-spi.jpg" title="SPI флешка на ThinkPad-і"></p>
+<p>Особисто я переробив його, щоб він працював з 3.3V логікою. І хоч навіть без переробки я записував та зчитував ним безліч мікросхем, з роутерів, материнських плат, і тд, не можна виключати того що якась мікросхема не витримає 5V, тому, робіть все на свій страх і ризик.</p>
+<h2>Демонтаж мікросхеми</h2>
+<p>Щож, давайте випаювати. Для початку я додав нового припою на контакти мікросхеми, щоб понизити температуру випаювання, а після цього щедро намазав все флюсом. Попередньо прогрівши область, я без проблем випаяв мікросхему. Після цього за допомогою оплітки я почистив і мікросхему, а потім за допомогою спирту прибрав залишки флюсу.</p>
+<p><img alt="&quot;Демонтаж мікросхеми&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/desoldering.jpg" title="Демонтаж мікросхеми"></p>
+<p>Тепер мікросхему треба під'єднати до програматора, для цього в комплекті був такий ось чудовий перехідник. До нього звісно цю мікросхему можна і припаяти, але особисто я просто притискаю її за допомогою біндеру для паперу. Хоча варто мабуть використовувати щось з діелектрика, щоб випадково нічого не закоротити. Тут важливо правильно розмістити мікросхему. Ключ на мікросхемі, (крапка біля ніжки),  показує першу ніжку мікросхеми, відповідно треба щоб вона співпадала з першою ніжкою на перехіднику.</p>
+<p><img alt="&quot;Мікросхема на перехіднику&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/ic-on-adapter.jpg" title="Мікросхема на перехіднику"></p>
+<p>А як розмістити вже сам перехідник, показано на програматорі. Залежно від серії мікросхеми, міняється місце.</p>
+<h2>Зчитуємо дані</h2>
+<p>Підключаємо програматор до комп'ютера, і можна зчитувати мікросхему.  Для цього є безліч програм, я буду використовувати програму <strong>flashprog</strong>. Для початку треба за допомогою даної команди впевнитись що програматор бачить мікросхему, бо на цьому перехіднику запросто може бути відсутній контакт.</p>
+<div class="highlight"><pre><span></span><code><span class="go">flashprog -p ch341a_spi</span>
+</code></pre></div>
+
+<p><img alt="&quot;Програматор побачив мікросхему&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/ic-detected.jpg" title="Програматор побачив мікросхему"></p>
+<p>Чудово, програматор бачить мікросхему, тому можна зчитати її, додавши флаг <strong>-r</strong>, та назву файлу в який буде записано зміст мікросхеми. Також можна додати флаг <strong>--progress</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">flashprog -p ch341a_spi -r firmware.bin --progress</span>
+</code></pre></div>
+
+<p>Процес це не швидкий, i залежить від того, скільки в мікросхеми пам'яті. Чим більше, тим відповідно довше вона буде читатись.</p>
+<h2>Що тепер?</h2>
+<p>Чудово, дамп готовий. Але поки це просто набір нулів та одиниць, бо на флешці записано аж декілька файлів. Для того щоб подивитись що там є, можна використати програму <strong>binwalk</strong>. Вона пройдеться по всьому файлу, і знайде там заголовки файлів, і сповістить нас про це. Вводимо наступну команду, і як бачимо, binwalk знайшов аж декілька файлів. </p>
+<div class="highlight"><pre><span></span><code><span class="go">binwalk firmware.bin</span>
+</code></pre></div>
+
+<p><img alt="&quot;Зміст firmware.bin&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/binwalk-output.jpg" title="Зміст firmware.bin"></p>
+<p>Більше всього нас цікавить <code>Squashfs filesystem</code>.</p>
+<p><strong>SquashFS</strong>  це швидка та компактна файлова система для Linux, тому її використовують на роутерах, адже роутери дуже обмежені в плані кількості пам'яті. Binwalk допоможе нам не лише дізнатись що є в файлі, а й витягнути все це. Додавши флаг <strong>-e</strong>, binwalk створить нову директорію, куди й витягне всі файли.</p>
+<div class="highlight"><pre><span></span><code><span class="go">binwalk -e firmware.bin</span>
+</code></pre></div>
+
+<p>Поки проігноруємо помилки і підемо в новостворену директорію. Binwalk також розархівував SquashFS, тому можемо відкрити наступну директорію, і ті хто стикався з Linux зараз точно побачили знайому картину.</p>
+<p><img alt="&quot;Root директорія роутера&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/root-dir.jpg" title="Root директорія роутера"></p>
+<p>Так, це root директорія того самого Linux-а, який крутиться на роутері. Відповідно все те що актуально для, скажімо так, великого Linux, актуально і тут - директорія з бінарниками, директорія з конфігами, директорія з бібліотеками та модулями ядра, і так далі. Відповідно саме так я дізнався пароль від  Root Shell, за ось цим шляхом <code>etc/</code>, як і на звичайному Linux, лежить файлик <code>shadow</code> в якому лежить хеш пароля:</p>
+<div class="highlight"><pre><span></span><code><span class="go">cat etc/shadow</span>
+</code></pre></div>
+
+<p><img alt="&quot;Хеш пароля роутера&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/shadow.jpg" title="Хеш пароля роутера"></p>
+<p>Хешування це незворотній процес, тому щоб дізнатись що це за пароль, треба шляхом перебору, беручи передбачуваний  пароль, та роблячи його хеш, порівнювати хеши до тих пір, поки вони не співпадуть. Цим займається наприклад програма <strong>hashcat</strong>. Але дуже часто, можна просто прогуглити хеш і дізнатись пароль, бо скоріше за все ви далеко не перша людина яка розбирає та аналізує цей пристрій.</p>
+<p>Ну і таким чином я дізнався пароль, потім запаяв флешку назад, і дописав першу статтю.</p>
+<p>Тепер у вас є і дамп, за допомогою якого якщо що можна відновити пристрій і розархівований SquashFS, де можна аналізувати різні аспекти роботи пристрою.</p>
+<h2>Модифікуємо прошивку</h2>
+<p>Тепер давайте розповім, як модифікувати прошивку. Можна звісно засунути сюди якийсь новий бінарник, якщо він влізе на флешку, або якийсь скрипт, але краще починати з чогось простішого - можна спробувати замінити одну з картинок вебінтерфейсу.</p>
+<p>Але перед цим треба розархівувати SquashFS трішки по іншому. По перше треба запустити binwalk через Root:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo binwalk -e firmware.bin --run-as=root</span>
+</code></pre></div>
+
+<p>По друге, так як в файловій системі присутні посилання, які після разархівації будуть вести за межі цієї файлової системи, прямо в нашу систему, binwalk перенаправляє їх в <code>/dev/null</code> задля безпеки. Їх треба відновити.</p>
+<p>Тепер можна модифікувати файли. Я взяв картинку з логотипом Rиївстар, і додав туди Shikanoko.</p>
+<p><img alt="&quot;nyan&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/shikanoko.jpg" title="nyan"></p>
+<p>Коли необхідні файли були модифіковані, нам залишається лише зібрати новий SquashFS образ і пропатчити ним раніше зчитаний дамп прошивки. Зробити SquashFS можна за допомогою команди <strong>mksquashfs</strong>, але цій команді треба доволі багато параметрів. Дізнатись їх можна якщо взяти старий образ SquashFS, і виконати наступну команду:</p>
+<div class="highlight"><pre><span></span><code><span class="go">unsquashfs -s 120000.squashfs</span>
+</code></pre></div>
+
+<p><img alt="&quot;Вивід команди unsquashfs&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/unsquashfs.jpg" title="Вивід команди unsquashfs"></p>
+<p>Дивимось тут на метод стиснення, на розмір блоку, а також на деякі інші параметри. Конкретно в моєму випадку для створення нового SquashFS вийшла ось така команда:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo mksquashfs squashfs-root/ new_squashfs -comp lzma -b 131072 -always-use-fragments -all-root</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><code>squashfs-root/</code> це я вказав шлях до директорії, в яку було розархівовано SquashFS, і де я модифікував файли.</p>
+</li>
+<li>
+<p><code>new_squashfs</code> - це назва нового SquashFS який буде створено</p>
+</li>
+<li>
+<p><code>-comp lzma</code> це метод стиснення, <strong>compresion</strong>, в даному випадку це <strong>lzma</strong></p>
+</li>
+<li>
+<p><code>-b</code> це block size</p>
+</li>
+</ul>
+<p>Ну і також ще декілька флагів:</p>
+<ul>
+<li>
+<p><code>-always-use-fragments</code> бо так було в оригінальному SquashFS</p>
+</li>
+<li>
+<p><code>-all-root</code> на випадок якщо якийсь з файів чомусь створився не від імені рута.</p>
+</li>
+</ul>
+<p>Трішки чекаємо, і отримуємо новий SquashFS. І тепер за допомогою команди <strong>dd</strong> можна пропатчити раніше отриманий дамп. Для цього я копіював його, щоб патчити копію і не втратити оригінал. Ось так в мене виглядає команда:</p>
+<div class="highlight"><pre><span></span><code><span class="go">dd if=_firmware.bin.extracted/new_squashfs of=new_firmware.bin conv=notrunc seek=11792648 bs=1</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><code>if</code> це input file, тобто в даному випадку новостворений SquashFS</p>
+</li>
+<li>
+<p><code>of</code> - це output file, тобто копія дампу, куди ми будемо записувати новий SquashFS.</p>
+</li>
+<li>
+<p><code>conv=notrunc</code> потрібно вказати, так як ми змінюємо лише частину файлу, і не хочемо щоб утиліта <strong>dd</strong> вирізала все, що йде після новозаписаного SquashFS</p>
+</li>
+<li>
+<p><code>seek</code> це позиція, на якій починається SquashFS. Цю інформацію можна отримати з binwalk</p>
+</li>
+<li>
+<p><code>bs=1</code> розмір блоку. Якщо не знаєте шо це значить, залишайте одиницею. Я от не знаю, тому так і залишаю))00</p>
+</li>
+</ul>
+<p>Ііі після виконання даної команди, ми отримаємо пропатчений bin файл, в якому находиться новий SquashFS, з внесеними в нього змінами.</p>
+<h2>Тестуємо</h2>
+<p>Давайте тепер спробуємо записати файл на SPI флешку, впаяти її в роутер, і подивимось чи вийшло в нас щось.</p>
+<div class="highlight"><pre><span></span><code><span class="go">flashprog -p ch341a_spi -w new_firmware.bin --progress</span>
+</code></pre></div>
+
+<p><img alt="&quot;nyan&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/nyan.jpg" title="nyan"></p>
+<p>Прекрасно!</p>
+<p>Звісно, замінити зображення на веб сторінці - це не досягнення, це можна і через вихідний код елемента зробити, щоправда до першого перезавантаження сторінки.</p>
+<p>Але тут головне інше - нам вдалось:</p>
+<ul>
+<li>здампити прошивку</li>
+<li>розкласти її на составні</li>
+<li>модифікувати її файли</li>
+<li>зібрати все це назад</li>
+<li>записати на флешку</li>
+<li>запаяти її назад</li>
+</ul>
+<p>і роутер після всього мало того що включився, так ще й все запрацювало! Я розумію що я деякі моменти можливо опустив, чи розповів якось мимохіть, але в цілому в даній статті достатньо інформації, щоб розуміти, як все це робиться, тому якщо вас подібне цікавить - поглиблюйтесь і вивчайте додаткову інформацію в інтернеті, благо її там достатньо.</p>
+<p>А на цьому в мене все. Наступна частина, по встановленню OpenWrt обов'язково колись буде, сподіваюсь, але я вимушений відкласти її на невизначений термін. Справа в тому, що цей роутер вже давненько не підтримується OpenWrt через малі обсяги пам'яті, тому доступні лише старі версії прошивки. </p>
+<p>Це все одно краще ніж стокова прошивка, але не настільки краще, наскільки могло би бути. Тому я думаю урізноманітнити цей процес, і провести апгрейд мікросхем пам'яті, замінити флеш пам'ять та ОЗП, і зібрати під цього франкенштейна актуальну версію OpenWrt. Чи доцільно це? Ну, мабуть ні, особливо якщо мова йде про ваш основний роутер - легше просто купити новий роутер з нормальним обсягом пам'яті, та і все. </p>
+<p>Але цей апгрейд був би точно цікавим та пізнавальним, це набагато цікавіше ніж просто розповісти, як встановити OpenWrt, бо такого контенту в інтернеті вже безліч. Проте, на пошук необхідних мікросхем доведеться витратити певний час, томуу, не можу нічого гарантувати.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео на YouTube. Раджу подивитись відео, так як там все більш детально показано. Зробити це можна за <a href="https://www.youtube.com/watch?v=ww-qwmP9HdI">ось цим посиланням.</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+      <a href="https://so1der.github.io/tag/khaking.html">хакінг</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

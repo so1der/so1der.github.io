@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Отримуємо Root доступ до роутера через UART." />
+<meta name="keywords" content="embedded, хакінг">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Хакінг роутера - частина перша"/>
+  <meta property="og:description" content="Отримуємо Root доступ до роутера через UART."/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/wr840n-hacking-1.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-02-02 11:59:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="embedded"/>
+  <meta property="article:tag" content="хакінг"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Хакінг роутера - частина перша</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="wr840n-hacking-1">Хакінг роутера - частина перша</h1>
+    <p>
+      Опубліковано 02.02.2025, 11:59 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <blockquote>
+<p>Дисклеймер - це інформація лише для ознайомлення, щоб ви розуміли вразливості власного роутеру, та як він влаштований. Розбираючи роутер, ви втрачаєте гарантію від магазину або виробника, плюс можете пошкодити його. Відповідальність за всі ваші дії буде лежати виключно на вас.</p>
+</blockquote>
+<p><img alt="&quot;WR840N V2&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/wr840n2.png" title="WR840N V2"></p>
+<p>В даній серії статей я буду трішки косплеїти <a href="https://www.youtube.com/@mattbrwn">Мета Брауна</a> та розповім вам про хардварний хакінг, або ж реверс інжиніринг звичайнісінького WiFi роутера. До речі якщо гарно володієте англійською, раджу подивитись його канал, дуже цікаві та пізнавальні відео.</p>
+<p>В першій частині ми поговоримо про одну з найбільших фізичних вразливостей роутера - <strong>UART шину</strong>.</p>
+<h2>UART</h2>
+<p><img alt="&quot;UART шина&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/uart.jpg" title="UART шина"></p>
+<p><strong>UART</strong> або ж <strong>Universal Asynchronous Receiver-Transmitter</strong> - це простий послідовний протокол для передачі даних між двома пристроями. Ті хто працювали з мікроконтролерами, думаю точно знайомі з ним. UART шина зазвичай складається з 4х контактів - це 2 контакти живлення, - плюс живлення та земля, а також 2 контакти для передачі даних:</p>
+<ul>
+<li>GND</li>
+<li>VCC</li>
+<li>Rx</li>
+<li>Tx</li>
+</ul>
+<p>Стосовно живлення - подавати живлення через <strong>VCC</strong>, тобто плюс живлення, це зазвичай погана ідея, краще просто заживити пристрій через його блок живлення, і хай він сам робить потрібні напруги, адже для його функціонування можуть бути потрібні й інші напруги - <strong>1.8V, 3.3V, 5V, 12V,</strong> і тд. </p>
+<p>А от землю підключати обов'язково, бо вона потрібна щоб була різниця потенціалів, і пристрої могли між собою спілкуватись.</p>
+<p>Ще важливий параметр - це напруга логічного рівня. Зазвичай вона становить 5В, або 3.3В, і відповідно треба це враховувати, щоб не пошкодити або сам пристрій, або конвертер за допомогою якого ми будемо підключати пристрій до нашого комп'ютеру. </p>
+<p>Стосовно ж підключення, для того щоб зв'язати між собою комп'ютер та UART шину, існують спеціальні конвертери, які ще через Arduino інколи називають програматорами. За запитом USB UART можна знайти безліч різних. Особисто я використовую ось такий конвертер на мікросхемі CH340. </p>
+<p><img alt="&quot;CH340&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/ch340.png" title="CH340"></p>
+<p>Він ну дууже дешевий, але при цьому ще жодного разу мене не підводив, ще й вміє працювати як з 3.3V, так і з 5V. </p>
+<h2>Роутер</h2>
+<p>Спеціально для відео на YouTube, і для цих статтей, я купив собі аж за 250 гривень - піддослідний роутер.</p>
+<p><img alt="&quot;Піддослідний роутер&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/unboxing.jpg" title="Піддослідний роутер"></p>
+<p>Щось нагадує, правда?</p>
+<p><img alt="&quot;Близнюки&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/routers.jpg" title="Близнюки"></p>
+<p>Так, візуально, це повна копія мого поточного роутера, <strong>TP-Link WR850N</strong>, але по факту це роутер <strong>WR840N</strong>, ще й залочений під <strong>Київстар</strong>. Тобто якщо підключити цей роутер до якогось іншого провайдера - він не буде працювати. В останній частині цієї серії поставимо на нього прошивку OpenWrt. Це не тільки розширить його функціонал, а ще й змінить це обмеження.</p>
+<p><img alt="&quot;Розбираємо роутер&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/back-cover.jpg" title="Розбираємо роутер"></p>
+<p>Щож, перше що необхідно зробити, щоб долізти до UART шини - це розібрати роутер. Зазвичай це найскладніший етап, бо не дивлячись на те що тут є пара саморізів, виробник чомусь все одно по всьому периметру корпусав поставив защолки, які неймовірно складно відкрити не зламавши.</p>
+<h2>Що всередині?</h2>
+<p><img alt="&quot;Плата роутера&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/pcb.jpg" title="Плата роутера"></p>
+<p>Коли ми дістались плати, саме час поговорити, а що ж таке взагалі цей WiFi роутер. А це не що інше, як слабенький комп'ютер, на якому крутиться операційна система Linux! Так так, хоч і с певними обмеженнями, але це повноцінний одноплатний комп'ютер!</p>
+<p>Тут вам і процесор, і оперативна пам'ять, і накопичувач, та і навіть GPIO порти є, до яких підключені світлодіоди. Про накопичувач, а саме SPI флешку, ми поговоримо в наступній частині, а зараз давайте пошукаємо UART шину.</p>
+<p><img alt="&quot;UART шина на роутері&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/uart-bus.jpg" title="UART шина на роутері"></p>
+<p>Ось вона. Але, контакти не підписані. Конкретно в даному випадку можна легко розрізнити їх навіть візуально - той, який таким як би плюсиком під'єднаний до великого полігону, це мінусовий пін, або ж GND. Той який під'єднаний до такої жирненької доріжки, це живлення, VCC. А відповідно інші 2, які тоненькими доріжками йдуть прямо в процесор, це і є лінія даних. Де Rx а де Tx можна визначити навмання.</p>
+<p><img alt="&quot;Піни UART шини&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/uart-bus-pinout.jpg" title="Піни UART шини"></p>
+<p>Але, не завжди можна візуально це побачити. Тому давайте розкажу, як визначити контакти за допомогою мультиметру. Легше всього знайти землю - можна продзвонити її з роз'єму живлення. Зазвичай зовнішня сторона коннектора це мінус, тобто GND.</p>
+<p><img alt="&quot;Коннектор живлення роутера&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/barrel-jack.png" title="Коннектор живлення роутера"></p>
+<p>Переводимо мультиметр в режим продзвонювання, та шукаємо - ставимо один щуп на мінусовий контакт роз'єму живлення, а іншим торкаємось по черзі кожного з невідомих контактів. Коли щуп торкнеться землі, мультиметр задзвенить. Але він також короткочасно задзвенить і коли ми торкнемось VCC, бо в цей момент від мультиметра зарядиться конденсатор.</p>
+<p>Тепер, знаючи де земля, в режимі вимірювання напруги, можна визначити й інші контакти, керуючись наступною логікою:</p>
+<ul>
+<li>Там де напруга найбільш стабільна та близька до 3.3V, це плюс живлення, <strong>VCC</strong></li>
+<li>Там де напруга або відсутня, або має якесь нестандартне значення в діапазоні до 3.3В, це <strong>Rx</strong>.</li>
+<li>Там де напруга трішки нестабільна (особливо в момент включення роутера), та знаходиться поблизу 2.6V, це T<strong>x</strong>.</li>
+</ul>
+<h2>Підключаємось</h2>
+<p>Тепер, знаючи розпіновку, можна підключатись. Для зручності я підпаяв до роутера контактну гребінку, щоб можна було підключати дюпонт кабель. І дротами з'єднав конвертер та роутер, землю до землі, а Rx та Tx - хрест навхрест. </p>
+<p><img alt="&quot;Підключення&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/connection.jpg" title="Підключення">
+<img alt="&quot;TX - RX, RX - TX&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/rxtx.jpg" title="TX - RX, RX - TX"></p>
+<p>Після цього я підключив конвертер до комп'ютера, і тепер за допомогою якогось емулятору COM порту, можна з'єднатись з роутером. Але, є один нюанс який називається <strong>BaudRate</strong>, або ж швидкість передачі даних. Щоб нормально працювати з UART-ом, треба знати на якій швидкості він працює. Є певна кількість стандартних швидкостей, я виділив найбільш розповсюджені (але це наче не всі):</p>
+<ul>
+<li>300</li>
+<li>1200</li>
+<li>2400</li>
+<li>4800</li>
+<li><strong>9600</strong></li>
+<li>14400</li>
+<li>19200</li>
+<li>38400</li>
+<li>57600</li>
+<li><strong>115200</strong></li>
+</ul>
+<p>Можна просто спробувати їх по черзі, поки дані не будуть нормально відображатись, або визначити за допомогою осцилографа/логічного аналізатора, або прогуглити, якщо в інтернеті є інформація про ваш пристрій.</p>
+<p>Я буду використовувати програму <strong>picocom</strong> на Linux. Достатньо просто ввести цю команду:</p>
+<div class="highlight"><pre><span></span><code><span class="go">picocom /dev/ttyUSB0 --baud 115200</span>
+</code></pre></div>
+
+<p><strong>/dev/ttyUSB0</strong> це в даному випадку пристрій, наш конвертер, а <strong>115200</strong> після флагу <strong>--baud</strong> - це швидкість, BaudRate.</p>
+<p>Подаємо живлення на роутер, і, ми повинні побачити логи запуску роутеру.</p>
+<p><img alt="&quot;Логи запуску&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/boot-logs.jpg" title="Логи запуску"></p>
+<p>Чудово. Вже на цьому етапі можна побачити доволі багато цікавої інформації. А після того як логи закінчаться, достатньо натиснути <strong>Enter</strong> і ми повинні отримати доступ до Root консолі роутера. І тут я був без перебільшення шокований! У всіх роутерів з якими я стикався до цього, або не було паролю, або він був дефолтний, як і на веб інтерфейс. </p>
+<p><img alt="&quot;Спроби залогінитись&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/login-attempts.jpg" title="Спроби залогінитись"></p>
+<p>Тут же стоїть якийсь логін та пароль, який не співпадає з з логіном та паролем від веб інтерфейсу. Я перепробував стандартні комбінації типу там admin, root, kyivstar, і тд, і нічого не підійшло. Щож, за це Київстару прям похвала від мене, бо мені є з чим порівняти. </p>
+<p><img alt="&quot;Netis MW5230&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/netis.jpg" title="Netis MW5230"></p>
+<p>Якщо взяти наприклад <strong>Netis MW5230</strong>, попередній мій роутер, тут Root Shell не захищений паролем - під'єднуйся, і роби шо хочеш. Ба більше, пароль від вебінтерфейсу, який повинен бути останнім рубежем захисту, коли в зловмисника є фізичний доступ до пристрою, лежить в незашифрованому вигляді за ось цим шляхом: <code>/etc/passwd</code></p>
+<p><img alt="&quot;Пароль від Netis&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/netis-password.jpg" title="Пароль від Netis"></p>
+<p>Хоча його можна навіть не шукати, бо при невдалій спробі залогінитись в вебінтерфейсі, роутер по UART покаже правильний пароль. В мене слів нема. Просто браво, Netis.</p>
+<p><img alt="&quot;Підказка для пароля :))))&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/password-hint.jpg" title="Підказка для пароля :))))"></p>
+<p>Ну а повертаючись до роутеру від Київстар, я дізнався який там пароль - <strong>sohoadmin</strong>. Детальніше про це буде в наступній частині. Все ж таки мабуть перехвалив я Київстар, пароль виявився доволі стандартним, але тим не менш, особисто я його бачу вперше, та і не часто він зустрічається в вордлістах. Та і все одно, це краще ніж нічого, як в Netis.</p>
+<h2>Що тепер?</h2>
+<p>Тож тепер ми маємо доступ до Root оболонки роутера, і що з ним можна зробити, обмежується лише вашою фантазією. Наприклад таким чином зловмисник може завантажити в тимчасову пам'ять роутера якийсь бінарник, який надасть йому віддалений доступ до роутера. Наприклад <strong>netcat</strong>, або <strong>ssh</strong>, <strong>telnet</strong>, і так далі.</p>
+<p>Хтось вдало зауважить, раз пам'ять тимчасова, то цей віддалений доступ буде працювати лише до перезапуску роутеру, і, ви будете праві. Але конкретно в цьому випадку, на роутері є <strong>dropbear</strong>, ssh сервер. Я це дізнався, подивившись активні процеси на роутері:</p>
+<div class="highlight"><pre><span></span><code><span class="go">ps a</span>
+</code></pre></div>
+
+<p><img alt="&quot;Dropbear на роутері&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/dropbear.jpg" title="Dropbear на роутері"></p>
+<p>За вказаним шляхом є файлик, в якому лежить логін та пароль від ssh. Пароль в даному випадку лежить у вигляді <strong>md5 хешу</strong>, він такий ж як і логин - <strong>kyivstar</strong>. Особисто в мене не вийшло приєднатись по ssh до цього роутеру, але я сильно і не намагався, бо воно мені не треба.</p>
+<p>А якщо ж в роутера нема ніякого ssh серверу, уявіть що щоб обійти проблеми з тимчасовою пам'яттю,  зловмисник додає до роутеру мікроконтролер, який вмикається разом з роутером, чекає поки буде доступ до інтернету, і вже після цього по UART керує роутером - наприклад завантажує необхідний файл, відкриває віддалений доступ, і сповіщає про це зловмисника.</p>
+<p><img alt="&quot;Мікроконтролер зловмисника&quot;" src="https://so1der.github.io/images/wr840n-hacking-1/mc.jpg" title="Мікроконтролер зловмисника"></p>
+<p>Зловмисник в свою чергу таким чином може наприклад прокинути порти локальних пристроїв назовню, до всесвітньої павутини, і хакати вже не роутер, а ваші пристрої. Або ж замість мікроконтролеру можна просто модифікувати прошивку, додавши невеличкий bash скрипт, який зробить те саме.</p>
+<p>Тому скажіть мені, а як часто ви розбираєте роутери? Якщо ви купили його з рук, чи впевнені ви, що там всередині немає нічого такого? Або що там встановлена оригінальна прошивка, а не якась модифікована? Я вирішив зробити цю серію відео/статей, бо в наш час, нас всюди оточують розумні та потужні штуки - телефони, комп'ютери, розумні годинники, і навіть той самий роутер. Тому чим краще ви будете розуміти як все це працює, тим безпечніше ви будете в цьому новому кібер-світі.</p>
+<p>Більш того, хоч в статті і йде мова про роутер, але насправді все це актуально і для багатьох інших пристроїв, бо UART це доволі популярний метод для того щоб забезпечити пристрій додатковим інтерфейсом для керування або відладки. </p>
+<p>А на цьому в мене все. В наступній частині поговоримо про те, як здампити з роутера прошивку, розкласти  її на складові, та подивитись що там є. </p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео. Можете переглянути його <a href="https://www.youtube.com/watch?v=7uAktDaZ5pU">за посиланням.</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+      <a href="https://so1der.github.io/tag/khaking.html">хакінг</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

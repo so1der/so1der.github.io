@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статті трішки поговоримо про крутезну прошивку WLED для мікроконтролерів ESP8266 та ESP32, і з її допомогою зробимо неймовірний WiFi світильник!" />
+<meta name="keywords" content="diy">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Світильник з WLED: Розумна лампа своїми руками!"/>
+  <meta property="og:description" content="В даній статті трішки поговоримо про крутезну прошивку WLED для мікроконтролерів ESP8266 та ESP32, і з її допомогою зробимо неймовірний WiFi світильник!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/wled-light-lamp.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-06-03 23:50:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Світильник з WLED: Розумна лампа своїми руками!</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="wled-light-lamp">Світильник з WLED: Розумна лампа своїми руками!</h1>
+    <p>
+      Опубліковано 03.06.2025, 23:50 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="&quot;Світильник на Aliexpress&quot;" src="https://so1der.github.io/images/wled-light-lamp/aliexpress.jpg" title="Світильник на Aliexpress"></p>
+<p>В інтернеті, за приблизно 300 гривень, ви можете купити ось такий світильник. За свою доволі невелику ціну, він може запропонувати дуже багато прикольних речей:</p>
+<ul>
+<li>Дистанційне керування пультом</li>
+<li>Приємне біле світіння</li>
+<li>Керування дотиком</li>
+<li>Живлення по Type-C</li>
+<li>Акумулятор всередині і так далі.</li>
+</ul>
+<p>Але не дивлячись на все це, це все ще просто звичайний китайський світильник - в ньому немає нічого особливого, що сильно б виділяло його на фоні інших доступних рішень. Тому в даній статті займемось його переробкою, і зробимо з нього світильник, який точно не залишить вас байдужими.</p>
+<p><img alt="&quot;WLED&quot;" src="https://kno.wled.ge/assets/images/ui/headers/wled_logo_akemi.png" title="WLED"></p>
+<p>Осовою цього проєкту є <a href="https://kno.wled.ge/">WLED</a>. Це Open Source прошивка для мікроконтролерів ESP8266 та ESP32, яка дозволяє керувати світлодіодними стрічками. Дана прошивка має настільки багатий функціонал, що цілком заслуговує на окреме відео. Ця ж стаття буде більше сфокусована саме на переробці світильника, але трішки і про WLED поговоримо.</p>
+<p>Тут вам купа різних ефектів, можливість керування з будь якого пристрою в якому є браузер, керування через API, і навіть можливість зробити повноцінну Ambilight підсвітку для вашого телевізора чи монітора. Дуже гарне відео на цю тему було на каналі Іван RIO - <a href="https://www.youtube.com/watch?v=eJvHAmhRP9Y">ось посилання</a>.</p>
+<h2>Компоненти</h2>
+<p><img alt="&quot;Компоненти&quot;" src="https://so1der.github.io/images/wled-light-lamp/components.png" title="Компоненти"></p>
+<p>Ітак, для переробки нам знадобиться:</p>
+<ul>
+<li>Сам світильник</li>
+<li>Мікроконтролер ESP8266 - Wemos D1 mini</li>
+<li>Метр адресної світлодіодної стрічки - WS2812B (60 світлодіодів на метр)</li>
+<li>модуль для сенсорної кнопки - TTP223 Mini</li>
+</ul>
+<p>Від світильника нам знадобиться лише корпус та шматочок плати. Тобто якщо у вас є матеріали та прямі руки, можна взагалі з нуля зробити унікальний світильник. Але в мене на жаль ні того ні іншого немає, тому буду переробляти готовий.</p>
+<p>Стосовно мікроконтролера - підійде будь який модуль ESP32 або ESP8266. Конкретно цей, Wemos D1 mini, є недорогим, поширеним, та доволі маленьким, тому я обрав саме його.</p>
+<p>А стосовно стрічки - потрібна обов'язково п'яти вольтова світлодіодна стрічка з адресацією. Такі світлодіодні стрічки відрізняються від звичайних тим, що кожний світлодіод тут по суті являє собою цілу мікросхему з драйвером. </p>
+<p><img alt="&quot;Макро фото світлодіода WS2812B&quot;" src="https://so1der.github.io/images/wled-light-lamp/ws2812.jpg" title="Макро фото світлодіода WS2812B"></p>
+<p>Ця мікросхема приймає в себе дані, і на основі цих даних виставляє необхідний колір. А якщо даних виявилось більше ніж потрібно, то мікросхема починає пропускати їх через себе, тим самим передаючи дані в наступні світлодіоди.</p>
+<p>Таким чином можна керувати дуже великою кількістю світлодіодів всього лише одним GPIO піном мікроконтролера, і відтворювати дуже круті ефекти, які неможливо відтворити на звичайній RGB стрічці.</p>
+<p>Замість неї, в теорії можна використати готову матрицю з адресованих світлодіодів, але коштує вона немало, ще й споживає дууже багато струму, ну і без переробки вона не влізе в цей світильник, тому цю ідею я відкинув.</p>
+<h2>Переробка</h2>
+<p>Перш за все, необхідно розібрати світильник. Треба відклеїти м'яку ніжку знизу, бо під нею ховаються 4 саморізи які тримають нижню частину світильника. Прибравши її, нам відкривається доступ до плати та акумулятора. Плату тримають 3 саморізи. Але відкрутивши їх, прибрати плату нам заважає дротик, який йде до верхньої ємнісної кнопки. Всередині також є ще один саморіз, який тримає дві частини корпусу разом. Від'єднуємо дріт, і тепер час відкрутити саморіз - для цього треба шестигранник на 2.5 мм. Світильник повністю розібраний.</p>
+<p><img alt="&quot;Розбирання світильника&quot;" src="https://so1der.github.io/images/wled-light-lamp/disassembly.jpg" title="Розбирання світильника"></p>
+<p>Наступна наша задача - підготувати циліндр, на якому ми розташуємо матрицю зі світлодіодної стрічки. Для цих задач бажано використати якусь алюмінієву трубку, але в мене як завжди такого під рукою немає, тому буде колхозинг. Точніше імпровізація))0 </p>
+<p>Я взяв картонну трубку з під паперових рушників, діаметром 41 мм. Для лампи потрібен відрізок довжиною 13 см.</p>
+<p><img alt="&quot;Трубка&quot;" src="https://so1der.github.io/images/wled-light-lamp/tube.jpg" title="Трубка"></p>
+<p>А тепер трішки математики. Знаючи діаметр циліндра, ми можемо знайти довжину його окружності:</p>
+<div class="math">$$ L = \pi \cdot d = 3,14 \cdot 41 = 128,7$$</div>
+<p>А знаючи довжину та висоту, ми можемо уявити циліндр як площину, <strong>128 на 130 мм</strong>, яку нам треба рівномірно заповнити світлодіодною стрічкою. Виходячи з геометричних даних площини, а також кількості світлодіодів, я знайшов два способи оптимально це зробити.</p>
+<ul>
+<li>10 відрізків по 6 світлодіодів. </li>
+<li>8 відрізків по 7 світлодіодів.</li>
+</ul>
+<p>Перевагою першого способу є те, що він використовує всі світлодіоди зі стрічки, але відрізки виходять доволі короткі відносно висоти циліндра.</p>
+<p>Другий спосіб, хоч і не використовує всі світлодіоди, але натомість заповнює висоту циліндра майже повністю, через що дифузор світильника буде світитись доволі рівномірно. Тому для себе я обрав саме його, і нарізав стрічку на 8 відрізків по 7 світлодіодів. Трубку я поділив на 8 рівних частин, але перш ніж ліпити стрічку на неї, я вирішив прикріпити до неї шматок алюмінієвої банки. Її внутрішня сторона буде працювати як свого роду рефлектор для світла, ще й на додачу можливо поліпшиться охолодження стрічки.</p>
+<p><img alt="&quot;Алюмінієва банка поверх трубки&quot;" src="https://so1der.github.io/images/wled-light-lamp/can.jpg" title="Алюмінієва банка поверх трубки"></p>
+<p>Такий собі Reduce, Reuse, Recycle вийшов.</p>
+<p>Тепер можна ліпити світлодіодну стрічку, але це треба зробити правильним чином - серпантином. В стрічки є напрямок, і він повинен співпадати з паттерном який ви можете побачити на зображенні (не звертайте уваги на написи на стрічці, мені просто ліньки було її перевертати де це потрібно :Р)</p>
+<p><img alt="&quot;Напрямок стрічки&quot;" src="https://so1der.github.io/images/wled-light-lamp/directions.jpg" title="Напрямок стрічки"></p>
+<p>Розміщення стрічки таким чином спростить подальшу її пайку. Трималось все це так собі, тому щоб в подальшому від нагріву стрічка не відвалилась, я додатково зафіксував її кабельними стяжками.</p>
+<p><img alt="&quot;Закріплена стрічка&quot;" src="https://so1der.github.io/images/wled-light-lamp/glued-leds.jpg" title="Закріплена стрічка"></p>
+<h2>Пайка</h2>
+<p>Далі - довга і нудна пайка дротиків. Перш за все, необхідно відновити лінію даних ось таким чином.</p>
+<p><img alt="&quot;Лінія даних&quot;" src="https://so1der.github.io/images/wled-light-lamp/data-line.jpg" title="Лінія даних"></p>
+<p>В цьому і заключається перевага такого розміщення стрічки - не треба тягнути дріт зверху вниз, і все можна спаяти маленькими шматочками дроту. Хоча натомість це трішки ускладнює софтварну роботу з матрицею, але, нам в цьому плані можна взагалі не перейматись, бо прошивка WLED зробить все за нас.</p>
+<p>Тепер, коли лінія даних відновлена, треба кожний відрізок стрічки забезпечити живленням - +5в та земля. Це можна зробити так само як і у випадку з лінією даних, але на мою думку, зручнінше буде поступити іншим чином.</p>
+<p><img alt="&quot;Живлення&quot;" src="https://so1der.github.io/images/wled-light-lamp/power.jpg" title="Живлення"></p>
+<p>А саме ось таким. Тобто спочатку з'єднати всі сусідні пади стрічок між собою, а потім за допомогою довших дротів, з'єднати все до купи. Після пайки треба обов'язково перевірити, чи немає там КЗ по живленню, ну і також впевнитись що земля та +5В присутні на кожному відрізку стрічки. Матриця світлодіодів готова.</p>
+<p><img alt="&quot;Готова матриця&quot;" src="https://so1der.github.io/images/wled-light-lamp/matrix.jpg" title="Готова матриця"></p>
+<h2>Прошиваємо мікроконтролер</h2>
+<p>Наступний етап - прошивка мікроконтролера. Є 3 способи це зробити.</p>
+<p>Перший - прошити мікроконтролер <a href="https://install.wled.me/">прямо з браузера</a>, схожим чином як це було в Meshtastic. Якщо ви на вінді, то для цього мусять бути встановлені драйвери для UART перетворювача наявного на платі обраного вами мікроконтролера. Якщо на Linux - то цього робити не треба, адже тут присутня підтримка цих чіпів на рівні ядра.</p>
+<p>На жаль прошивку через браузер підтримують лише Chrome, Opear, та Microsoft Edge. Я цими браузерами не користуюсь, тому переходимо до інших способів.</p>
+<hr>
+<p>Наступний спосіб - скомпілювати прошивку власноруч, використовуючи <a href="https://code.visualstudio.com/download">Visual Studio Code</a>, та <a href="https://platformio.org/">PlatformIO</a>.</p>
+<p>Тут все стандартно - клонуємо репозиторій, відкриваємо його в Platformio, редагуємо під себе файл <code>platformio.ini</code>, компілюємо і прошиваємо. Ось <a href="https://kno.wled.ge/advanced/compiling-wled/">посилання на інструкцію</a>.</p>
+<hr>
+<p>І є ще третій спосіб - завантажити вже скомпільований бінарник, і залити його на мікроконтролер за допомогою <strong>esptool.py</strong> Для плати wemos D1 mini потрібен бінарник з "ESP8266" в назві, наприклад <code>WLED_0.15.1.beta2_ESP8266.bin</code>. Завантажити бінарник можна за <a href="https://github.com/wled/WLED/releases">ось цим посиланням</a>. Завантажуємо його, підключаємо мікроконтролер, і прошиваємо за допомогою наступної команди:</p>
+<div class="highlight"><pre><span></span><code><span class="go">esptool --port /dev/ttyUSB0 write flash 0x0 WLED_0.15.1.beta2_ESP8266.bin</span>
+</code></pre></div>
+
+<ul>
+<li><code>WLED_0.15.1.beta2_ESP8266.bin</code> - це назва завантаженого бінарника,</li>
+<li><code>--port /dev/ttyUSB0</code> - це підключений мікроконтролер. Якщо підключено лише один мікроконтролер, то вказувати це не обов'язково.</li>
+</ul>
+<p>Ось <a href="https://kno.wled.ge/basics/install-binary/">посилання</a> на більш детальну інструкцію. Стосовно esptool - гугліть як встановити його на вашу ОС або ваш дистрибутив.</p>
+<h2>Живлення</h2>
+<p>Тепер, маючи світлодіодну матрицю, та прошитий мікроконтролер, світильник майже завершений. Щоб не вигадувати нічого в плані живлення та кнопки, я вирішив  відрізати ось цей ось шматочок плати, попередньо відпаявши акумулятор.</p>
+<p><img alt="&quot;Шматочок плати&quot;" src="https://so1der.github.io/images/wled-light-lamp/pcb.jpg" title="Шматочок плати"></p>
+<p>Через велику кількість світлодіодів та прожерливий WiFi мікроконтролер, використовувати акумулятор я не бачу сенсу, тож можна використати його в якомусь іншому проєкті. Також слід відпаяти з плати все зайве, окрім юсб роз'єму та перемикача. Це можна зробити за допомогою паяльника, або паяльного фену, або як в моєму випадку - за допомогою нагрівального столика.</p>
+<p><img alt="&quot;Прибираємо зайве&quot;" src="https://so1der.github.io/images/wled-light-lamp/desoldering.webp" title="Прибираємо зайве"></p>
+<p>Недорога та дуже корисна річ.</p>
+<p><img alt="&quot;Живлення для мікроконтролера та стрічки&quot;" src="https://so1der.github.io/images/wled-light-lamp/jumper.jpg" title="Живлення для мікроконтролера та стрічки"></p>
+<p>Тепер, якщо кинути ось таку перемичку, то з цих місць можна буде взяти живлення, і використовувати штатний роз'єм та перемикач. Хоча звісно ніхто не забороняє вам просто встановити новий роз'єм та кнопку.</p>
+<p>З іншої частини плати треба випаяти інфрачервоний приймач, якщо плануєте використовувати пульт. На ньому є плоска сторона, і коли вона дивиться вниз, приймач має наступну разпіновку:</p>
+<p><img alt="&quot;Піни ІЧ приймача&quot;" src="https://so1der.github.io/images/wled-light-lamp/ir.jpg" title="Піни ІЧ приймача"></p>
+<p>Ну і тепер трішки про модуль ємнісної кнопки. Якщо зачистити доріжку яка йде до "кнопки", то до неї можна буде підпаяти кнопку з лампи. На платі також є 2 місця під перемички, нам необхідно закоротити перемичку А.</p>
+<p><img alt="&quot;Плата ємнісної кнопки з замкнутою перемичкою та підпаяною кнопкою&quot;" src="https://so1der.github.io/images/wled-light-lamp/touch.jpg" title="Плата ємнісної кнопки з замкнутою перемичкою та підпаяною кнопкою"></p>
+<p>Але через дуже велику ємність нової кнопки, чутливість модуля буде занадто висока, і буде купа хибних спрацювань. Щоб це виправити, треба з плати світильника також випаяти калібрувальний конденсатор <strong>C1</strong>. До речі тут стоїть така сама мікросхема, як і на нашому модулі.</p>
+<p><img alt="&quot;Калібрувальний конденсатор з плати світильника&quot;" src="https://so1der.github.io/images/wled-light-lamp/capacitor.jpg" title="Калібрувальний конденсатор з плати світильника"></p>
+<p>Випаяний конденсатор паяємо на місце С2 на модулі ємнісної кнопки:</p>
+<p><img alt="&quot;Запаяний конденсатор&quot;" src="https://so1der.github.io/images/wled-light-lamp/soldered-capacitor.jpg" title="Запаяний конденсатор"></p>
+<p>Через те що конденсатор більше ніж футпрінт на платі, гарно впаяти його на жаль не вийде, але з ним тепер все працює як слід. За бажанням також можна випаяти світлодіод, бо він постійно світиться, і буде просвічуватись крізь корпус. Залишилось тепер лише зібрати все до купи за ось цією схемою:</p>
+<p><img alt="&quot;Схема&quot;" src="https://so1der.github.io/images/wled-light-lamp/schematic.png" title="Схема"></p>
+<p>Між мікроконтролером та стрічкою бажано також встановити струмообмежувальний резистор, який вбереже GPIO мікроконтролера, якщо щось станеться зі стрічкою.</p>
+<p>Стосовно живлення - модуль кнопки та інфрачервоний приймач живиться від 3.3В, матриця живиться від 5В.</p>
+<p>А стосовно GPIO - їх взагалі можна обрати довільно, бо потім в прошивці WLED можна налаштувати, що куди підключено. За замовчуванням стрічка підключається до піну D4, кнопку я повісив на D2, а приймач на D1.</p>
+<p>Інфрачервоний приймач слід спрямувати вгору, в дифузор світильника, щоб він міг бачити команди з пульта. Після того як все було з'єднано по схемі - подаємо живлення, і впевнюємось що він світиться.</p>
+<p><img alt="&quot;Світиться лише половина&quot;" src="https://so1der.github.io/images/wled-light-lamp/light.jpg" title="Світиться лише половина"></p>
+<p>Але світиться лише половина світильника. Насправді так і повинно бути, бо WLED не знає шо ми там до нього підключили, і за замовчуванням включає лише 30 світлодіодів. Тож тепер час налаштувати його. При подачі живлення, WLED підіймає свій Access Point, тобто WiFi мережу. Приєднуємось до неї, вводячи пароль - <strong>wled1234</strong></p>
+<p>Нас одразу ж перекидає на сторінку налаштування. Якщо у вас цього не відбулось, то відкрийте браузер, і перейдіть за айпішником <strong>4.3.2.1</strong>, також слід впевнитись що відключено мобільний інтернет.</p>
+<p>Пропоную одразу приєднати світильник до нашої мережі - вводимо назву мережі, її пароль і приєднуємось. Тепер попасти в налаштування світильника можна за виданою йому IP адресою. Подивитись її можна в налаштуваннях роутера, або, якщо не знаєте як це зробити, можете просто скачати <a href="https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid">додаток WLED</a>. Він просканує вашу мережу, і знайде там WLED. Можно прямо тут налаштовувати та керувати світильником.</p>
+<h2>Налаштування</h2>
+<p>Тепер час налаштувати матрицю та кнопки. Переходимо в налаштування, та обираємо Led Preferences.  Перш за все вводимо тут кількість світлодіодів в поле <strong>Lendth</strong>. </p>
+<p><img alt="&quot;Налаштування стрічки&quot;" src="https://so1der.github.io/images/wled-light-lamp/settings.jpg" title="Налаштування стрічки"></p>
+<p>Далі скролимо вниз, та обираємо тут пін до якого приєднували модуль кнопки. Я приєднував до піна D2, а отже обираю четвертий пін. Обираємо також тип кнопки - pushbutton. Трохи нижче треба обрати пін для інфрачервоного приймача, я приєднував до піна D1, отже обираю п'ятий пін. Також треба обрати тип пульта. Для нашого пульта підходить RGB пульт на 24 кнопки. Обираємо його.</p>
+<p><img alt="&quot;Налаштування кнопки та пульта&quot;" src="https://so1der.github.io/images/wled-light-lamp/settings-2.jpg" title="Налаштування кнопки та пульта"></p>
+<p>Також не забуваємо за потреби обмежити струм.</p>
+<p><img alt="&quot;Обмеження струму&quot;" src="https://so1der.github.io/images/wled-light-lamp/settings-3.jpg" title="Обмеження струму"></p>
+<p>Зберігаємо налаштування, і відкриваємо 2D Configuration. Тут треба налаштувати матрицю. Обираємо замість <strong>1D Strip</strong> - <strong>2D Matrix</strong>, і налаштовуємо її наступним чином:</p>
+<ul>
+<li>Першим світлодіодом ставимо лівий нижній.</li>
+<li>Далі обираємо тип орієнтації - вертикальний.</li>
+<li>Вказуємо розмірність матриці, в моєму випадку це було 8 відрізків по 7 світлодіодів, тобто 8 на 7.</li>
+<li>Ну і також не забуваємо вказати що в нас матриця серпантин.</li>
+</ul>
+<p><img alt="&quot;Налаштування матриці&quot;" src="https://so1der.github.io/images/wled-light-lamp/settings-4.jpg" title="Налаштування матриці"></p>
+<p>На цьому налаштування світильника завершені.</p>
+<h2>Світильник</h2>
+<p><img alt="&quot;Світильник&quot;" src="https://so1der.github.io/images/wled-light-lamp/lamp.jpg" title="Світильник"></p>
+<p>Як бачите, світильник тепер світиться повністю. Реагує на кнопку, а також реагує на пульт. Щоправда якщо відкрити документацію WLED, то можна побачити, що цей пульт який ми обрали не повністю співпадає з нашим. Тому деякі кнопки ведуть себе не так як повинні. Виправити це можна, якщо написати JSON конфігурацію для пульта, і обрати її. В них на сайті є інструкція. Так можна хоч всі кнопки перебіндити на пульті.</p>
+<p>Щож, світильник можна вважати повністю завершеним. Ним можна керувати з пульта, з телефона, або навіть з комп'ютера. Можна налаштовувати розклад, синхронізувати з іншими WLED стрічками якщо такі є в мережі, і так далі. Він доволі непогано виглядає, та має 56 світлодіодів всередині, кожним з яких прошивка може керувати окремо, завдяки чому може відтворювати просто неймовірні ефекти. Камера звісно цього не передасть, але вживу все виглядає дуже гарно. Таким чином, за 578 грн ми зробили просто крутезний світильник, з купою ефектів, купою різних палітр для них, доволі яскравим світінням, і купою інших приколів.</p>
+<p>Як я вже й казав, прошивка має дуже багатий функціонал. Чого лише вартує можливість встановити по розкладу ефект Sunrise, який поступово наповнить вашу кімнату світлом, імітуючи схід сонця.</p>
+<p><img alt="&quot;Ефект Sunrise&quot;" src="https://so1der.github.io/images/wled-light-lamp/sunrise.webp" title="Ефект Sunrise"></p>
+<p>Так можна наприклад допомогти організму прокинутись зимніми ранками, коли немає сонця.</p>
+<p>А стосовно інших можливостей - раджу перейти на сайт WLED, і почитати самостійно. В них дуже гарна документація, і я впевнений, ви точно знайдете там щось, що вас зацікавить. А на цьому в мене все.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео. Його можна переглянути <a href="https://www.youtube.com/watch?v=OGFaVAZrs20">за посиланням</a>. Дуже раджу це зробити, адже там можна більш детально побачити процес переробки та налаштування, ну і само собою побачити добірку деяких ефектів, доступних на цьому світильнику.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = "https://so1der.github.io/theme/MathJax/es5/tex-chtml-full.js";
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

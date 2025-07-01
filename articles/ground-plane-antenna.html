@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Робимо ефективну антену для вузла Meshtastic" />
+<meta name="keywords" content="meshtastic, diy, зв&#39;язок, антени">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Ground Plane антена для вузла Meshtastic"/>
+  <meta property="og:description" content="Робимо ефективну антену для вузла Meshtastic"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/ground-plane-antenna.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-02-22 20:01:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="meshtastic"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="article:tag" content="антени"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Ground Plane антена для вузла Meshtastic</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="ground-plane-antenna">Ground Plane антена для вузла Meshtastic</h1>
+    <p>
+      Опубліковано 22.02.2025, 20:01 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Ось і настала пора повернутись до Meshtastic. В даній статті я хотів би показати процес створення доволі простої антени яка називається <strong>Ground Plane Antenna</strong>. До цього в своїх Meshtastic вузлах я використовував антени із звичайних портативних рацій, і це не самий кращий варіант.</p>
+<p>Ці антени проєктуються для рації, з урахуванням того, що в неї є металевий корпус, який працює по-перше як противага для антени, а по-друге, разом із рукою оператора утворює додаткову ємність, що впливає на характеристики антени. Тому логічно припустити, що на моїх нодах вони будуть працювати так собі, бо тут немає ані металевого корпуса, ані руки.</p>
+<p><img alt="&quot;Ground Plane та диполь&quot;" src="https://so1der.github.io/images/ground-plane-antenna/gp-and-dipole.png" title="Ground Plane та диполь"></p>
+<p>Вирішити цю проблему можна використовуючи іншу антену, яка в своїй конструкції вже має або друге плече, як от в диполя, або противагу, як от наприклад в антені Ground Plane, про яку сьогодні і піде мова.</p>
+<p>В даних статтях я вже робив декілька антен — як для супутників NOAA, так і для короткохвильового діапазону. Але цей випадок трохи інший, адже ця антена буде не лише приймати сигнал, а й передавати його. Тому до такої антени висуваються значно вищі вимоги. Неправильно налаштована антена не тільки знижує ефективність вузла, а й може вивести його з ладу, оскільки непередавана антеною потужність відбивається назад у передавач, що може його пошкодити. Саме тому я вчергове витратив купу грошей на черговий сумнівний дорогий прилад, а саме векторний аналізатор <strong>NanoVNA V2</strong>, або ж <strong>SAA2</strong>.</p>
+<p><img alt="&quot;NanoVNA SAA2&quot;" src="https://so1der.github.io/images/ground-plane-antenna/nanovnav2.png" title="NanoVNA SAA2"></p>
+<p>Я вже дуже давно хотів собі подібну штуку, тим паче вона дуже сильно допоможе мені в прогресуванні в радіоаматорстві. Цей невеличкий прилад вміє робити цілу купу речей - аналізувати втрати в кабелі, перевіряти РЧ фільтри, і так далі, і найголовніше для нас зараз - міряти імпеданс та коефіцієнт стоячої хвилі антени. Саме він, тобто КСХ, або ж SWR, показує, скільки потужності ефективно передається в антену, а скільки відбивається назад у передавач. Чим ближче КСХ до 1, тим ефективніше працює антена. Відповідно за допомогою цього приладу можна буде точно налаштувати антену на потрібну частоту.</p>
+<h2>UARO</h2>
+<p><img alt="&quot;UARO&quot;" src="https://so1der.github.io/images/ground-plane-antenna/uaro.jpg" title="UARO"></p>
+<p>Оо, а що це в нас таке. А це ж UARO! Користуючись випадком, нагадаю вам про цю чудову спільноту.На початку цього року вони прислали мені крутий подарунок. Це ось така крута рація, Quansheng UV-5R Plus з посиленим акумулятором, і прошивкою, яка дозволяє слухати весь HF діапазон. А також їх ось такий новий крутий патч, який я тепер гідно ношу на своєму рюкзаку. </p>
+<p><img alt="&quot;Quansheng UV-5R Plus&quot;" src="https://so1der.github.io/images/ground-plane-antenna/uv5rp.jpg" title="Quansheng UV-5R Plus">
+<img alt="&quot;Патч UARO&quot;" src="https://so1der.github.io/images/ground-plane-antenna/patch.jpg" title="Патч UARO"></p>
+<p>За такий крутий подарунок я як мінімум мушу вам про них нагадати. Для тих хто не знає, UARO, це спілка українських радіоаматорів, Ukrainian Amateur Radio Operators, а також з нещодавніх пір - офіційна громадська організація. В них також нещодавно з'явився <a href="https://uaro.org.ua/">сайт</a>, який потроху наповнюється різноманітними корисними матеріалами. А ще в них є <a href="https://t.me/Ukraine_Amateur_Radio_Operators">група в телеграм</a>, де можна поспілкуватись на різні теми. Якщо цікавтесь радіоаматорством - дуже раджу.</p>
+<h2>Ground Plane</h2>
+<p><img alt="&quot;Антена Ground Plane&quot;" src="https://so1der.github.io/images/ground-plane-antenna/gp.jpg" title="Антена Ground Plane"></p>
+<p>І так, <strong>Ground Plane Antenna</strong>, або ж <strong>GP</strong>, це звичайна штирьова антена на чверть хвилі, до якої додаються такі собі вусики, радіали, які виконують роль противаги, і забезпечують коректну роботу антени навіть на пристроях подібних моєму Meshtastic вузлу, де немає металевого корпуса, або він знаходиться далеко за фідерною лінією.Тобто це доволі нескладна і всеспрямована в горизонтальній площині антена.</p>
+<h2>Компоненти</h2>
+<p><img alt="&quot;Роз'єм SMA-KFD4&quot;" src="https://so1der.github.io/images/ground-plane-antenna/connector.jpg" title="Роз'єм SMA-KFD4"></p>
+<p>За основу такої антени дуже зручно використовувати ось такі або подібні антенні роз'єми, які повинні монтуватись на корпус. Тут вже передбачені отвори для кріплення, куди і можна закріпити радіали, тому процес створення антени спрощується врази.</p>
+<p><img alt="&quot;Дріт&quot;" src="https://so1der.github.io/images/ground-plane-antenna/wire.jpg" title="Дріт"></p>
+<p>Для штиря та радіалів я буду використовувати моножильний дріт, діаметром приблизно 1.5 мм. Він доволі гнучкий та хиткий, і це мабуть негативно вплине на показники антени, особливо якщо вона буде встановлена на вулиці - тобто краще використати якісь трубки, чи малогнучкий дріт.</p>
+<p><img alt="&quot;Клема&quot;" src="https://so1der.github.io/images/ground-plane-antenna/terminal.jpg" title="Клема"></p>
+<p>Щоб кріпити радіали до роз'єму я буду використовувати ось такі ось кільцеві клеми. Вони ідеально підходять під роз'єм та M2 гвинтик, але обтиснути мені їх немає чим, мій крімпер занадто великий для них, та і вони не розраховані під такий дріт, тому я просто все спаяю.</p>
+<h2>Розраховуємо антену</h2>
+<p>Щоб дізнатись правильну довжину штирю та радіалів, можна використати якісь онлайн калькулятори, їх в інтернеті безліч. Є навіть на <a href="https://uaro.org.ua/docs/Calculators/ground_plane/">сайті UARO</a>, його я й буду використовувати. Достатньо просто ввести потрібну частоту - в випадку Meshtastic за замовчуванням це 433.125 МГц, натиснути кнопку, і калькулятор покаже необхідну довжину.</p>
+<p><img alt="&quot;Розрахована антена&quot;" src="https://so1der.github.io/images/ground-plane-antenna/calc.jpg" title="Розрахована антена"></p>
+<p>Особисто я різав з запасом в пару сантиметрів, щоб потім потроху вкорочувати штирь та радіали, і точно потрапити в резонанс на необхідній частоті. Після цього я зачистив радіали і припаяв їх до клемм.</p>
+<p><img alt="&quot;Запаяний радіал&quot;" src="https://so1der.github.io/images/ground-plane-antenna/soldering.jpg" title="Запаяний радіал"></p>
+<p>Також радіали необхідно зігнути під кутом 45 градусів. Це потрібно для того щоб виник потрібний нам імпеданс - 50 ом.</p>
+<p><img alt="&quot;Імпеданс в залежності від кута&quot;" src="https://so1der.github.io/images/ground-plane-antenna/impedance.png" title="Імпеданс в залежності від кута"></p>
+<p>Стосовно ж основного штиря, його я вирішив обтиснути шматочком гільзи НШВІ. А також заізолювати за допомогою термолею та термоусадки. Відломаний радіал можна буде лего замінити, а от якщо від конектору відірветься центральний контакт, зробити щось з цим буде вкрай важко, тому краще це місце надійно захистити.</p>
+<p><img alt="&quot;Центральний штирь&quot;" src="https://so1der.github.io/images/ground-plane-antenna/central-wire.jpg" title="Центральний штирь"></p>
+<p>Залишилось лише прикрутити радіали. Я зробив це парами, щоб залишилось 2 вільних отвори, які в подальшому можна буде використати для кріплення антени.</p>
+<p>Тепер антена готова!</p>
+<p><img alt="&quot;Антена&quot;" src="https://so1der.github.io/images/ground-plane-antenna/antenna.jpg" title="Антена"></p>
+<h2>Калібруємо антену</h2>
+<p>Щоправда не на потрібні частоти, бо я різав з запасом. А відповідно раз антена <strong>більше</strong> ніж треба, резонансна частота повинна бути <strong>менше</strong> ніж треба. Давайте подивимось що з цього приводу скаже векторний аналізатор. До речі в ній стоїть такої собі якості резистивний сенсорний екран, і для нього замість комплектного стилуса просто ідеально підходить стилус від Nintendo DS, адже в ній теж був резистивний сенсорний екран.</p>
+<p>Одразу кажу що ця стаття не є гайдом по користуванню NanoVNA. В інтернеті є гарні як англомовні так і україномовні відео, які дуже детально розповідають всі аспекти користування приладом - як що де і коли калібрувати, і так далі.</p>
+<p>Нам же від приладу потрібне вимірювання КСХ, або SWR на порті S11, та вимірювання імпедансу на цьому ж порті. Наразі в мене NanoVNA відкалібрована на діапазон від 136 МГц до 500 МГц.</p>
+<p><img alt="&quot;SWR&quot;" src="https://so1der.github.io/images/ground-plane-antenna/swr-1.jpg" title="SWR"></p>
+<p>Як бачимо, в районі 370 МГц присутній ярко виражений резонанс, SWR впав майже до одиниці,тобто все як і очікувалось, резонансна частота <strong>менше</strong> ніж потрібно, бо випромінюючий елемент <strong>довше</strong>. Мало того що я його з запасом різав, так ще й рахується і той шматочок центрального контакту.</p>
+<p>Тепер я буду потроху вкорочувати штирь, резонансна частота при цьому очікувано зростає. Коли вона наблизилась до потрібних частот, я відключив антену та перекалібрував NanoVNA на інший частотний діапазон, щоб по центру була потрібна частота, 433.125 МГц, а по бокам - по 25 МГц.</p>
+<p>Це треба робити, так як в NanoVNA обмежена кількість вимірів, так званих <strong>sweep point</strong>-ів, в моєму випадку це 201 точка, і відповідно встановлений частотний діапазон ділиться на цю кількість точок, і утворюється певний крок вимірів. Чим вужче буде встановлено частотний діапазон, тим менше буде крок, і тим зрозуміліше та точніше буде виглядати діаграма.</p>
+<p><img alt="&quot;SWR&quot;" src="https://so1der.github.io/images/ground-plane-antenna/swr-2.jpg" title="SWR"></p>
+<p>Як бачите картина тепер зовсім інша, на потрібних частотах вже непоганий КСХ - 1.5. Але я продовжив вкорочувати штирь, і врешті решт досяг значення КСХ 1.2, хоча імпеданс міг би бути і краще. Після цього я трішки погрався з кутом радіалів, трішки вкоротив їх, і зміг досягти якогось неймовірного значення КСХ 1.072 тисячних, і імпеданс став більш менш наближеним до 50 ом.</p>
+<p><img alt="&quot;SWR&quot;" src="https://so1der.github.io/images/ground-plane-antenna/swr-3.jpg" title="SWR"></p>
+<p>На цьому етапі вже можна вважати антену завершеною. І з такою гарною антеною вже на жаль точно можна сказати, що поруч зі мною нема активних вузлів, бо я залишав вузол на даху на певний час, і так нікого і не спіймав D:</p>
+<p><img alt="&quot;:D&quot;" src="https://so1der.github.io/images/ground-plane-antenna/cat.jpg" title=":D"></p>
+<p>Хоча з nanoVNA є сенс вже створити повноцінний крутий стаціонарний вузол, з гарною колінеарною антеною, з сонячними панельками, який би я встановив на якусь високу точку, і хай би він там стояв. До речі в UARO є ціла гілка про Meshtastic, там є купа корисної інформації - типу як краще організувати живлення щоб це не впливало на потужність вузла, які ще можна використати антени, і усіляке таке. Тобто купа корисної інформації яка допоможе в створенні надійного та ефективного вузла.</p>
+<p>Але я чесно кажучи не впевнений, що в моєму селі це потрібно комусь окрім мене. Хоча звісно радий був би помилятись, бо в мене поруч немає знайомих які розділили б зі мною це хоббі.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого <a href="https://www.youtube.com/watch?v=fCmfPIoKVOY">YouTube відео</a>.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/meshtastic.html">meshtastic</a>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+      <a href="https://so1der.github.io/tag/anteni.html">антени</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

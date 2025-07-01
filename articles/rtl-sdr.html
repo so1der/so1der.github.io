@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Поглянемо на один з найкращих дешевих SDR приймачів" />
+<meta name="keywords" content="зв&#39;язок, супутники">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Слухаємо пів світу на RTL-SDR!"/>
+  <meta property="og:description" content="Поглянемо на один з найкращих дешевих SDR приймачів"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/rtl-sdr.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-01-21 20:13:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="article:tag" content="супутники"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Слухаємо пів світу на RTL-SDR!</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="rtl-sdr">Слухаємо пів світу на RTL-SDR!</h1>
+    <p>
+      Опубліковано 21.01.2025, 20:13 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Як я й обіцяв, в даній статті мова піде про RTL-SDR приймач. Останні пару тижнів я активно слухав короткі хвилі на ньому, і мені є що розповісти. Тому сьогодні розберемось що це за приймач такий, подивимось що і як на нього можна зловити, зробимо простеньку антену на короткі хвилі, і навіть послухаємо містичну номерну станцію, яка ось вже декілька десятиліть транслює в ефір невідомі послідовності цифр.</p>
+<h2>Що ж таке SDR</h2>
+<p><strong>SDR</strong>, або ж <strong>Software Defined Radio</strong>, це спеціальний тип радіоприймачів, в яких більшу частину обробки сигналу виконує програма на комп'ютері. Звідси й є в назві слово Software. Такий тип приймачів посилає на комп'ютер сирий потік даних, а програма на комп'ютері вже сама займається обробкою цих даних. Через це досягається дуже висока універсальність приймача - тут вам і купа режимів демодуляції, і широкий спектр частот, і візуалізація спектру, і не тільки.</p>
+<p>Але дуже довгий час, SDR приймачі не були такими доступними для звичайних людей. Це було дороге, професійне обладнання. Так було до тих пір, поки група ентузіастів не помітила, що доволі дешеві DVB-T USB Донгли, окрім прямого їх призначення - дивитись телевізор на комп'ютері, можуть ще й передавати на комп'ютер сирий потік даних - тобто грубо кажучи все те, що потрапляє на антену цього Донгла.</p>
+<p><img alt="&quot;RTL-SDR V4 на AliExpress&quot;" src="https://so1der.github.io/images/rtl-sdr/aliexpress.jpg" title="RTL-SDR V4 на AliExpress"></p>
+<p>Це, скажімо так, відкриття, започаткувало нову еру SDR приймачів, адже використовуючи чіпи з тих DVB-T Донглів, почали робити RTL-SDR приймачі, з кращими фільтрами, зручним SMA роз'ємом під антену, і тд. І тепер будь хто, за 30 доларів може придбати собі такий крутий RTL-SDR приймач, і вкатитись в радіоаматорство. Але я б радив вам докинути ще 15 доларів, і взяти розширений комплект. Це точно не буде зайвим для початківця. </p>
+<p><img alt="&quot;Розширений комплект&quot;" src="https://so1der.github.io/images/rtl-sdr/rtl-sdr-kit.png" title="Розширений комплект"></p>
+<p>В ньому, окірм самого приймача, є ще дріт SMA подовжувач, невеличкий гнучкий штатив для антени, кріплення на вікно для антени, ну і сама антена. В даному випадку це шось типу так званої антени <strong>Rabbit Ears Antenna</strong>. Тобто це просто диполь, але при цьому ми можемо регулювати кут між двома плечима диполю.</p>
+<p>В комплекті є кріплення під антену, а також набір з двох пар елементів:</p>
+<ul>
+<li>Короткі - в складеному положенні їх довжина 5 см, а в розкладеному - 13 см.</li>
+<li>Довгі - в складеному 23 см, а розкладеному - 1 м. </li>
+</ul>
+<p>Тобто в розкладеному положенні довгих елементів буде як раз повний диполь на радіоаматорський діапазон 2м. Раз вже почав за це говорити, давайте швиденько розповім, як приблизно розрахувати диполь на потрібну вам частоту - треба <strong>300</strong> поділити на частоту в мегагерцах. <strong>300</strong> в даному випадку це приблизна швидкість світла (взагалі 299,792458), бо радіохвилі в повітрі розповсюджуються з такою ж швидкістю, як і світло.</p>
+<div class="math">$$ λ_m = \frac{300}{F_{МГц}} = \frac{300}{145} = 2.1м $$</div>
+<p>Розділивши, ми отримаємо довжину хвилі в метрах. Тепер ділимо її навпіл, і отримуємо довжину для напівхвильового диполю:</p>
+<div class="math">$$ \frac{2.1}{2} = 1.05м $$</div>
+<p>Але так як диполь складається з двох елементів, треба отримане значення знову поділити на 2, і ми отримаємо довжину плеча диполя. Якось так.</p>
+<div class="math">$$ \frac{1.05}{2} = 0.52м $$</div>
+<p>До речі раджу одразу розібрати антену і подивитись, на який з елементів йде екран кабелю. Це корисно знати. Наприклад якщо ви будете розміщувати диполь вертикально, треба щоб елемент до якого йде екран, дивився вниз.</p>
+<p><img alt="&quot;Екран всередині диполя&quot;" src="https://so1der.github.io/images/rtl-sdr/dipole-inside.jpg" title="Екран всередині диполя"></p>
+<h2>RTL-SDR V4</h2>
+<p>Тепер про сам приймач. З однієї сторони в нього <strong>USB</strong> для під'єднання до комп'ютеру, а з іншої - <strong>SMA Female</strong> роз'єм, для під'єднання антени. Всередині нас чекає невеличка, але доволі наповнена плата. </p>
+<p><img alt="&quot;Плата всередині RTL-SDR V4&quot;" src="https://so1der.github.io/images/rtl-sdr/rtl-sdr-pcb.jpg" title="Плата всередині RTL-SDR V4"></p>
+<p>З основного тут чип тюнер <strong>R828D</strong>, а також цифровий демодулятор <strong>RTL2832U</strong>. Саме на честь цієї мікросхеми, приймач і отримав свою назву. Власне, ця мікросхема і перетворює сигнал в цифрові дані, та посилає їх на комп'ютер. А також ця мікросхема є проміжною ланкою між комп'ютером та тюнером, ну і деякими іншими штуками на платі. Все інше для мене це поки темна магія - усілякі там конвертери, підсилювачі, фільтри, і тд. Ще з цікавого, на платі присутні порти розширення - GPIO піни, I2С, живлення, і тд. Тобто в теорії можна підключати до RTL-SDR якісь додаткові штуки, але я поки в цьому не розбирався. З зворотної сторони є лише масивна термопрокладка, яка передає тепло на корпус, адже плата може нормально так грітись.</p>
+<h2>Перший прийом</h2>
+<p>Давайте нарешті шось приймати. </p>
+<p><img alt="&quot;Логотип SDR++&quot;" src="https://so1der.github.io/images/rtl-sdr/sdrpp-logo.png" title="Логотип SDR++"></p>
+<p>Я для цього використовую програму <a href="https://www.sdrpp.org/">SDR++</a>. Звісно є купа інших, але я першою спробував цю, і поки бажання використовувати щось інше - немає. Вона доволі зручна, та кроcсплатформенна, є навіть під Android, але особисто в мене, на телефоні RTL-SDR працює якось дивно, ще й частота пливе, тому я використовую ноутбук. Це набагато зручніше ніж тикати ото маленькі кнопочки на телефоні. </p>
+<p>Ця стаття не є гайдом по встановленню програми, тому розбирайтесь самі)00 Але <a href="https://www.rtl-sdr.com/V4/">ось вам посилання</a> на гайд по встановленню драйверів для 4ї версії RTL-SDR.</p>
+<p>Щож, виходимо на вулицю з ноутбуком, антеною і приймачем, і збираємо все до купи. Звісно можна зробити це і всередині будівлі, особливо якщо ви живете на якихось високих поверхах, але якщо є можливість вийти на вулицю - то чому б і ні. Для початку я розклав антену повністю. Щоб впевнитись що все працює, найлегше що можна послухати, це комерційні FM радіостанції. Тобто те, що в народі називають звичайним радіо. </p>
+<p>Вони є майже всюди, в них велика потужність, та можна легко прогуглити в інтернеті частоту станції, або впіймати її наприклад на телефон чи рацію, щоб впевнитись що RTL-SDR не пливе по частоті.</p>
+<p><img alt="&quot;SDR++&quot;" src="https://so1der.github.io/images/rtl-sdr/sdrpp-ui.jpg" title="SDR++"></p>
+<p>Обираємо в SDR++ наш приймач, можна поставити частоту дискретизації десь на 2 МГц, включаємо <strong>RTL та Tuner AGC</strong> - <strong>тобто Auto Gain Control</strong>, і у вкладці з модуляціями сигналу обираємо <strong>WFM</strong> - <strong>Wide Frequency Modulation</strong>. Також слід впевнитись що в вкладці Sinks обрано Audio, та правильний пристрій для виводу звуку. Вводимо частоту приблизно 100 МГц, і починаємо шукати станції. Якщо ви знаєте частоту якоїсь станції поблизу, можна одразу ввести її.</p>
+<p>Побачити наявність сигналу можна на графіку спектру і так званому водоспаді, для зручності візуальну складову можна налаштовувати під себе. Після цього звіряємось з інтернетом або іншим пристроєм, та запевняємось що частота вірна. Якщо ні - RTL-SDR треба калібрувати. В інтернеті є інформація з цього приводу. </p>
+<p>До речі не слід транслювати якісь потужні сигнали поруч з антеною RTL-SDR. Наприклад проста 5-ти Ваттна рація можна запросто перевантажити приймач, і можливо навіть спалити його D:</p>
+<h2>А що приймати?</h2>
+<p>Тепер, коли все налаштовано, і ми знаємо що все працює, давайте розбиратись що можна зловити. В попередній статті я звісно казав, що можна ловити і літаки, і кораблі, і так далі, але слід розуміти, що окрім, звичайно, гарної антени, потрібно ще й відповідне місцерозташування. Наприклад в мене поруч взагалі нема ні портів, ні морів, тому про кораблі я можу забути, а про літаки годі й казати, вони в нас взагалі вже давно не літають.</p>
+<p><img alt="&quot;Відсутність літаків над Україною&quot;" src="https://so1der.github.io/images/rtl-sdr/planes.jpg" title="Відсутність літаків над Україною"></p>
+<p>Тож все дуже ситуативно, і залежить від того, де ви знаходитесь. Наприклад, з одного боку, селище краще тим, що тут менше радіоелектронних завад, але з іншого - дуже висока ймовірність того, що на VHF та UHF діапазонах ви банального нікого не почуєте, бо нікого і нема. Схожа ситуація в мене, я тут лише раз зміг зловити радіоаматорів на двухметровому діапазоні, і раз якусь будівельну бригаду, і все, тиша.</p>
+<p><img alt="&quot;VHF та UHF на рації&quot;" src="https://so1der.github.io/images/rtl-sdr/uhf-vhf.jpg" title="VHF та UHF на рації"></p>
+<p>Місто ж в свою чергу дає більше завад, але з іншого боку - є висока вірогідність почути радіоаматорів, або хоча б охоронців в АТБ :D Але в даній статті я розповім про дві речі, які +- доступні всім, незалежно від місцезнаходження - це супутники та короткі хвилі.</p>
+<h2>Супутники</h2>
+<p>Стосовно супутників, можна приймати ті ж <strong>NOAA</strong> про які в мене є <a href="/articles/noaa.html">окрема стаття</a>. Якщо коротко, то налаштовуємо SDR на частоту потрібного супутнику, обираємо режим модуляції <strong>FM</strong>, тобто <strong>Frequeicy Modulation</strong>, та ставимо Bandwidth приблизно <strong>45 кГц</strong>, щоб уникнути ефекту Доплера. Чекаємо коли супутник буде поруч, та включаємо запис аудіо. Після цього аудіо доріжку можна перетворити на зображення Землі. Більш детально знову ж таки, в попередній статті. Якщо у вас є якісь проблеми з прийомом, то можете спробувати відключити <strong>Auto Gain Control</strong>, і спробувати налаштувати підсилення вручну. Це особливо актуально для міст, адже там може бути якась потужна завада, або FM станція поруч, яка повпливає на роботу автоматичного режиму.</p>
+<p>До речі з RTL-SDR ці супутники можна декодувати навіть в режимі реального часу. І ще можна декодувати купу всякого іншого - раджу ознайомитись з програмою <a href="https://www.satdump.org/">SatDump</a>.</p>
+<p><img alt="&quot;HRPT з NOAA 18&quot;" src="https://so1der.github.io/images/rtl-sdr/noaa-18-hrpt.jpg" title="HRPT з NOAA 18"></p>
+<p>Окрім APT, в погодних супутників є ще більш цікава штука - <strong>HRPT. High Resolution Picture Transition</strong>. Результат виходить набагато крутіше ніж <strong>APT</strong>, хоча через доволі високі частоти на рацію таке вже не зловиш, тут потрібний саме SDR. Окрім SDR, потрібна ще доволі складна антена, а також спеціальний фільтр та підсилювач. Коштує такий навіть більше ніж сам RTL-SDR, і використовується лише для погодних супутників, тому придбання такого я навіть не розглядаю, хоча тема доволі цікава. В інтернеті є відео на цю тему, наприклад від каналу <a href="https://www.youtube.com/@saveitforparts">saveitforparts</a>, тож можете ознайомитись більш детально.</p>
+<p>Також окрім погодних супутників, є ще радіоаматорські супутники, на яких встановлено репітер. Налаштувавшись на їх частоту, ви можете почути розмови між радіоаматорами. Наприклад на Міжнародній Космічній Станції теж стоїть репітер - шукайте в Look4Sat частоту для FM - Voice Repeater.</p>
+<h2>Короткі хвилі</h2>
+<p>Але це можна прийняти і на звичайний баофенг. А от що на звичайний баофенг не приймеш, так це короткі хвилі, або ж <strong>HF - High Frequency</strong>. Цей частотний діапазон доволі цікавий своїми фізичними властивостями. Якщо ж VHF та UHF вільно собі летять в космос, завдяки чому ми й можемо приймати супутники, то з HF таке не прокатить. Ці хвилі не проходять у космос бо їх зупиняє іоносфера, яка відбиває їх назад на Землю. Це відбувається тому, що довжина хвиль ідеально взаємодіє з зарядженими частинками в іоносфері, створюючи відбиття, а не пропускання.</p>
+<p><img alt="&quot;Короткі хвилі&quot;" src="https://so1der.github.io/images/rtl-sdr/hf.png" title="Короткі хвилі"></p>
+<p>Деякі частоти краще відбиваються вночі, а деякі коли є сонце. Там взагалі все доволі складно, бо є різні шари атмосфери, і різні хвилі по різному з ними взаємодіють.  До того ж на це сильно впливає і сонячна активність. Є навіть <a href="https://solar.w5mmw.net/">сайти</a>, на яких можна легко подивитись, що там зараз з сонцем, і як себе ведуть хвилі на тому чи іншому діапазоні. Але для початку достатньо просто знати, що іоносфера відбиває такі хвилі, і все.</p>
+<p>Через це, відбиваючись грубо кажучи від неба, ці хвилі можуть подорожувати на дуже дальні відстані. Саме тому більшість радіоаматорів так любить цей діапазон, адже тут можна проводити зв'язки ледь не з усім світом. </p>
+<p>Але, чим менше частота, тим більше стає антена. Тому щоб хоч якось приймати HF, комплектної антени вже не вистачає. Саме тому я зробив нову антену. Якщо ви там собі науявляли вже якусь круту велику Ягі-Уда на великій мачті, то можете забути.</p>
+<p><img alt="&quot;&quot;Антена&quot; на короткі хвилі&quot;" src="https://so1der.github.io/images/rtl-sdr/hf-antenna.jpg" title="&quot;Антена&quot; на короткі хвилі"></p>
+<p>Представляю вам диполь на приблизно 27 МГц :D</p>
+<p>Так, я розумію як це виглядає, але це найлегше що можна зробити. Тут у нас все той ж перехідник <strong>BNC Cobra Head</strong>, але тепер до нього прикручено 2 шматки дроту, десь приблизно по 4м кожний. Якщо скористатись формулою яку я давав раніше, можна зрозуміти, що для 27 МГц, 4х метрове плече диполю це забагато. Але я вирішив потестувати антену так, і прийшов до висновку, що підганяти диполь до цих розмірів в конкретно моєму випадку - необов'язково. Тим паче я не робив її під якийсь конкретний діапазон.</p>
+<p><img alt="&quot;Встановлена антена&quot;" src="https://so1der.github.io/images/rtl-sdr/mounted-antenna.jpg" title="Встановлена антена"></p>
+<p>Я розтягнув дроти за допомогою прищіпок на мотузці для білизни. До речі існують такі троси для білизни, які цілком можн використовувати як антену. Вони ізольовані, доволі довгі, та недорогі. Після цього я підключив її до RTL-SDR, і в програмі налаштувався на 10 метровий радіоаматорський діапазон.</p>
+<p>Тут до речі корисно знати з якими модуляціями ми працюємо. Можна прогуглити діапазон, і почитати що там використовується, хоча ніхто не забороняє вам просто потикати різні режими демодуляції, і послухати як воно звучить. Але можу дати вам коротку пораду - все що нижче 28 МГц, якщо це радіо або <strong>CB, Citizen's Band</strong>, то це <strong>амплітудна модуляція</strong>, тобто <strong>АМ</strong>. Якщо це радіоаматори, то це майже завжди <strong>SSB</strong>, тобто <strong>Single Sideband модуляція</strong> - <strong>LSB</strong>, або <strong>USB</strong>.</p>
+<p><img alt="&quot;LSB та USB&quot;" src="https://so1der.github.io/images/rtl-sdr/ssb.jpg" title="LSB та USB"></p>
+<p>Їх можна відрізнити візуально - як на водоспаді так і на спектрограмі. Якщо сигнал нижче за уявну несучу частоту, тобто лівіше, то це <strong>LowerSideBand (LSB)</strong>, якщо вище, тобто правіше, то, відповідно <strong>UpperSideBand (USB)</strong>.</p>
+<p>І тепер ще один момент, якщо у вас RTL-SDR 4ї версії, як і в мене, ви можете просто вводити HF частоту і все. Якщо 3-ї, то вам треба включити <strong>Direct Sampling</strong> при частоті нижче 29 МГц. І все, можна шукати сигнали.</p>
+<p>Якщо ж у вас погано приймаються короткі хвилі, можете спробувати збільшити довжину плечей диполю, спробувати якусь іншу антену, інше місце, або ж зробити чи купити балун (BALanced to UNbalanced) для антени, це повинно знизити рівень шуму. Ну і тут вже точно потрібно вручну корегувати підсилення, тобто <strong>Gain</strong>.</p>
+<p>Я записав пару прикладів того, що мені вдалось прийняти:</p>
+<ul>
+<li>Розмова радіоаматорів IT9BDM (Італія) та 4L1DM (Грузія) 10м. діапазон</li>
+</ul>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/1.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<ul>
+<li>Станція Radio France International, 21580 кГц, Франція, Іссуден</li>
+</ul>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/2.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<ul>
+<li>Станція China Radio International, 17855 кГц, Китай, Пекін</li>
+</ul>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/3.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<ul>
+<li>Цифровий зв'язок в режимі FT8</li>
+</ul>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/4.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<ul>
+<li>Станція Vatican Radio українською, 9710 кГц, Ватикан</li>
+</ul>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/5.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<ul>
+<li>CQ OE8ANK, CQ (загальний виклик) радіоаматора OE8ANK (Австрія), 40м діапазон </li>
+</ul>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/6.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<p>Часто до речі можна прогуглити радіоаматорський позивний, і <a href="https://www.qrz.com/db/OE8ANK">дізнатись про радіоаматора</a> багато цікавого - звідки він, яке обладнання використовує, яка антена, і тд. Ось такий ось прикольний стик двох комунікаційних технологій - радіо та інтернету.</p>
+<p>А ідентифікувати короткохвильову радіостанцію до речі можна за допомогою сайту <a href="https://shortwavedb.org/">ShortWave DB</a>. Достатньо там просто ввести частоту, і він покаже, які станції зараз на цій частоті щось транслюють. Їх може бути декілька, але по мові станції в цілому можна зрозуміти. Також на цьому сайті можна подивитись місцезнаходження різноманітних станцій, а також частоту на якій вони щось транслюють.</p>
+<p><img alt="&quot;Мапа на сайті ShortWave DB&quot;" src="https://so1der.github.io/images/rtl-sdr/shortwave-db-map.jpg" title="Мапа на сайті ShortWave DB"></p>
+<p>Якщо ж ви бачите або чуєте якийсь дивний сигнал, і не можете зрозуміти що то таке, тут вам допоможе сайт <a href="https://www.sigidwiki.com/">sigidwiki.com</a>. На ньому можна і послухати, і подивитись як виглядають на водоспаді різні сигнали. Ось наприклад тут є цифровий режим FT8, про який я писав вище.</p>
+<p><img alt="&quot;FT8 на SigidWiki&quot;" src="https://so1der.github.io/images/rtl-sdr/sigidwiki.jpg" title="FT8 на SigidWiki"></p>
+<p>Якщо ж ви не знаєте навіть приблизно що це за сигнал, то на сайті є купа категорій, по яким можна відсортувати сигнали - наприклад по діапазонам.</p>
+<h2>Номерні станції</h2>
+<p>Ще з цікавого на коротких хвилях - так звані номерні станції. Це дивні радіостанції, які вже багато десятиліть транслюють послідовності чисел, букв, або слів. Наче раніше було кілька підтверджених випадків шпигунства з використанням цих станцій - знаходили шпигунів, в яких були папірці з шифром Вернама, або одноразовим кодом, щоб розшифровувати повідомлення станцій. Тобто це був такий собі односторонній зв'язок з шпигуном. Але в наш час не думаю що це актуально, бо мені здається людина з короткохвильовим приймачем викличе набагато більше питань, ніж людина зі смартфоном. Але тим не менш, станції продовжують працювати. Подивитись їх розклад можна на <a href="https://priyom.org/">цьому сайті</a>.</p>
+<p>Я поки зловив лише одну, польську станцію, бо як на зло, почались дощі, і вже не випрешся з ноутбуком на вулицю. Це станція з назвою <a href="https://priyom.org/number-stations/english/e11">"Oblique"</a></p>
+<p><audio controls>
+  <source src="https://so1der.github.io/files/rtl-sdr/oblique.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio> </p>
+<h2>WebSDR</h2>
+<p>До речі якщо ви не хочете або не можете купити RTL-SDR, ви можете скористатись <strong>WebSDR</strong> - це коли якась добра людина бере, і відкриває свій SDR приймач для інтернету, і будь хто може зайти на сайт, і налаштувати SDR туди, куди йому потрібно. На <a href="http://websdr.org/">ось цьому сайті</a> можна обирати різні SDR, в залежності від необхідного вам місцезнаходження, частотного діапазону, антени, і слухати радіоефір. Ці WebSDR працюють в багатопотоковому режимі, тому багато людей можуть одночасно використовувати один й той самий приймач.</p>
+<p>Я розумію що RTL-SDR приймає не тільки короткі хвилі, але окрім супутників, це єдине що я наразі можу нормально прийняти. </p>
+<p>Підсумовуючи, RTL-SDR - це неймовірно крутий приймач. І Хоч він і потребує для роботи додатковий пристрій, наприклад ноутбук, це все одно неймовірно корисна річ щоб почати займатись радіоаматорством, або просто прослуховуванням хвиль. В парі з гарною антеною, налаштованою на потрібні частоти, на ньому можна багато чого почути, будь то локальні радіоаматори, якась далека короткохвильова радіостанція за декілька тисяч кілометрів, або ж взагалі низькоорбітальні чи геостаціонарні супутники.</p>
+<p>Звісно з цим приймачем можна ще багато чого цікавого робити, наприклад декодувати APRS або FT8, автоматизувати процес прийому NOAA супутників, ловити всяку різну телеметрію та різні датчики та метеостанції, якщо такі є поруч, визначати частоту всяких радіокерованих пультиків, пультів від сигналізації і так далі. </p>
+<p>Тож я дуже задоволений таким придбанням, залишилось зробити нормальну HF антену, та завести її в дім, бо сидіти на вулиці зараз трішки холодно та і залежити від погоди, таке собі. На цьому в мене все. Я вам нагадаю, що на тему радіоаматорства можна поспілкуватись в конфі <a href="https://t.me/Ukraine_Amateur_Radio_Operators">UARO, Ukrainian Аmateur Radio Operators</a>.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео. Раджу ознайомитись з першоджерелом за <a href="https://www.youtube.com/watch?v=X1mgJZVqcYQ">ось цим посиланням</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = "https://so1der.github.io/theme/MathJax/es5/tex-chtml-full.js";
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+      <a href="https://so1der.github.io/tag/suputniki.html">супутники</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

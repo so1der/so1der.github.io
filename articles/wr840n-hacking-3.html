@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Перепаюємо RAM пам&#39;ять в роутері, та компілюємо для нього OpenWrt" />
+<meta name="keywords" content="embedded, хакінг, OpenWrt, Linux">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Хакінг роутера - частина третя"/>
+  <meta property="og:description" content="Перепаюємо RAM пам&#39;ять в роутері, та компілюємо для нього OpenWrt"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/wr840n-hacking-3.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-03-29 14:14:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="embedded"/>
+  <meta property="article:tag" content="хакінг"/>
+  <meta property="article:tag" content="OpenWrt"/>
+  <meta property="article:tag" content="Linux"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Хакінг роутера - частина третя</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="wr840n-hacking-3">Хакінг роутера - частина третя</h1>
+    <p>
+      Опубліковано 29.03.2025, 14:14 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <blockquote>
+<p>Дисклеймер: Розбираючи роутер, ви втрачаєте гарантію, а також можете пошкодити роутер. Сприймайте всю інформацію зі статті виключно як інформацію для ознайомлення. Вся відповідальність за ваші дії буде лежати виключно на вас.</p>
+</blockquote>
+<p>Ось нарешті довгоочікувана фінальна частина в серії відео/статей про хардварний хакінг або ж реверсінжиніринг роутера. Нагадаю що в попередній частині ми отримали доступ до UART шини роутера, а також зробили дамп прошивки роутера. Все це допоможе нам в досягненні сьогоднішньої мети - а саме апгрейді оперативної пам'яті, та збірці актуальної версії OpenWrt.</p>
+<p>Одразу скажу що я переоцінив свої сили в цей раз, тому, не дивлячись на те що все вийшло, місцями більше схоже на інструкцію як робити не треба. Але маємо що маємо.</p>
+<p>Перш ніж щось робити, раджу вам зберегти логи запуску роутера через picocom за допомогою наступної команди:</p>
+<div class="highlight"><pre><span></span><code><span class="go">picocom /dev/ttyUSB0 —baud 115200 -g kyivstar_boot.txt</span>
+</code></pre></div>
+
+<p>Вона створить файл, <code>kyivstar_boot.txt</code>, в який запише все, що було отримано по UART. Деяка інформація звідси буде корисною в подальшому. Тепер можна рухатись далі.</p>
+<h2>Апгрейд пам'яті</h2>
+<p>Для того щоб збільшити об'єм оперативної пам'яті роутера, нам треба замінити ось цю мікросхему.</p>
+<p><img alt="&quot;Мікросхема ОЗП&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/ddr.jpg" title="Мікросхема ОЗП"></p>
+<p>Це <strong>DDR1</strong> пам'ять, перше покоління так званої <strong>Double Data Rate</strong> пам'яті. Не дивлячись на те, що їй вже 27 років, зустріти її можна насправді багато де. Наприклад в платах від жорстких дисків. Але в мене, в єдиній донорській платі, стоїть букавльно такий самий чіп як і в роутері. </p>
+<p><img alt="&quot;Чіп пам'яті роутера (зліва) та чіп пам'яті жорсткого диску (справа)&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/chips.jpg" title="Чіп пам'яті роутера (зліва) та чіп пам'яті жорсткого диску (справа)"></p>
+<p>Благо після виходу другої частини в цій серії відео, мені написав мій знайомий, Штефан, і відправив ось таку крутезну планку оперативної пам'яті, за що я йому дуже вдячний.</p>
+<p><img alt="&quot;Планка пам'яті DDR1&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/ram.jpg" title="Планка пам'яті DDR1"></p>
+<p>Штефан до речі теж займається електронікою, і іншими крутими штуками. В нього навіть є свій <a href="https://t.me/steftim_log">телеграм канал</a>, де він хоч і не часто, але публікує різні цікавинки. А також він адмініструє ось цей <a href="https://t.me/connection_with_reality">крутий канал з мемами по лінуксу</a> і всякому такому, тож раджу вам підписатись. А якщо ви не використовуєте телеграм, то ви молодець, і для вас є <a href="https://social.noleron.com/@connection_with_reality">дзеркало каналу в Mastodon</a>, і не тільки.</p>
+<p>Ітак, перед вам планка пам'яті ДДР1 на 512 MB.</p>
+<p><img alt="&quot;Наліпка&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/label.jpg" title="Наліпка"></p>
+<p>Шляхом <strong>дуже</strong> складних арифметичних операцій, можна дізнатись що кожний з чіпів містить в собі 64 Мб пам'яті:</p>
+<div class="math">$$ \frac{Обсяг \space пам'яті}{Кількість \space чіпів} = \frac{512}{8} = 64 MB $$</div>
+<p>Тобто аж вдвічі більше, ніж в чіпі який зараз встановлено в роутер. Звісно можна пошукати чіпи і на 128 MB пам'яті, але мені, для експерименту вистачить і цього.</p>
+<p>Перш за все, необхідно зняти новий чіп пам'яті. Для цього я наніс на його ніжки флюс, і відпаяв його за допомогою термофену. Після чого відмив його від флюсу.</p>
+<p><img alt="&quot;Відпайка чіпу&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/desoldering.jpg" title="Відпайка чіпу"></p>
+<p>Тепер складніше - треба зняти чіп пам'яті з плати роутера. Дана задача ускладнюється за рахунок наявності поруч дуже малих SMD компонентів.</p>
+<p><img alt="&quot;SMD компоненти поруч&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/smd.jpg" title="SMD компоненти поруч"></p>
+<p>Якщо випадково збити конденсатор - дуже вірогідно що погіршиться стабільність роботи роутера. Якщо резистор - то роутер взагалі перестане працювати, адже розірветься одна з ліній даних між процесором та оперативною пам'яттю.</p>
+<p><img alt="&quot;Лінії даних&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/traces.jpg" title="Лінії даних"></p>
+<p>Тому, щоб компоненти не улетіли, я спробував захистити їх каптоновим скотчем, після чого наніс флюс, і почав випаювати мікросхему. Але вже через пару секунд виявилось, що подібні температури для наявного в мене скотчу занадто великі, тим паче фен дує прямо на нього, тому він просто почав плавитись. Щож, буду знати))000</p>
+<p>Я прибрав його, і залишається тепер лише молитись щоб компоненти не улетіли. До речі не слід при пайці феном плату прибрати з корпусу, інакше він теж може поплавитись. Згодом чип без проблем знявся.</p>
+<p><img alt="&quot;Зняття чіпу з роутера&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/desoldering-2.jpg" title="Зняття чіпу з роутера"></p>
+<p>За допомогою флюсу та паяльної пасти я підготував контакти до запаювання нової мікросхеми, після чого почистив все за допомогою спирту. Ну і найвідповідальніший етап - запайка нового чипу. Знову додавши флюс, я прийнявся запаювати мікросхему. Коли вона запаялась, я почистив все за допомогою спирту, і проконтролював пайку, адже дуже важливо щоб ніжки між собою не злиплись. Відстань між ніжками в таких мікросхемах вкрай мала, тому неозброєним оком якусь проблему з пайкою можна навіть не помітити.</p>
+<p><img alt="&quot;Ніжки мікросхеми&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/closeup.jpg" title="Ніжки мікросхеми"></p>
+<p>Виглядає непогано.</p>
+<p>Але лише виглядає, адже роутер перестав включатись D: Просто горять всі світлодіоди і все, навіть логів по UART немає. За кадром я перепробував багато чого:</p>
+<ul>
+<li>Спробував модифікувати прошивку, замінивши бутлоадер.</li>
+<li>Спробував повернути старий чіп пам'яті.</li>
+<li>Ну і спробував повернути старий дамп прошивки.</li>
+</ul>
+<p>Але поведінка роутера не мінялась. Хоч я і не чіпав процесор, мені вже здавалось шо я якимось чином вбив його, адже пайка пам'яті виглядала досить непогано, плюс я продзвонив лінії даних, і наче все доходило до процесора. Продзвонювати дуже зручно до речі по узгоджувальним резисторам, вони мають доволі маленький опір, тому мультиметр пищить на них. Головне продзвонювати саме ніжку мікросхеми, а не пад на який вона йде. А про банальні речі типу наявності потрібних напруг годі й говорити, це я все теж перевірив. </p>
+<h2>І тут я згадав що в мене взагалі то є осцилограф.</h2>
+<p>Використовуючи осцилограф, я все таки зміг впевнитись шо процесор живий - в момент подачі живлення, на SPI флешку приходив коротенький clock сигнал, а отже процесор мабуть намагається щось зчитати.</p>
+<p><img alt="&quot;Clock сигнал&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/clock.jpg" title="Clock сигнал"></p>
+<p>Скоріше за все він зчитує бутлоадер, після чого він намагається помістити його в оперативну пам'ять, і саме на цьому етапі скоріше за все роутер і застряє, тому і немає логів. Перегріти феном і вбити чип пам'яті звучить доволі реалістично, тому я вирішив спробувати ще раз. Благо, дякуючи Штефану, чіпів в мене вдосталь :D </p>
+<p>На цей раз я додав нового припою на ніжки чіпу, щоб понизити температуру випаювання, адже з заводу там стоїть безсвинцевий припій, який доволі важко розплавити.</p>
+<p><img alt="&quot;Зняття мікросхеми&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/desoldering-3.jpg" title="Зняття мікросхеми"></p>
+<p>Обов'язково треба прибрати залишки припою. Головне не жаліти флюсу. </p>
+<p>На цей раз я запаював мікросхему вже паяльником а не феном. Роутер знову не включився, але на цей раз, продзвонюючи лінії даних, я помітив що пара ліній не дзвониться. Я пропаяв їх паяльником, і нарешті, роутер включився! Більш того, він навіть автоматично, без модифікацій прошивки, правильно визначив новий чіп пам'яті.</p>
+<p><img alt="&quot;Логи по UART&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/uart-logs.jpg" title="Логи по UART"></p>
+<p>Тепер пам'яті в роутері достатньо для нормального функціонування нових версій OpenWrt. Конкретно цей TP-Link WR840 відрізняється від звичайного тим, що мабуть завдяки Київстару тут вже встановлена флешка на 8 MB. Тому міняти її я не буду, але розповім на що слід звернути увагу, якщо ви все таки будете.</p>
+<h2>Компілюємо OpenWrt</h2>
+<p>І так, для того щоб скомпілювати OpenWrt, перш за все потрібно встановити купку залежностей. На різних Лінукс дистрибутивах пакети називаються по різному, але благо OpenWrt <a href="https://openwrt.org/docs/guide-developer/toolchain/install-buildsystem">детально розписали</a> що де і як робити.</p>
+<p>Далі необхідно клонувати репозиторій з вихідним кодом OpenWrt. Я клонував одразу гілку з останньою версією:</p>
+<div class="highlight"><pre><span></span><code><span class="go">git clone —single-branch —branch openwrt-24.10 https://github.com/openwrt/openwrt</span>
+</code></pre></div>
+
+<p>Після цього треба запустити скрипт feeds в директорії scripts, який підтягне та встановить основні пакети:</p>
+<div class="highlight"><pre><span></span><code><span class="go">cd openwrt/scripts</span>
+<span class="go">./feeds update -a &amp;&amp; ./feeds install -a</span>
+</code></pre></div>
+
+<p>Він також перевірить наявність залежностей. Тепер можна налаштовувати і компілювати OpenWrt. Але я нагадаю, що наш роутер вже як мінімум 3 роки офіційно не підтримується OpenWrt, тому нам треба підготувати так званий <strong>Device Tree Source</strong>, або ж <code>dts</code>. Це файл, в якому розписані основні моменти стосовно нашого девайса - в даному випадку це куди підключені кнопки, світлодіоди, де що знаходиться в пам'яті, і тд. Але, зазвичай можна просто взяти dts від схожого роутера, і підлаштувати його під себе, щоб не писати його з нуля. Я взяв dts файл від роутера <a href="https://openwrt.org/toh/tp-link/tl-wr841hp_3?s[]=vlan">TP-Link TL-WR841HP v3</a>. В нього такий самий процесор, і такі самі обсяги пам'яті:</p>
+<p><img alt="&quot;Характеристики схожого роутера&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/specs.jpg" title="Характеристики схожого роутера"></p>
+<p>DTS файли для цього роутера лежать за ось цим шляхом: <code>openwrt/target/linux/ath79/dts</code></p>
+<p>Я копіював файл роутера WR841HP і перейменував його:</p>
+<div class="highlight"><pre><span></span><code><span class="go">cp qca9533_tplink_tl-wr841hp-v3.dts qca9533_tplink_tl-wr840n-v2.dts</span>
+</code></pre></div>
+
+<p>Тепер необхідно відредагувати цей файл будь яким зручним для вас способом, я використовував vim. Перше що треба зробити, це замінити модель роутера на відповідну:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">/</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tplink,tl-wr840n-v2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qca,qca9533&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TP-Link TL-WR840N v2&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Після цього треба налаштувати до яких GPIO підключені світлодіоди. В даній ситуації мені пощастило, і я просто взяв ці піни з файлу <a href="https://github.com/openwrt/openwrt/blob/openwrt-18.06/target/linux/ar71xx/files/arch/mips/ath79/mach-tl-wr841n-v9.c">openwrt/target/linux/ar71xx/files/arch/mips/ath79/mach-tl-wr841n-v9.c</a>, з гілки <code>OpenWrt-18.06</code>, де цей роутер ще підтримувався. Зайві світлодіоди я прибрав. Наприклад:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">leds</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gpio-leds&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="nf">wifi</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;green:wifi&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">gpios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">gpio</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="na">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">linux</span><span class="p">,</span><span class="n">default-trigger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;phy0tpt&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+</code></pre></div>
+
+<p>Наступний етап - кнопки. В цього роутера всього лише одна кнопка, яка відповідає за Reset та WPS. Її GPIO пін теж прописаний в файлі з якого я взяв GPIO світлодіодів.На неї я прописав лише функцію Reset, але за бажанням туди можна взагалі щось своє повісити. Інші зайві кнопки я теж прибрав.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nf">keys</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gpio-keys&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="nf">reset</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Reset button&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">linux</span><span class="p">,</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="na">KEY_RESTART</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">gpios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">gpio</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="na">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">debounce-interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">60</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">    </span><span class="p">};</span>
+</code></pre></div>
+
+<p>Ну і найцікавіше - SPI флешка, <code>&amp;spi</code>. Тут прописано де на флешці в OpenWrt знаходиться наприклад бутлоадер:</p>
+<div class="highlight"><pre><span></span><code><span class="w">            </span><span class="nl">uboot</span><span class="p">:</span><span class="w"> </span><span class="nf">partition</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;u-boot&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>або SquashFS:</p>
+<div class="highlight"><pre><span></span><code><span class="w">            </span><span class="nf">partition</span><span class="o">@</span><span class="mi">20000</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tplink,firmware&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>або так званий розділ ART:</p>
+<div class="highlight"><pre><span></span><code><span class="w">            </span><span class="nf">partition</span><span class="o">@</span><span class="mi">7f0000</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;art&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<h2>ART Розділ</h2>
+<p>ART, або ж <strong>Atheros Radio Test</strong>, це дуже важливий розділ, в якому знаходяться калібрувальні дані, унікальні для кожного окремого роутера. Без них, не буде працювати WiFi. Тому якщо ви втратите цей розділ, можете забути про бездротове з'єднання. Звісно можна взяти дамп прошивки з такого ж роутера, і витягнути ART розділ звідти, але як я й казав, цей розділ унікальний для кожного роутера, тому з таким розділом ваш роутер буде працювати не зовсім правильно. Перевірено на власному досвіді)))00</p>
+<p>В звичайних умовах, коли ви будете встановлювати OpenWrt через режим Recovery або просто через оновлення прошивки, стосовно ART розділу можна не перейматись. Але при зміні розміру флешки доведеться вручну подбати про розміщення ART розділу в необхідне місце, але про це згодом. </p>
+<p>В даному DTS файлі прописані розділи під флешку 8 MB, тому мені не треба нічого змінювати. Якщо ви будете ставити флешку 16 MB, то треба буде розширити SquashFS розділ, а також перемістити ART. Можете взяти DTS файл якогось роутера з флешкою на 16 MB як приклад.</p>
+<p>Тепер DTS файл готовий, але щоб конфігуратор OpenWrt його побачив, треба ще відредагувати файл <code>tiny-tp-link.mk</code> за шляхом <code>openwrt/target/linux/ath79/image/tiny-tp-link.mk</code>. Тут необхідно просто зробити новий define, де вказати шаблон для пам'яті, назву процесора, ну і там всякі моделі, вендори, і тд. Знову ж таки, це легко зробити опираючись на вже існуючі дефайни. Я додав в кінець файлу ось це:</p>
+<div class="highlight"><pre><span></span><code><span class="n">define</span> <span class="n">Device</span><span class="o">/</span><span class="n">tplink_tl</span><span class="o">-</span><span class="n">wr840n</span><span class="o">-</span><span class="n">v2</span>
+  <span class="o">$</span><span class="p">(</span><span class="n">Device</span><span class="o">/</span><span class="n">tplink</span><span class="o">-</span><span class="mi">8</span><span class="n">mlzma</span><span class="p">)</span>
+  <span class="n">SOC</span> <span class="p">:</span><span class="o">=</span> <span class="n">qca9533</span>
+  <span class="n">DEVICE_VENDOR</span> <span class="p">:</span><span class="o">=</span> <span class="n">TP</span><span class="o">-</span><span class="n">Link</span>
+  <span class="n">DEVICE_MODEL</span> <span class="p">:</span><span class="o">=</span> <span class="n">TL</span><span class="o">-</span><span class="n">WR840N</span>
+  <span class="n">DEVICE_VARIANT</span> <span class="p">:</span><span class="o">=</span> <span class="n">v2</span>
+  <span class="n">SUPPORTED_DEVICES</span> <span class="p">:</span><span class="o">=</span> <span class="n">tl</span><span class="o">-</span><span class="n">wr840n</span><span class="o">-</span><span class="n">v2</span>
+<span class="n">endef</span>
+<span class="n">TARGET_DEVICES</span> <span class="o">+=</span> <span class="n">tplink_tl</span><span class="o">-</span><span class="n">wr840n</span><span class="o">-</span><span class="n">v2</span>
+</code></pre></div>
+
+<p>Після цього зберігаємо файл і можна повернутись в кореневу директорію репозиторію і виконати команду <code>make menuconfig</code>. З'явиться менюшка яка точно знайома тим, хто компілював ядро Linux. Тут можна конфігурувати різні аспекти OpenWrt перед компіляцією.</p>
+<p><img alt="&quot;make menuconfig&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/menuconfig.jpg" title="make menuconfig"></p>
+<p>Але для початку треба правильно обрати основні параметри:</p>
+<ul>
+<li>
+<p><strong>ATH79</strong> в якості Target System.</p>
+</li>
+<li>
+<p><strong>Devices with mall flash</strong> в якості Subtarget</p>
+</li>
+<li>
+<p>Ну і в Target Profile обираємо наш роутер, <strong>TP Link WR840N V2</strong>, який тепер тут присутній завдяки модифікованим файлам.</p>
+</li>
+</ul>
+<p><img alt="&quot;Обрані налаштування&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/setup.jpg" title="Обрані налаштування"></p>
+<p>На додачу слід включити вебінтерфейс - <strong>LuCI</strong>. Всі інші налаштування вже обираються в залежності від ваших потреб. Можете погортати і подивитись шо тут є, а натискаючи кнопку <strong>h</strong> - відкриється віконце, в якому можна дізнатись більше про той чи інший пункт меню. Наприклад можна одразу додати якісь пакети, нехай це буде <strong>rsync</strong> для передачі файлів по ssh.</p>
+<p><img alt="&quot;rsync&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/rsync.jpg" title="rsync"></p>
+<p>Додаючи пакети на етапі компіляції OpenWrt,  ви суттєво зменшуєте їх розмір в порівнянні з тим, якби ви встановили їх вже після встановлення OpenWrt на роутер. Це відбувається за рахунок того, що на етапі компіляції, компілятор стисне пакети, і помістить їх в SquashFS, в той час як при звичайному встановленні, ви кладете їх в так званий OverlayFS, поруч з SquashFS без стиснення. </p>
+<p>Завершивши конфігурування OpenWrt, зберігаємо все це в файл <code>.config</code> і виходимо.</p>
+<p>Тепер за допомогою команди <code>make</code> можна скомпілювати прошивку. Можна також додати фалг -j, після якого вказати кількість потоків процесора які ви хочете віддати під цю задачу. Наприклад в мене процесор має 8 потоків, тому:</p>
+<div class="highlight"><pre><span></span><code><span class="go">make -j8</span>
+</code></pre></div>
+
+<p>Це доволі довгий процес, тому можете піти зайнятись своїми справами. Головне час від часу дивитись, чи не вилізла там якась помилки. Також будьте готові виділити десь приблизно 20 гігабайт вільного місця, бо в процесі компіляції розмір репозиторію стрімко збільшиться. На моєму ноутбуці (i5-1035G1) процес компіляції зайняв приблизно 70 хвилин.</p>
+<p>По завершенню процесу, за шляхом <code>openwrt/bin/targets/ath79/tiny/</code> буде лежати купка файлів. Нас цікавить бінарник який в своїй назві має слово <code>factory</code>.</p>
+<p><img alt="&quot;Результат компіляції&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/bin.jpg" title="Результат компіляції"></p>
+<p>Якщо ви не змінювали розмір флешки, то можна просто через Recovery зашити цей файлик, і все, на вашому роутері з'явиться OpenWrt. Але я розповім що робити далі, якщо ви все таки змінили розмір флешки. Для зручності я копіював бінарник factory в іншу директорію, де також знаходиться оригінальний дамп прошивки роутера, який ми зробили в другій частині.</p>
+<p>Перш за все, через зміну розміру флешки, треба скачати якийсь інший бутлоадер, наприклад <a href="https://breed.hackpascal.net/">Breed Bootloader</a>. Переходимо на сайт, і бачимо перед собою актуальні версії бутлоадера для різних процесорів. Але особисто в мене чомусь не вийшло подружити їх з OpenWrt. Методом тика я виявив, що старіша версія, а саме <strong>r1286</strong> працює без проблем, тому качаємо її, в нашому випадку це процесор <strong>QCA9533</strong>, файл <strong>breed-qca953x.bin</strong></p>
+<p>Тепер у нас в директорії 3 файли - dump, openwrt, та bootloader. Для зручності я їх так і перейменував.</p>
+<p>Перш за все, треба з дампу витягти ART розділ, про який я казав раніше. Зазвичай він знаходиться в самому кінці дампа, але впевнитись в цьому нам допоможуть раніше збережені логи запуску роутера. Відкриваємо їх, і шукаємо інформацію про MTD розділи, і впевнюємось що ART розділ дійсно знаходиться в кінці флешки:</p>
+<div class="highlight"><pre><span></span><code>Creating 5 MTD partitions on &quot;ath-nor0&quot;:
+0x000000000000-0x000000020000 : &quot;u-boot&quot;
+0x000000020000-0x000000120000 : &quot;kernel&quot;
+0x000000120000-0x0000007e0000 : &quot;rootfs&quot;
+0x0000007e0000-0x0000007f0000 : &quot;config&quot;
+0x0000007f0000-0x000000800000 : &quot;art&quot;
+</code></pre></div>
+
+<p>Конвертуємо шістнадцяткову систему в десяткову, і вирізаємо ART розділ за допомогою ось такої ось команди:</p>
+<div class="highlight"><pre><span></span><code><span class="go">dd bs=1 skip=8323072 if=dump.bin of=art.bin</span>
+</code></pre></div>
+
+<p>Звісно витягти цей розділ можна і без дампу, наприклад через UART або SSH, але особисто цей роутер з заводу дуже урізаний, на ньому нема ні <strong>dd</strong>, ні <strong>mtd</strong>, не інших корисних штук, тому особисто мені легше взяти цей розділ з дампу. Тепер, маючи новий бутлоадер, новоскомпільований OpenWrt, та ART розділ, можна об'єднати все це, і записати на SPI флешку роутера.</p>
+<p>Для цього, треба спочатку створити пустий файл, шаблон, куди ми по черзі і запишемо все необхідне - спочатку бутлоадер, потім openwrt, потім калібрувальні дані. Зробити це можна за допомогою ось такої команди. Розмір блоку, bs, тут треба змінити на ваш розмір флешки:</p>
+<div class="highlight"><pre><span></span><code><span class="go">dd if=/dev/zero bs=8M count=1 | tr &quot;\000&quot; &quot;\377&quot; &gt; test_firmware.bin</span>
+</code></pre></div>
+
+<p><strong>dd</strong> візьме з <code>/dev/zero</code> <strong>NULL</strong> файлів на 8 MB, а <strong>tr</strong> перетворить їх на прийнятні для SPI флешки <strong>0xFF</strong> байти.</p>
+<p>Тепер ми маємо пустий файл, в який можна записати все що треба. Перш за все, запишемо в початок файлу бутлоадер, за допомогою ось такої команди:</p>
+<div class="highlight"><pre><span></span><code><span class="go">dd conv=notrunc if=bootlodaer.bin of=test_firmware.bin</span>
+</code></pre></div>
+
+<p>Далі дивимось в нашому DTS файлі, де починається розділ зі SquashFS, тобто так званий <strong>firmware</strong>, конвертуємо в десяткову, і записуємо на це місце скомпільований openwrt:</p>
+<div class="highlight"><pre><span></span><code><span class="w">            </span><span class="nf">partition</span><span class="o">@</span><span class="mi">20000</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tplink,firmware&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;firmware&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x020000</span><span class="w"> </span><span class="mh">0x7d0000</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Початок на <code>0x020000</code>. В десятковій це <strong>131072</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">dd conv=notrunc bs=1 seek=131072 if=openwrt.bin of=test_firmware.bin</span>
+</code></pre></div>
+
+<p>Так само робимо і з ART розділом:</p>
+<div class="highlight"><pre><span></span><code><span class="w">            </span><span class="nf">partition</span><span class="o">@</span><span class="mi">7f0000</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;art&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x7f0000</span><span class="w"> </span><span class="mh">0x010000</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">read-only</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Початок на <code>0x7f0000</code>. В десятковій це <strong>8323072</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">dd conv=notrunc bs=1 seek=8323072 if=art.bin of=test_firmware.bin</span>
+</code></pre></div>
+
+<p>Звісно бажано ще в певне місце прописати мак адрес, бо без цього він буде виглядати приблизно ось так <strong>FF:FF:FF:FF:FF:FF</strong>, але це можна потім і через вебінтерфейс опенврт зробити. </p>
+<p>Тепер ми маємо бінарник, який треба за допомогою програматора записати на флешку. Детальніше про це було в другій частині.</p>
+<p>Тепер включаємо роутер, і дивимось по UART, чи запускається він.</p>
+<p><img alt="&quot;Логи запуску&quot;" src="https://so1der.github.io/images/wr840n-hacking-3/start.jpg" title="Логи запуску"></p>
+<p>Чудово! Знали б ви насправді скільки я часу та нервів витратив на все це. Але не дивлячись на все це, роутер все ще працює, ба більш того, нам таки вдалось портувати на нього свіжу версію OpenWrt!Щоправда з розпіновкою світлодіодів мені таки не пощастило, чомусь працює лише два світлодіоди. Мабуть таки версія роутера від Київстар має якісь відмінності. Ну але тут я цього виправляти вже не буду, тим паче там нічого цікавого - встановити пакет для керування GPIO, знайти до яких GPIO підключені світлодіоди, або просто продзвонити, і знаючи де висить потрібний світлодіод - переписати DTS файл. </p>
+<p>Разом з OpenWrt ми на додачу записали ще й крутий бутлоадер, який при невдалому запуску основної операційної системи, наприклад після невдалого оновлення чи ще чогось, підіймає вебінтерфейс, через який його можна легко прошити. Щоправда є одна проблемка - англійської мови тут нема, є лише китайська. Тому доводиться використовувати перекладач. Але, дякую і на цьому.</p>
+<p>Стаття вийшла затягнутою, перенасиченою інформацією, та і не дуже цікавою насправді. Але, якщо ви дочитали аж до цього моменту, дякую вам! Я намагався тут розкрити всі моменти, які в мене викликали питання, коли я тільки починав цим займатись. </p>
+<p>До речі я зробив <a href="https://github.com/so1der/openwrt/tree/openwrt-24.10">форк OpenWrt</a>, можете відкрити там гілку з 24-ю версією, і подивитись комміти, щоб більш детально оглянути модифіковані файли. Також я залив туди скомпільовані бінарники OpenWrt, а також дамп, який можна залити програматором на флешку, можливо комусь буде корисно. Хоча сумніваюсь, що хтось ще буде цим займатись з конкретно цим роутером. </p>
+<p>Звісно деякі моменти довелось опустити, ну і для повторення процесу вам потрібно мати базові знання в роботі з Linux системами.</p>
+<p>Ще раз вдячний Штефану за оперативну пам'ять, бо якби не він, не знаю коли б це відео взагалі вийшло. Тож можете йому подякувати від мене, і підписатись на його канали!</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео. Переглянути його можна <a href="https://www.youtube.com/watch?v=eqKmUvo2MaM">за посиланням.</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = "https://so1der.github.io/theme/MathJax/es5/tex-chtml-full.js";
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+      <a href="https://so1der.github.io/tag/khaking.html">хакінг</a>
+      <a href="https://so1der.github.io/tag/openwrt.html">OpenWrt</a>
+      <a href="https://so1der.github.io/tag/linux.html">Linux</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

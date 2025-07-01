@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Поговоримо трохи про типи РЧ фільтрів, а також зробимо Band-Pass фільтр для поліпшення якості прийому зображень з супутників NOAA!" />
+<meta name="keywords" content="diy, супутники, зв&#39;язок">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Робимо Band-Pass фільтр для APT частот"/>
+  <meta property="og:description" content="Поговоримо трохи про типи РЧ фільтрів, а також зробимо Band-Pass фільтр для поліпшення якості прийому зображень з супутників NOAA!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/apt-bandpass-filter.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-03-15 17:10:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="супутники"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Робимо Band-Pass фільтр для APT частот</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="apt-bandpass-filter">Робимо Band-Pass фільтр для APT частот</h1>
+    <p>
+      Опубліковано 15.03.2025, 17:10 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>В даній статті я хотів би трішки розповісти про радіочастотні фільтри, а також показати процес створення такого фільтра. Займаючись радіоаматорством, ви рано чи пізно помітите, що навколо вас присутня дуже велика кількість завад, або потужних сигналів. </p>
+<p><img alt="&quot;Завади на 2М діапазоні&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/freq.jpg" title="Завади на 2М діапазоні"></p>
+<p>Наприклад одна з поширених проблем – сильні сигнали від FM-радіостанцій. Вони можуть не тільки перевантажувати приймач, а й створювати перешкоди на інших частотах через спотворення в самому приймачі. </p>
+<h2>Що ж робити?</h2>
+<p>Одним з методів боротьби з такими сигналами є використання спеціальних фільтрів. За методом дії їх можна поділити на 4 основних.</p>
+<p><img alt="&quot;Типи фільтрів&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/filters.jpg" title="Типи фільтрів"></p>
+<ul>
+<li>
+<p><strong>Low-pass фільтр</strong> - це фільтр, який пропускає сигнали на частотах нижче певного порога, а вищі – поступово послаблює. Такий фільтр ідеально підходить для коротких хвиль, оскільки допомагає відсікати високочастотні завади, що можуть заважати роботі приймача.</p>
+</li>
+<li>
+<p><strong>High-pass</strong> в свою чергу навпаки - пропускає сигнали на частотах вище певного порога, а нижчі – поступово послаблює.</p>
+</li>
+<li>
+<p><strong>Band-pass фільтр</strong> дозволяє взагалі відсікти все, окрім певного частотного діапазону. Це корисно коли вас цікавить лише якийсь певний діапазон.</p>
+</li>
+<li>
+<p>Ну і так званий <strong>Notch фільтр</strong>, який відсікає певний частотний діапазон, а все інше пропускає. Наприклад якщо ви хочете прибрати потужні комерційні станції, але при цьому залишити весь інший частотний діапазон.</p>
+</li>
+</ul>
+<p>Відповідно для різних задач підходять різні фільтри. Важливо також розуміти, що фільтри зазвичай трохи послаблюють навіть корисний сигнал. Хоч це послаблення зазвичай незначне, про нього все одно варто пам’ятати.</p>
+<h2>Робимо фільтр</h2>
+<p>В наш час не обов'язково знати купу теорії щоб зробити фільтр - достатньо просто потикати по клавіатурі і ось перед нами вже <a href="https://lna4all.blogspot.com/2015/11/diy-137-mhz-wx-sat-bp-filter.html">схема фільтра</a>. Я вирішив спробувати повторити Band-pass фільтр для APT частот супутників NOAA. Не дивлячись на те що в мене немає ніяких проблем з їх прийомом, можливо комусь це буде корисно, та і мені цікаво спробувати. </p>
+<p>Для зручності я переніс схему в KiCad:</p>
+<p><img alt="&quot;Схема фільтра&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/schematic.jpg" title="Схема фільтра"></p>
+<p>По ній треба зробити плату. Це насправді невеличка проблема, адже ми тут робимо радіотехнічний пристрій, в якому важливо дотримуватись правильного імпедансу - 50 ом. Він в даному випадку визначається відстанню між центральною доріжкою та земляними полігонами, і відповідно навряд чи я зможу зробити настільки маленьку відстань між доріжками в домашніх умовах. </p>
+<p><img alt="&quot;Плата&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/pcb.jpg" title="Плата"></p>
+<p>Ну але подивиомсь що буде. Щож, для виготовлення фільтра нам знадобиться:</p>
+<ul>
+<li>
+<p>фольгований склотекстоліт </p>
+</li>
+<li>
+<p>2 SMA роз'єми</p>
+</li>
+<li>
+<p>1 конденсатор ємністю <strong>1 pF</strong></p>
+</li>
+<li>
+<p>2 конденсатори ємністю <strong>4.7 pF</strong></p>
+</li>
+<li>
+<p>2 конденсатори ємністю <strong>15 pF</strong></p>
+</li>
+<li>
+<p>Ну і трішки мідного дроту з лаковою ізоляцією для виготовлення котушок.</p>
+</li>
+</ul>
+<p>Я буду використовувати SMD конденсатори типорозміру 0805, але можливо немає сенсу настільки заморочуватись, бо я бачив в інтернеті фільтрі зроблені з вивідними конденсаторами, і взагалі на макетній платі, тож робіть як вам зручно. Стосовно ж плати, є безліч способів як можна зробити її з фольгованого текстоліту. Можна навіть просто ножем вишкрябати доріжки.</p>
+<p>Особисто я цей раз вирішив трішки поекспериментувати, і спочатку закрив ізоляційною стрічкою місця, в яких треба прибрати мідь. Після цього я приблизно прикинув як на плату стають роз'єми та конденсатори. Всі інші місця треба покрити маркером в декілька шарів, і після цього зняти ізострічку, і вийдуть доволі охайні доріжки та земляні полігони. </p>
+<p>Сказав би я, але як завжди все йде не по плану, і в деяких місцях маркер потрапив під ізострічку, тому довелось прибирати його зубочисткою.</p>
+<p><img alt="&quot;Виготовлення плати&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/pcb-prototype.jpg" title="Виготовлення плати"></p>
+<p>Тепер оголену мідь треба прибрати. Це можна зробити за допомогою хімічного травлення. Змішавши трьох процентну перекис водню, сіль, та лимонну кислоту, утвориться активний розчин, який окислюватиме мідь, сприяючи її розчиненню, і вся незахищена мідь зрештою розчиниться. В інтернеті є більш детальні пропорції компонентів, я ж в свою чергу налив трішки перекиси водню щоб покрити плату, додав трохи менше чайної ложки солі, та стільки ж лимонної кислоти, після чого ретельно все перемішав. До речі буде краще якщо розчин буде теплий. Будуть краще компоненти розчинятись, та і реакція буде швидше йти. Коли всі компоненти розчинились, в цей розчин необхідно помістити плату. </p>
+<p><img alt="&quot;Процес травлення плати&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/timelapse.webp" title="Процес травлення плати"></p>
+<p>Особисто в мене процес травлення зайняв приблизно 25 хвилин, але все залежить від багатьох факторів - агресивності розчину, температури, кількості міді яку треба прибрати, і тд.</p>
+<p>По завершенню процесу я дістав плату, прибрав маркер за допомогою спирту, і отримав ось таку, хоч і не дуже гарну, але функціональну плату.</p>
+<p><img alt="&quot;Готова плата&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/completed-pcb.jpg" title="Готова плата"></p>
+<p>Але все ж таки відстань між доріжкою і земляним полігоном вийшла дуже великою, це мабуть нормально так підвисло імпеданс.</p>
+<h2>Пайка</h2>
+<p>Тепер можна приступити до пайки компонентів. </p>
+<ul>
+<li>
+<p>Спочатку я запаяв два конденсатори ємністю 4.7 пФ.</p>
+</li>
+<li>
+<p>Після цього запаяв конденсатор ємністю 1 пФ.</p>
+</li>
+<li>
+<p>Ну і останні два конденсатори, ємністю 15 пФ.</p>
+</li>
+<li>
+<p>Далі я запаяв обидва SMA роз'єми.</p>
+</li>
+</ul>
+<p><img alt="&quot;Запаяні конденсатори та роз'єми&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/soldering-1.jpg" title="Запаяні конденсатори та роз'єми"></p>
+<h2>Котушки</h2>
+<p>Ну і найцікавіше - котушки. Як видно зі <a href="https://so1der.github.io/images/apt-bandpass-filter/schematic.jpg">схеми</a>, нам потрібні котушки з індуктивністю 68 nH. Це дуже мала індуктивність, і її не вимріяти так просто за допомогою якихось там дешевих LC тестерів. Тому будемо використовувати <a href="https://m0ukd.com/calculators/air-cored-inductor-calculator/">калькулятор для розрахунку саморобних котушок</a>.</p>
+<p>А чому їх просто не купити, спитаєте ви? Дійсно, їх можна купити, але звідси випливає інша проблема - конденсатори які я використовував мають похибку +-10%. Тобто це доволі таки суттєва похибка, уявіть собі фільтр який промахнувся на 10% від потрібної частоти.</p>
+<p>Відповідно якщо намотати котушку власноруч, а не використовувати готові, її можна буде в подальшому трішки розтягнути або навпаки звузити, змінивши її індуктивність, і тим самим компенсувавши похибку конденсаторів, і точно налаштувати фільтр на потрібні частоти.</p>
+<p>Я використовував ось такий ось калькулятор.</p>
+<p><img alt="&quot;Калькулятор&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/calc.jpg" title="Калькулятор"></p>
+<p>Тут треба вказати діаметр котушки, її довжину, та кількість витків, і калькулятор розрахує її індуктивність. Відповідно емпіричним шляхом, в залежності від того який у вас дріт, можна підібрати ці параметри так, щоб була необхідна індуктивність. Особисто в мене, для дроту діаметром приблизно 0.8 мм, 5 не дуже щільних витків на викрутці діаметром 5 мм займають приблизно 7 мм довжини, і утворюють 66 uH, тобто мааайже те що треба.</p>
+<p><img alt="&quot;Намотування котушки&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/inductor.jpg" title="Намотування котушки"></p>
+<p>Я зробив 2 котушки, і припаяв їх згідно схеми.</p>
+<p><img alt="&quot;Готовий фільтр&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/completed-filter.jpg" title="Готовий фільтр"></p>
+<p>Фільтр можна вважати завершеним.</p>
+<h2>Тестуємо фільтр</h2>
+<p>В його працездатності можна переконатись навіть без якогось спеціального обладнання, просто за допомогою приймача. Через такі SMA роз'єми він ідеально стає замість антени на рації типу Baofeng чи Quansheng, але щоб підключити антену, треба або перехідник, або антена з роз'ємом SMA Male</p>
+<p><img alt="&quot;Встановлений фільтр + антена з роз'ємом SMA Male&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/installed-filter.jpg" title="Встановлений фільтр + антена з роз'ємом SMA Male"></p>
+<p>Наприклад мій Baofeng дуже гарно ловить ФМ станцію неподалік. Але слід додати цей фільтр, і від станції майже не лишилось і сліда. При цьому супутник NOAA з ним чудово чути, тобто фільтр працює саме так як треба.</p>
+<p>А маючи векторний аналізатор <strong>NanoVNA</strong>, можна не тільки більш детально перевірити фільтр, а й більш точно підлаштувати його на потрібні частоти. Для цього треба підключити його між портами S11 та S21, та обрати відображення logmag на порті S21. Це все зазвичай вже обрано на лінії синього кольору, тому можете просто обрати її. Чим вище в даному режимі лінія, тим краще сигнал проходить на цій частоті. Чим нижче, тим відповідно гірше. Я відкалібрував NanoVNA на діапазон частот від 85 МГц до 150 МГц, і можемо бачити наступну картину.</p>
+<p><img alt="&quot;Показники logmag&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/nanovna.jpg" title="Показники logmag"></p>
+<p>На 137 МГц втрати становлять аж цілих -7 дБ, хоча на 89 МГц, де в мене найближча станція, втрати взагалі становлять -33 дБ.</p>
+<p>Трохи розтягнувши котушки, мені вдалось спочатку знизити втрати на 137 МГц до приблизно -3 дБ, а потім і взагалі, до 1.2 -дБ. Налаштування фільтра можна вважати завершеним!</p>
+<p>А для тих хто дочитав аж до цього моменту, ось вам зображення з супутника NOAA 18, яке я отримав використовуючи цей фільтр, та RTL-SDR з спрямованою антеною.</p>
+<p><img alt="&quot;Зображення з NOAA 18&quot;" src="https://so1der.github.io/images/apt-bandpass-filter/noaa18.jpg" title="Зображення з NOAA 18"></p>
+<p>Як я й казав, в мене нема жодних проблем з їх прийомом, але головне що цей фільтр не додав проблем, а отже його функціональність тепер підтверджена і на практиці.</p>
+<p>Звісно фільтр не ідеальний, можна було б зменшити відстань між доріжками та додати екран, який не лише захистить фільтр від зовнішніх завад, а ще й убереже котушки, бо вони на разі найбільш нестабільний елемент в цьому фільтрі, але навіть так, я задоволений результатом.</p>
+<p>До речі пам'ятаєте Raspberry Pi з минулої статті, яка в мене з'явилась завдяки підписнику Артему? Так ось, я хочу спробувати за допомогою неї автоматизувати процес прийому цих супутників, і написати бота, який буде кожного дня публікувати отримані зображення наприклад в Mastodon.</p>
+<p>Ідея звісно цікава, але для неї потрібна гарна всеспрямована антена, яку треба буде зробити, встановити, завести в дім, і тд. На всеспрямованій антені до речі від фільтру явно буде більше користі, ніж на спрямованій. Якщо в мене все це вийде, про цей проєкт обов'язково буде стаття та відео. </p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео, яке можна переглянути <a href="https://www.youtube.com/watch?v=Rb8Bwn-aupg">за посиланням.</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/suputniki.html">супутники</a>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

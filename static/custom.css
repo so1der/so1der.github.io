@@ -1,0 +1,91 @@
+main nav a {
+   font-size:16px;
+   padding: 0 10px;
+}
+
+aside nav ul li {
+   display: block;
+   padding: 0 10px;Add commentMore actions
+}
+
+body {
+   text-align: justify;
+   line-height: 1.5;
+   font-size: 18px;
+}
+
+main article {
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  max-height: 600px;
+}
+
+.preview {
+  display: inline;
+  transition: all 0.3s ease;
+  max-width: 60%;
+  height: auto;
+}
+
+.preview:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+  main article, .preview, img{
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+audio {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  aside div {
+  padding: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+a.btn_disabled {
+  background-color: #993706;
+  padding: .6em .6em;
+  font-size: .8em;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border: none;
+  border-radius: .25em;
+}

@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В цій статті я розповім, як я за допомогою Raspberry Pi та RTL-SDR повністю автоматизував прийом зображень з супутників NOAA!" />
+<meta name="keywords" content="зв&#39;язок, космос, супутники, Linux, embedded">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Автоматизуємо процес прийому зображень з супутників NOAA"/>
+  <meta property="og:description" content="В цій статті я розповім, як я за допомогою Raspberry Pi та RTL-SDR повністю автоматизував прийом зображень з супутників NOAA!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/noaa-automation.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-05-13 14:28:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="article:tag" content="космос"/>
+  <meta property="article:tag" content="супутники"/>
+  <meta property="article:tag" content="Linux"/>
+  <meta property="article:tag" content="embedded"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Автоматизуємо процес прийому зображень з супутників NOAA</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="noaa-automation">Автоматизуємо процес прийому зображень з супутників NOAA</h1>
+    <p>
+      Опубліковано 13.05.2025, 14:28 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="&quot;Raspberry Pi + RTL-SDR&quot;" src="https://so1der.github.io/images/noaa-automation/setup.jpg" title="Raspberry Pi + RTL-SDR"></p>
+<p>Raspberry Pi, RTL-SDR, та гарна антена, це доволі потужна комбінація, яка може відкрити для вас цілу купу нових можливостей. Наприклад найбанальніше, але від того не менш цікаве - за одну команду підняти <strong>rtl_tcp</strong> сервер.  Це дасть вам змогу не прив'язуватись до RTL-SDR та антени, і використовувати їх будь де, з будь якого пристрою, в зоні дії вашої домашньої мережі.</p>
+<p>Таким чином можна наприклад суттєво укоротити фідерну лінію антени, адже не треба тягнути її аж до вашого основного пристрою. Але в даній статті я розповім, як я за допомогою цього всього автоматизував:</p>
+<ul>
+<li>прийом</li>
+<li>декодування</li>
+<li>публікацію зображень в інтернет з супутників NOAA.</li>
+</ul>
+<p>Спочатку трішки поговоримо про сам проєкт, а потім я розповім про скрипти, за допомогою яких я це все реалізував.</p>
+<h2>Проєкт noaa_in_ukraine</h2>
+<p><img alt="&quot;Сторінка проєкту&quot;" src="https://so1der.github.io/images/noaa-automation/mastodon-page.jpg" title="Сторінка проєкту"></p>
+<p>Ітак, перед вами <a href="https://soc.ua-fediland.de/@noaa_in_ukraine/">сторінка проєкту в Mastodon</a>. Саме сюди кожного дня публікуються зображення з супутників NOAA 18 або NOAA 19. Я обрав саме Mastodon, бо інших нормальних альтернатив не знаю, + це концептуально доволі цікава соц. мережа, і хоч я сам не фанат соц. мереж, але думаю багатьом це було б цікаво. Про дану соц. мережу є доволі гарне <a href="https://www.youtube.com/watch?v=TRCepF1l3Nc">відео від каналу ҐАМЕРУА</a>, тож раджу ознайомитись.</p>
+<p>Відповідно, якщо у вас є там обліковий запис, можете підписатись, і отримувати щодня в стрічку актуальні зображення з супутників. Якщо його немає, то можна і без реєстрації зайти і подивитись. Зображень там вже вдосталь, і є навіть парочка цікавих. </p>
+<p><img alt="&quot;Циклон :0&quot;" src="https://so1der.github.io/images/noaa-automation/cyclone.jpg" title="Циклон :0"></p>
+<p>Антена з попередньої статті до речі вже доволі довго стоїть, і навіть вистояла пару дуже вітряних днів, тож думаю за неї можна не хвилюватись. Розтяжні мотузки роблять свою справу, хоч їх і довелось один раз переробляти. А на випадок блекаутів - для Raspberry Pi в мене є круте джерело безперебійного живлення, дякуючи Артему. Тож в теорії ніщо не повинно заважати всьому цьому працювати.</p>
+<p>Сподіваюсь в мене вийде якомога довше підтримувати цей проєкт, і назбирати цілу купу зображень, поки супутники ще функціонують. Тож буду радий якщо ви завітаєте на сторінку проєкту.</p>
+<h2>Технічна сторона</h2>
+<p>А тепер поговоримо про реалізацію. Одразу хочу сказати, що для автоматичного прийому і декодування погодних супутників вже є готове рішення, яке називається <a href="https://github.com/jekhokie/raspberry-noaa-v2">raspberry-noaa-v2</a> - в ній реалізовано все що треба, ще й прикольний веб інтерфейс є.</p>
+<p>Але цей проєкт мені не сподобався тим, що він заточений лише під Debian, ще й для його функціонування треба вимикати пароль на Root доступ. "Moving files around in the audio and image directory" звучить як дуже гарний привід використовувати Root доступ, ага)))0</p>
+<p>Копатись в чужому коді я не хотів, тому я вирішив написати купку баш скриптів, які зроблять все що мені потрібно. Але перш ніж ми на них поглянемо, давайте спочатку подивимось на залежності цих скриптів.</p>
+<h2>Залежності скриптів</h2>
+<p>Спочатку йде пакет <strong>rtl-sdr</strong>. Сюди входить купка драйверів та різних утиліт, з яких нам потрібна <strong>rtl_fm</strong> — термінальна програма для взаємодії з приймачем RTL-SDR. Вона ініціалізує його, налаштовує на потрібну частоту, включає frequency modulation, й виводить все що чує в файл, або stdout.</p>
+<p>Stdout - це потік, у який програми виводять свої вихідні дані - зазвичай це сам термінал, але ми маємо змогу через пайплайни перенаправити цей потік в іншу програму, яка наприклад вміє працювати зі звуком. Відповідно саме так скрипт і записує сигнал з супутника.</p>
+<p>Варто зазначити що через те що в мене RTL-SDR V4, довелось вручну компілювати цей пакет з репозиторіїв RTL-SDR. В мене насправді дуже довго не виходило змусити RTL-SDR працювати на Raspberry Pi. Я багато чого спробував, по декілька разів все компілював, але проблема виявилась в іншому місці - а саме в USB контролері, який встановлено в 4й версії Raspberry Pi. В ядрі був <a href="https://www.rtl-sdr.com/raspberry-pi-4-usb-bug-experienced-with-rtl-sdrs-now-fixed-with-kernel-update/">баг</a>, через який RTL-SDR і не працював. Тому щоб це виправити, достатньо було всього лише встановити ядро від Raspberry Pi Foundation, де цей баг вже давно пофіксили. На щастя це ядро було в <a href="https://archlinuxarm.org/packages/aarch64/linux-rpi">репозиторіях Arch Linux ARM</a>, і мені не довелось його компілювати власноруч.</p>
+<p>Далі йде <strong>sox</strong>, або ж <strong>Sound eXchange</strong> - це програма для усілякої роботи зі звуком і аудіофайлами - запис, програвання, конвертація, і тд. Саме в неї через пайплайн перенаправляються дані з rtl_fm, і sox робить з них .wav файл. Звісно rtl_fm і сам може записати аудіо в файл, але використання sound exchangera в даному випадку дає більше контролю над процесом запису.</p>
+<p>Далі - програма під назвою <a href="https://www.qsl.net/kd2bd/predict.html">predict</a> - дуууже стара термінальна програма для відстеження супутників. Відповідно саме завдяки ній, скрипт і розуміє коли слід починати запис. На жаль скоріше за все ви не знайдете цю програму в репозиторіях вашого дистрибутиву, тому її треба буде скомпілювати з вихідного коду. Після встановлення програми, її треба запустити, та ввести свої координати та висоту, і після цього скрипт зможе використовувати predict для відстеження супутників.</p>
+<p>Для декодування зображень скрипт використовує все той же <a href="https://noaa-apt.mbernardi.com.ar/">noaa apt image decoder</a>. Її теж може не бути репозиторіях вашого дистрибутиву, але компілювати її не обов'язково, адже на сайті є вже готові бінарники для всіх сучасних архітектур. Дана програма має термінальну реалізацію, що дає змогу не тільки автоматизувати рутинний UI-шний процес, а ще й легко додавати її до скриптів, що я і зробив. Але мені хотілось додати унікальності до отриманих зображень, тому давайте детальніше розглянемо як саме програма додає оверлей з кордонами країн.</p>
+<p>Вона це робить, використовуючи так звані <strong>шейпфайли</strong>. Це доволі <a href="https://uk.wikipedia.org/wiki/Shapefile">поширений формат</a> який використовується у всяких різноманітних ГІС системах. Шейпфайли не вбудовані в бінарник, і в десктопній версії лежать за ось цим шляхом: <code>/usr/share/noaa-apt/shapefiles/</code>.а якщо ви качали бінарники з сайту, то вони знаходяться в директорії <code>res</code>.</p>
+<p>Для самої програми потрібні лише файли в форматі <strong>.shp</strong>, але щоб нормально редагувати шейпфайли, потрібен ще й файл в форматі <strong>.dbf</strong>, в якому лежить інформація про кожний окремий шейп. Автор програми люб'язно залишив для нас <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">посилання</a>, перейшовши за яким, можна завантажити всі необхідні файли. Відповідно їх можна відредагувати за допомогою якоїсь програми для редагування шейпфайлів.</p>
+<p>Я використав онлайн програму <a href="https://mapshaper.org/">mapshaper</a>, і за допомогою ось цієї команди, прибрав всі країни окрім України:</p>
+<div class="highlight"><pre><span></span><code>-filter &#39;ADMIN == &quot;Ukraine&quot;&#39;
+</code></pre></div>
+
+<p>Тепер, ввівши флаг -o, від слова Output, можна зберегти нові шейпфайли, і якщо підмінити файл кантріс який використовує програма, вона буде малювати лише Україну:</p>
+<div class="highlight"><pre><span></span><code>-o ukraine_only.shp
+</code></pre></div>
+
+<p>Я також повністю очистив файл <code>states.shp</code>, щоб програма не малювала області. </p>
+<p><img alt="&quot;noaa apt image decoder з модифікованим .shp файлом&quot;" src="https://so1der.github.io/images/noaa-automation/ukraine-only.jpg" title="noaa apt image decoder з модифікованим .shp файлом"></p>
+<p>Чудово. Тепер можна рухатись далі.</p>
+<p>Наступна програма зі списку - <strong>ImageMagick</strong>. Вона потрібна для того щоб конвертувати зображення з PNG в JPG, тим самим зменшивши його розмір, бо без цього його не вийде запостити в Mastodon, так як PNG важить більше 10 мегабайт.</p>
+<p>Ще для скриптів потрібен <strong>wget</strong>, щоб завантажити TLE файли, але про них згодом.</p>
+<p>Ну і на останок - <strong>cron</strong> та <strong>at</strong>. Саме завдяки цим програмам досягається повна автоматизація процесу, адже <strong>cron</strong> дозволяє регулярно виконувати команди за розкладом, а <strong>at</strong> дозволяє виконати команду один раз у заданий час. Обійтись одним лише cron-ом було б важко, адже час проходу супутників, хоч і в певному діапазоні, але постійно змінюється. Після встановлення програм головне не забути запустити їх сервіси:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo systemctl enable cronie</span>
+<span class="go">sudo systemctl start cronie</span>
+
+<span class="go">sudo systemctl enable atd</span>
+<span class="go">sudo systemctl start atd</span>
+</code></pre></div>
+
+<h2>Скрипти</h2>
+<p>Тепер можна перейти і до самих скриптів. Я написав 5 bash скриптів та 1 скрипт на Python. Звісно мабуть можна було б запхати все це в один скрипт, але мені захотілось розділити все. Але перш ніж ми поглянемо на код - хочу одразу сказати, що я не програміст. Знання англійської мови та деякого синтаксису дозволяють мені писати код, але цього недостатньо щоб бути програмістом. Я багато чого не знаю в цьому плані, тому прошу тримати це в голові. Також я не ставив за мету створити готовий проєкт, який будь хто зможе за одну команду запустити в себе. Скоріше за все вам треба буде адаптувати скрипти під себе, як мінімум редагувати шляхи.</p>
+<hr>
+<h3>get_tle.sh</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+wget<span class="w"> </span>-q<span class="w"> </span>https://celestrak.org/NORAD/elements/weather.txt<span class="w"> </span>-O<span class="w"> </span>temp_tle<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>temp_tle<span class="w"> </span>tle.txt
+</code></pre></div>
+
+<p>Ітак, перший скрипт, <strong>get_tle.sh</strong>, за допомогою <strong>wget</strong> завантажує TLE для погодних супутників з сайту <a href="https://celestrak.org/NORAD/elements/weather.txt">celestrak</a>. TLE, або ж Two-Line Element Set це формат даних, що описує орбіту супутника. Саме за допомогою цих даних програми розуміють де знаходяться і де будуть знаходитись супутники, і саме завдяки ним, noaa apt image decoder може наносити на зображення кордони країн, бо програма по часу розуміє, де був супутник, і що він в цей момент бачив.</p>
+<p>Слід зазначити, що через купу різних космічних і не тільки явищ, орбіта супутників постійно змінюється, і TLE файли з часом втрачають свою актуальність, тому цей скрипт треба запускати регулярно, наприклад кожні 2-3 дні. Я додав його в крон, він виглядає ось так, тобто я запускаю цей скрипт о третій ночі, кожні 2 дні:</p>
+<div class="highlight"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">*/</span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ctl</span><span class="o">/</span><span class="kr">get</span><span class="n">_tle</span><span class="mf">.</span><span class="n">sh</span>
+</code></pre></div>
+
+<p>Тут використовується тимчасовий файл, та подвійна амперсанда, щоб якщо шось піде не так - буде відсутній інтернет, або ще шось, не перезаписати існуючий TLE файл.</p>
+<hr>
+<h3>noaa_scheduler.sh</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Set time range for satellites prediction (36000 seconds = 10 hours)</span>
+<span class="nv">predict_start</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;now&quot;</span><span class="w"> </span>+%s<span class="k">)</span>
+<span class="nv">predict_end</span><span class="o">=</span><span class="k">$((</span><span class="nv">predict_start</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">36000</span><span class="k">))</span>
+
+<span class="c1"># Determine highest elevation angle in specified time range of NOAA 18 and NOAA 19</span>
+<span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>elev18<span class="w"> </span>time18<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="k">$(</span>/usr/local/bin/predict<span class="w"> </span>-t<span class="w"> </span>tle.txt<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;NOAA 18&quot;</span><span class="w"> </span><span class="nv">$predict_start</span><span class="w"> </span><span class="nv">$predict_end</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $5, $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n1<span class="k">)</span>
+<span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>elev19<span class="w"> </span>time19<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="k">$(</span>/usr/local/bin/predict<span class="w"> </span>-t<span class="w"> </span>tle.txt<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;NOAA 19&quot;</span><span class="w"> </span><span class="nv">$predict_start</span><span class="w"> </span><span class="nv">$predict_end</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $5, $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n1<span class="k">)</span>
+
+<span class="c1"># Determine which satellite has better elevation angle</span>
+<span class="nv">better_pass</span><span class="o">=</span><span class="k">$(</span>awk<span class="w"> </span>-v<span class="w"> </span><span class="nv">e18</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$elev18</span><span class="s2">&quot;</span><span class="w"> </span>-v<span class="w"> </span><span class="nv">e19</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$elev19</span><span class="s2">&quot;</span><span class="w"> </span><span class="s1">&#39;BEGIN {print (e18 &gt; e19) ? 18 : 19}&#39;</span><span class="k">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$better_pass</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">sat</span><span class="o">=</span><span class="s2">&quot;noaa_18&quot;</span>
+<span class="w">    </span><span class="nv">nu</span><span class="o">=</span><span class="m">18</span>
+<span class="w">    </span><span class="nv">peak</span><span class="o">=</span><span class="nv">$time18</span>
+<span class="w">    </span><span class="nv">elev</span><span class="o">=</span><span class="nv">$elev18</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nv">sat</span><span class="o">=</span><span class="s2">&quot;noaa_19&quot;</span>
+<span class="w">    </span><span class="nv">nu</span><span class="o">=</span><span class="m">19</span>
+<span class="w">    </span><span class="nv">peak</span><span class="o">=</span><span class="nv">$time19</span>
+<span class="w">    </span><span class="nv">elev</span><span class="o">=</span><span class="nv">$elev19</span>
+<span class="k">fi</span>
+
+<span class="c1"># Calculate time variables and set filenames</span>
+<span class="c1"># 450 = 7.5 minutes usually half time of the good satellite pass</span>
+<span class="c1"># 120 = 2 minutes pause between each &#39;at&#39; command, to ensure that they do not overlap each other</span>
+<span class="nv">start_pass</span><span class="o">=</span><span class="k">$((</span><span class="nv">peak</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">450</span><span class="k">))</span>
+<span class="nv">end_pass</span><span class="o">=</span><span class="k">$((</span><span class="nv">peak</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">450</span><span class="k">))</span>
+<span class="nv">process_image_time</span><span class="o">=</span><span class="k">$((</span><span class="nv">end_pass</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">120</span><span class="k">))</span>
+<span class="nv">posting_image_time</span><span class="o">=</span><span class="k">$((</span><span class="nv">process_image_time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">120</span><span class="k">))</span>
+<span class="nv">formated_date</span><span class="o">=</span><span class="k">$(</span><span class="nv">LC_TIME</span><span class="o">=</span>uk_UA.UTF-8<span class="w"> </span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$start_pass</span><span class="w"> </span><span class="s2">&quot;+%A %d.%m.%Y %H:%M:%S&quot;</span><span class="k">)</span>
+<span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">sat</span><span class="si">}</span><span class="s2">_</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$start_pass</span><span class="w"> </span>+%d_%m_%y_%H%M%S<span class="k">)</span><span class="s2">.wav&quot;</span>
+<span class="nv">image</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">sat</span><span class="si">}</span><span class="s2">_</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$start_pass</span><span class="w"> </span>+%d_%m_%y_%H%M%S<span class="k">)</span><span class="s2">.jpg&quot;</span>
+
+<span class="c1"># Set frequency depending on satellite</span>
+<span class="o">[[</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">freq</span><span class="o">=</span><span class="s2">&quot;137.1M&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nv">freq</span><span class="o">=</span><span class="s2">&quot;137.9125M&quot;</span>
+
+<span class="c1"># Schedule the command execution for satellite pass recording, image processing, and publishing image to Mastodon</span>
+<span class="c1"># &#39;sleep&#39; is used to achieve second precision, since &#39;at&#39; does not work with seconds</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;sleep </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$start_pass</span><span class="w"> </span>+%S<span class="k">)</span><span class="s2">; /usr/local/bin/rtl_fm -f </span><span class="nv">$freq</span><span class="s2"> -s 80k -g 49.6 -p 0 -F 9 -E dc | sox -t raw -r 80k -e signed -b16 -c1 - </span><span class="nv">$filename</span><span class="s2"> trim 0 900&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>at<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$start_pass</span><span class="w"> </span>+%H%M<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bash process_image.sh </span><span class="nv">$filename</span><span class="s2"> </span><span class="nv">$start_pass</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>at<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$process_image_time</span><span class="w"> </span>+%H%M<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bash post_image.sh </span><span class="nv">$image</span><span class="s2"> \&quot;</span><span class="nv">$elev</span><span class="s2">\&quot; \&quot;</span><span class="nv">$formated_date</span><span class="s2">\&quot; &amp;&amp; bash move_processed_files.sh </span><span class="nv">$filename</span><span class="s2"> </span><span class="nv">$image</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>at<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$posting_image_time</span><span class="w"> </span>+%H%M<span class="k">)</span><span class="w"> </span>
+
+<span class="c1"># Save logs into logfile_noaa</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">&quot;%Y-%m-%d %H:%M:%S&quot;</span><span class="k">)</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Scheduled </span><span class="nv">$sat</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Elevation: </span><span class="nv">$elev</span><span class="s2">°&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;From </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$start_pass</span><span class="w"> </span>+<span class="s2">&quot;%H:%M:%S&quot;</span><span class="k">)</span><span class="s2"> to </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$end_pass</span><span class="w"> </span>+<span class="s2">&quot;%H:%M:%S&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Peak elevation time: </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$peak</span><span class="w"> </span>+<span class="s2">&quot;%H:%M:%S&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Filename: </span><span class="nv">$filename</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Image name: </span><span class="nv">$image</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Image Processing Time: </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$process_image_time</span><span class="w"> </span>+<span class="s2">&quot;%H:%M:%S&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Image Posting Time: </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$posting_image_time</span><span class="w"> </span>+<span class="s2">&quot;%H:%M:%S&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="o">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>logfile_noaa
+</code></pre></div>
+
+<p>І тепер, маючи TLE файл, може функціонувати основний скрипт - <strong>noaa_scheduler.sh</strong>. Даний скрипт, за допомогою програми predict про яку я розповідав раніше, визначає найліпший прохід супутника в найближчі 10 годин, і за допомогою команди at, планує запис, обробку, та постинг зображення. Також тут формуються імена файлів, та логи, які потім записуються в лог файл, щоб можна було якщо що подивитись, де шось пішло не так.</p>
+<p>Запис відбувається за допомогою rtl_fm та sox, а обробка та постинг за допомогою інших скриптів, які розглянемо далі. Варто зазначити, що розрахунки часу тут не супер точні, і інколи запис починається чи закінчується трішки раніше чи пізніше ніж треба. Більшої точності можна досягти, якщо використовувати predict трошки по іншому, але для спрощення скриптів я вирішив залишити все як є.</p>
+<p>Відповідно, цей скрипт я також помістив в крон, щоб він виконувався кожного дня, о 5й ранку:</p>
+<div class="highlight"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ctl</span><span class="o">/</span><span class="n">noaa_scheduler</span><span class="mf">.</span><span class="n">sh</span>
+</code></pre></div>
+
+<p>Таким чином крон запускає його, і скрипт знаходить найкращий ранковий прохід супутника, і відкладає на необхідний час запис, обробку, та публікацію зображення. Нічні зображення не дуже цікаві, тому я вирішив не записувати і не публікувати їх. </p>
+<p>Невеличкою проблемою стало те, що програма at не працює з секундами, тому щоб досягти секундної точності виконання програм, довелось використовувати команду sleep, яка затримає виконання основної команди на потрібну кількість секунд, наприклад:</p>
+<div class="highlight"><pre><span></span><code>sleep<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello World!&quot;</span>
+</code></pre></div>
+
+<hr>
+<h3>process_image.sh</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nv">wav_file</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">time</span><span class="o">=</span><span class="k">$((</span><span class="nv">$2</span><span class="o">+</span><span class="m">4</span><span class="k">))</span>
+<span class="nv">satellite</span><span class="o">=</span><span class="si">${</span><span class="nv">wav_file</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">7</span><span class="si">}</span>
+<span class="nv">image_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">satellite</span><span class="si">}</span><span class="s2">_</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$2</span><span class="w"> </span>+%d_%m_%y_%H%M%S<span class="k">)</span><span class="s2">.png&quot;</span>
+<span class="nv">compressed_image_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">satellite</span><span class="si">}</span><span class="s2">_</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$2</span><span class="w"> </span>+%d_%m_%y_%H%M%S<span class="k">)</span><span class="s2">.jpg&quot;</span>
+
+mv<span class="w"> </span><span class="nv">$wav_file</span><span class="w"> </span>noaa-apt/
+<span class="nb">cd</span><span class="w"> </span>noaa-apt/
+
+./noaa-apt<span class="w"> </span><span class="nv">$wav_file</span><span class="w"> </span>-Fc<span class="w"> </span>histogram<span class="w"> </span>-P<span class="w"> </span>res/palettes/noaa-apt-daylight.png<span class="w"> </span>-R<span class="w"> </span>no<span class="w"> </span>-o<span class="w"> </span><span class="nv">$image_name</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$satellite</span><span class="w"> </span>-T<span class="w"> </span>../tle.txt<span class="w"> </span>-t<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-u<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$time</span><span class="w"> </span>+<span class="s2">&quot;%Y-%m-%dT%H:%M:%S%:z&quot;</span><span class="k">)</span><span class="w"> </span>-m<span class="w"> </span>yes
+
+magick<span class="w"> </span><span class="nv">$image_name</span><span class="w"> </span>-flatten<span class="w"> </span>-quality<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="nv">$compressed_image_name</span>
+
+rm<span class="w"> </span><span class="nv">$image_name</span>
+</code></pre></div>
+
+<p>Наступний скрипт - <strong>process_image.sh</strong>. Даний скрипт, передає аудіо файл і купку інших параметрів в noaa apt image decoder, після чого стискає отримане зображення в JPG, а оригінал видаляє.</p>
+<hr>
+<h3>post_image.sh</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/python-mastodon/
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+python<span class="w"> </span>poster.py<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w">  </span>&gt;&gt;<span class="w"> </span>logfile_python
+</code></pre></div>
+
+<p><strong>post_image.sh</strong> навіть скриптом назвати важко - це просто невеличкий враппер, який запускає пайтонівський скрипт, і передає йому необхідні параметри. Ну і про всяк випадок ще записує аутпут скрипта в логфайл. Я вирішив зробити саме окремий скрипт для цього, бо для запуску пайтонівського скрипта треба спочатку активувати віртуальне середовище, щоб Python зміг використовувати бібліотеку <a href="https://pypi.org/project/Mastodon.py/">Mastodon.py</a> - тому, щоб все виглядало гарненько, використовується окремий скрипт.</p>
+<hr>
+<h3>poster.py</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">mastodon</span> <span class="kn">import</span> <span class="n">Mastodon</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Usage: python poster.py &lt;file&gt; &lt;angle&gt; &lt;date&gt;&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">satellite</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="c1"># Replace with your basedir</span>
+    <span class="n">basedir</span> <span class="o">=</span> <span class="s2">&quot;/home/ctl/noaa-apt/&quot;</span>
+
+    <span class="n">post_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Супутник: </span><span class="si">{</span><span class="n">satellite</span><span class="si">}</span>
+<span class="s2">Кут піднесення: </span><span class="si">{</span><span class="n">angle</span><span class="si">}</span><span class="s2">°</span>
+<span class="s2">Початок запису: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span>
+
+    <span class="n">mastodon</span> <span class="o">=</span> <span class="n">Mastodon</span><span class="p">(</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">api_base_url</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">)</span>
+    <span class="n">media</span> <span class="o">=</span> <span class="n">mastodon</span><span class="o">.</span><span class="n">media_post</span><span class="p">(</span><span class="n">basedir</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">mastodon</span><span class="o">.</span><span class="n">status_post</span><span class="p">(</span><span class="n">post_text</span><span class="p">,</span> <span class="n">media_ids</span><span class="o">=</span><span class="p">[</span><span class="n">media</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<p>А говорячи про пайтонівський скрипт - ось він. Тут взагалі нічого складного, скрипт просто складає необхідний текст, і постить з ним відповідне зображення, використовуючи спеціальну бібліотеку для роботи з API Мастодона. Тут вказується посилання на інстанс Мастодона (api_base_url), та токен для API (access_token), який можна отримати в налаштуваннях акаунта. Також слід змінити basedir відповідно до ваших шляхів.</p>
+<p>Перед першим запуском скрипта, треба створити віртуальне середовище, активувати його, і встановити бібліотеку Masotdon.py:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>Mastodon.py
+</code></pre></div>
+
+<hr>
+<h2>move_processed_files.sh</h2>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/noaa-apt/
+mv<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="nv">$HOME</span>/Recordings/
+mv<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="nv">$HOME</span>/Pictures/
+</code></pre></div>
+
+<p>Ну і останній скрипт, <strong>move_processed_files.sh</strong> - просто переносить відпрацьовані аудіо файл та зображення в відповідні для них директорії. Без Root доступу до речі)))0</p>
+<p>Знову ж таки, якщо будете використовувати ці скрипти, передивіться всі шляхи, і адаптуйте їх за потреби під себе. Варто також пам'ятати, що аудіофайли важать немало, і можуть дуже швидко забити карту пам'яті Raspberry Pi, тому можливо краще видаляти їх, але я вирішив певний час зберігати їх про всяк випадок.</p>
+<hr>
+<p>Ось такий ось вийшов проєкт. <a href="https://github.com/so1der/noaa_automation">Ось посилання</a> на GitHub репозиторій буде в описі, можете ознайомитись більш детально. Звісно ці скрипти дууууже далекі від ідеалу, але ще жодного разу не виникало ніяких проблем, і все продовжує працювати. Тож буду радий якщо завітаєте і подивитесь на проєкт у мастадоні. Ну і також якщо не читали, можете почитати інші статті на цю тему. В мене їх <a href="/tag/suputniki.html">ціла купа</a>.</p>
+<p>Щиро вдячний Артему за Raspberry Pi, а також щиро вдячний вам, моїм глядачам та читачам, бо без вас не було б сенсу все це робити.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео, доступного <a href="https://www.youtube.com/watch?v=Km4ljjZqFwI">за посиланням.</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+      <a href="https://so1der.github.io/tag/kosmos.html">космос</a>
+      <a href="https://so1der.github.io/tag/suputniki.html">супутники</a>
+      <a href="https://so1der.github.io/tag/linux.html">Linux</a>
+      <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
