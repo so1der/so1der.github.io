@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статті поглянемо на простий, але доволі цікавий годинник, який бере точний час прямо з супутників!" />
+<meta name="keywords" content="diy, годинник, супутники">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="DIY годинник з синхронізацією через супутники!"/>
+  <meta property="og:description" content="В даній статті поглянемо на простий, але доволі цікавий годинник, який бере точний час прямо з супутників!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/gps-clock.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-07-15 17:30:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="годинник"/>
+  <meta property="article:tag" content="супутники"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; DIY годинник з синхронізацією через супутники!</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="gps-clock">DIY годинник з синхронізацією через супутники!</h1>
+    <p>
+      Опубліковано 15.07.2025, 17:30 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Говорячи про джерело точного часу, багато хто одразу подумає про спеціальні NTP сервери, які через декілька рукостискань беруть точний час прямо з атомних годинників. Але, прямо в нас над головою, цілодобово літають десятки супутників, які мають на собі повноцінний атомний годинник, і готові поділитись з нами точним часом!</p>
+<p><img alt="Кран на фоні зірок" src="https://so1der.github.io/images/gps-clock/stars.jpg" title="Кран на фоні зірок"></p>
+<p>Мова йде про супутники системи <strong>GPS - Global Positioning System</strong>. Щоб визначити місцезнаходження, ваш телефон використовує трилатерацію, і, вимірюючи час проходження сигналу від супутників до нього, обчислює відстань до кожного супутника знаючи швидкість поширення радіохвиль, що дозволяє точно визначити своє місцезнаходження.</p>
+<p><img alt="Трилатерація" src="https://so1der.github.io/images/gps-clock/trilateration.png" title="Трилатерація"></p>
+<p>Тому для GPS супутників надзвичайно важливо мати дуже точний годинник, адже навіть похибка в пару мілісекунд може суттєво вплинути на точність геолокації. Саме цим я і пропоную скористатись для того, щоб зробити крутий годинник, який завжди буде мати доступ до точного  часу.</p>
+<p><img alt="NEO-6M" src="https://so1der.github.io/images/gps-clock/neo-6m.png" title="NEO-6M"></p>
+<p>В цьому нам допоможе ось такий ось GPS модуль, <strong>NEO-6M</strong>. Він має UART шину для підключення, та невеличку керамічну антенку. Знявши металевий екран з антени, можна побачити, що під ним майже нічого нічого немає:</p>
+<p><img alt="Пасивна антена всередині" src="https://so1der.github.io/images/gps-clock/antenna-inside.jpg" title="Пасивна антена всередині"></p>
+<p>Це означає що дана антена - пасивного типу. Тут є лише пасивна узгоджувальна лінія, яка складається з резистора на 50 Ом, та якогось невідомого мені чотирьох вивідного SMD компонента. В антені активного типу під екраном знаходиться ціла купа всього, і band-pass фільтр, і підсилювачі, а також спеціальні лінії, щоб розділити корисний сигнал з антени, та постійний струм для живлення підсилювачів:</p>
+<p><img alt="Активна антена всередині" src="https://so1der.github.io/images/gps-clock/active-antenna.jpg" title="Активна антена всередині"></p>
+<p>Через наявність підсилювачів та фільтрів такі антени набагато більш краще приймають сигнал, навіть в будівлях, але натомість більше коштують, ну і потребують живлення для підсилювачів. Пасивна антена хоч і не може похвалитись супер характеристиками, але зато вона дешева та проста, і тому вона часто зустрічається в комплекті з модулями.</p>
+<p>Якщо подати на GPS модуль живлення, то він почне приймати сигнал з супутників, і відправляти по UART шині різного роду дані в <a href="https://aprs.gids.nl/nmea/">форматі NMEA</a>, що включають в себе наприклад координати, час та дату, швидкість, напрямок руху і так далі. Прийняти ці дані можна наприклад за допомогою мікроконтролера, або звичайного UART перетворювача, такого ж, який ми <a href="/articles/wr840n-hacking-1.html">використовували щоб під'єднатись до роутера</a>.</p>
+<p>Можна виводити дані з модуля прямо в консоль, без всяких сторонніх програм, і наприклад через GREP фільтрувати необхідні дані:</p>
+<div class="highlight"><pre><span></span><code><span class="go">cat /dev/ttyUSB0 | grep GPGSV</span>
+</code></pre></div>
+
+<p>де:</p>
+<ul>
+<li><code>/dev/ttyUSB0</code> - GPS модуль підключений через UART перетворювач</li>
+<li><code>GPGSV</code> - необхідне NMEA речення (NMEA sentence)</li>
+</ul>
+<p>Тобто от настільки легко можна зараз додати GPS функціонал до будь якого ноутбука або комп'ютера.</p>
+<h2>Компоненти</h2>
+<p><img alt="Компоненти" src="https://so1der.github.io/images/gps-clock/components.jpg" title="Компоненти"></p>
+<p>Ітак, для створення годинника нам знадобиться: </p>
+<ul>
+<li>вже раніше згаданий GPS модуль</li>
+<li>символьний екранчик на 4 рядки по 20 символів</li>
+<li>мікроконтролер STM32 Blue Pill (STM32F103C8T6)</li>
+<li>якийсь корпус щоб все це сховати. </li>
+</ul>
+<p>Ну і також купка інших дрібниць: транзистор 2N2222, резистор на 1 кОм, та слот під батарейку CR2032.</p>
+<p>GPS модуль як я вже казав, буде виступати в ролі джерела точного часу. Дисплейчик потрібен для відображення часу та іншої інформації. В цілому можна використати будь який символьний, навіть 1602, але я вирішив взяти саме такий, щоб розмістити більше інформації. В якості мікроконтролера я взяв STM32 Blue Pill з декількох причин. </p>
+<p>По перше в мене вже давно лежить така платка, тому хотілось її кудись приткнути. По друге, вона коштує майже стільки як і якась звичайна Arduino Nano, але на відміну від неї вже має <strong>вбудований Real Time Clock, RTC</strong>, тому відпадає необхідність використовувати якісь зовнішні модулі. Насправді GPS модуль теж має свій RTC, і в теорії можна використовувати його, але наскільки мені відомо, через певний час після втрати сигналу з супутників, він може відвалитись. Принаймні при втраті живлення - точно, там або розряджається наявний на платі акумулятор, або дані застарівають, або ще щось.</p>
+<p>В мене він пару разів вів себе нестабільно, тому на мою думку краще використовувати окремий RTC, тим паче в мікроконтролері він вже є. Але якщо використовувати активну антену розташовану в гарному місці, то я думаю можна спокійно використовувати і RTC вбудований в GPS модуль.</p>
+<p>А щоб використовувати RTC на платі Blue Pill слід не підпаювати нічого до пінів <strong>С14 та С15</strong>, навіть звичайну гребінку, адже саме сюди підключається керамічний резонатор який тактує RTC, і зайві з'єднання будуть погано впливати на його точність. Ну і також нам треба надати мікроконтролеру резервне джерело живлення - батарейку типу CR2032, плюс якої необхідно підключити до контакту <strong>VB</strong> на платі.</p>
+<p>До речі все раніше перераховане, а саме мікроконтролер, дисплей, GPS модуль, та корпус, можна купити в магазині <a href="https://arduino.ua/">arduino.ua</a>. Я саме там все і купив, окрім мікроконтролера який в мене вже був. Я був дуже здивований, коли дізнався, що власник цього магазину дивиться мій канал, і навіть надав мені промокод на знижку, тому найменше що я можу зробити - розповісти вам про такий чудовий магазин! Я вже не перший раз замовляю там різні штуки, і це дуже круто, що не треба за всім цим бігти на наприклад Аліекспрес. Тож якщо вам треба щось зі сфери мікроконтролерів або одноплатних комп'ютерів - раджу завітати на Arduino.ua.</p>
+<h2>Схема</h2>
+<p>Щож, спочатку поговоримо про схему годинника.</p>
+<p><img alt="Схема" src="https://so1der.github.io/images/gps-clock/schematic.jpg" title="Схема"></p>
+<p>GPS модуль підключається до першої UART шини мікроконтролера, тобто пінів <strong>PA9 та PA10</strong>. Достатньо всього лише підключити Tx GPS модуля до PA10, так як нам треба лише приймати дані, але щоб Rx не висів в повітрі, можна і його підключити. Живлення модуля підключається до 3.3В. </p>
+<p>Дисплей працює в 4х бітному режимі, і підключається до пінів <strong>від РА0 до РА5</strong>. Звісно вільних пінів у нас вдосталь, тому можна було б і 8ми бітний режим використати, але особисто я не бачу в цьому сенсу, так як ми все одно впираємось в інерційність рідкокристалічного дисплея, тому швидкостей 4х бітного режима достатньо з головою. Катод підсвітки підключається до землі через транзистор 2N2222, і керується за допомогою мікроконтролера через пін <strong>РА6</strong>.</p>
+<p>Також не забуваємо додати змінний резистор для налаштування контрастності дисплея. Ну і не забуваємо про батарейку для RTC. На цьому все, ніяких кнопок чи чогось такого - не потрібно.</p>
+<p><img alt="Годинник зібраний на бредборді" src="https://so1der.github.io/images/gps-clock/breadboard.jpg" title="Годинник зібраний на бредборді"></p>
+<p>Я зібрав все на бредборді для тестів, це значно спрощує відладку та написання коду.</p>
+<h2>Код</h2>
+<p>А стосовно коду - я писав його в <a href="https://platformio.org/">PlatformIO</a>. Він дозоляє легко використовувати STM32 з фреймворком Arduino. Як я вже неодноразово казав - я не вважаю себе програмістом, тому подужати Arduino для мене набагато легше ніж чистий STM32.</p>
+<p>В проєкті використовується купка бібліотек. Більшість з них, а саме бібліотеки для роботи з GPS модулем, з часом, та LCD дисплейчиком - PlatformIO завантажить автоматично:</p>
+<ul>
+<li>TinyGPS++</li>
+<li>STM32RTC</li>
+<li>Timezone</li>
+<li>TimeLib
+-LiquidCrystal</li>
+</ul>
+<p>А одну бібліотеку довелось модифікувати, тому вона вже лежить в директорії lib в репозиторії проєкту. Це бібліотека <strong>BigNums2x2</strong>, яка використовується для відображення великих цифр на символьних дисплейчиках.</p>
+<p><img alt="Цифри відображені за допомогою BigNums" src="https://so1der.github.io/images/gps-clock/bignums.jpg" title="Цифри відображені за допомогою BigNums"></p>
+<p>Вона використовує 8 кастомних символів дисплея для того щоб формувати з 4х комірок гарні та великі цифри. Саме тому я й обрав такий дисплей, адже він дозволить виводити великий цифрами час, ну і на додачу ще дату та кількість супутників які приймає GPS модуль. Хоча якщо потрібен лише час, то вистачить і звичайного 16-ти символьного дисплея на 2 рядки.</p>
+<p>І от схоже автори бібліотеки не передбачували що хтось буде використовувати дисплей з 4ма рядками, тому захардкодили вивід тексту на перший рядок, а так як я хотів малювати час по центру, довелось підправити <a href="https://github.com/so1der/GPS_Clock/blob/main/lib/BigNums2x2/src/BigNums2x2.cpp#L569">тут нуль на одинцю</a>.</p>
+<p>Ну і також ще довелось прибрати ось цей ось блок коду, так як він заважав нормально малювати розділові символи між цифрами:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1">// clears the spaces between digits, prob not needed if you&#39;re good about using lcd.clear</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numdigits</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">startcol</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">startcol</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="n">lcd</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">);</span>
+<span class="w">        </span><span class="n">lcd</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+
+<h2>Timezone</h2>
+<p>Цілим відкриттям для мене до речі стала бібліотека <strong>Timezone</strong>, яка дозволяє задати коли починається літній та зимовий час, та автоматично конвертувати UTC в потрібний часовий пояс.</p>
+<p>Тобто в RTC зберігається не локальний час, а UTC, який як раз і повертають супутники, і ця бібліотека дивиться на дату, та виходячи з неї конвертує його в необхідний часовий пояс - UTC+2 або UTC+3. Дуже зручно, і тому годинник взагалі не потребує ніяких кнопок та налаштувань.</p>
+<p>Насправді я немало часу витратив на те шоб зрозуміти як все це скомпонувати, бо наприклад бібліотека для роботи з GPS модулем повертає повний рік, наприклад 2025. TimeLib, яка знадобилась для бібліотеки Timezone, як виявляється очікує рік в форматі оффсету від 1970 року, тобто  наприклад не 2025, а 55. Ну а STM32 очікує та повертає рік в форматі оффсету від 2000 року. Тому місцями в коді можна побачити ці дивні перетворення.</p>
+<p>Також в коді є блок змінних, які можна налаштувати під себе:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ============ User Settings =============</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">dim_start_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span><span class="w"> </span><span class="c1">// The hour when the nighttime begins (backlights dimms)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">dim_end_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="c1">// The hour when the nighttime ends  (backlights brighten)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">day_dim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="c1">// Daytime backlight brightness   (0 - minimum, 255 - maximum)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">night_dim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// Nighttime backlight brightness (0 - minimum, 255 - maximum)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">min_sats_to_calibrate_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="c1">// Minimum number of satellites for time calibration</span>
+<span class="c1">// ========================================</span>
+</code></pre></div>
+
+<p>Тут можна задати коли вмикається та вимикається нічна підсвітка, наскільки підсвітка буде яскравою вночі та вдень, ну і також обрати мінімальну кількість супутників, необхідних для синхронізації часу. В теорії час можна отримати і від одного супутника, але чим більше супутників бачить модуль, тим впевненіше можна сказати що сигнал якісний та надійний. Репозиторій з кодом проєкту доступний <a href="https://github.com/so1der/GPS_Clock/">за посиланням</a>. Достатньо просто клонувати або завантажити його, і відкрити як проєкт в PlatformIO. </p>
+<p>Далі натискаємо галочку Build, або натискаємо комбінацію клавіш <strong>Ctrl + Alt + B</strong>, та проєкт почне компілюватись, завантажуючи все необхідне.</p>
+<h2>Прошиваємо мікроконтролер</h2>
+<p>Тепер можна прошити мікроконтролер. Я зробив це за допомогою ось такого ST Link програматора:</p>
+<p><img alt="ST Link V2" src="https://so1der.github.io/images/gps-clock/stlinkv2.png" title="ST Link V2"></p>
+<p>Саме він вказаний в файлі platformio.ini як спосіб програмування:</p>
+<div class="highlight"><pre><span></span><code><span class="na">upload_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">stlink</span>
+</code></pre></div>
+
+<p>Якщо ви будете використовувати щось інше - змініть <code>upload_protocol</code> на потрібний.</p>
+<p>Також ще варто зазначити що плати BluePill бувають на різних чіпах. Наприклад в мене на платі стоїть stm32f103<strong>c6</strong>, тому я вказав саме його:</p>
+<p><img alt="STM32F103C6T6" src="https://so1der.github.io/images/gps-clock/stm32f103c6t6.jpg" title="STM32F103C6T6"></p>
+<div class="highlight"><pre><span></span><code><span class="na">board</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bluepill_f103c6</span>
+</code></pre></div>
+
+<p>Але в репозиторії буде вказаний інший, а саме stm32f103<strong>c8</strong>, так як він більш поширений, має більше пам'яті, і саме його ви може знайти в магазині arduino.ua:</p>
+<div class="highlight"><pre><span></span><code><span class="na">board</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bluepill_f103c8</span>
+</code></pre></div>
+
+<p>Тож тримайте це в голові, і замініть за потреби, якщо у вас як і в мене C6. </p>
+<p>Підключаємо програматор до мікроконтролера, та натискаємо стрілочку Upload або комбінацію клавіш <strong>Ctrl + Alt + U</strong>. Мікроконтролер прошитий.</p>
+<p><img alt="Годинник на бредборді" src="https://so1der.github.io/images/gps-clock/clock-on-breadboard.jpg" title="Годинник на бредборді"></p>
+<h2>Збираємо годинник</h2>
+<p>Потестувавши пару днів годинник на бредборді, я впевнився що все працює як слід. Далі я вирішив зайнятись корпусом. Спочатку приблизно прикинув де буде розташований дисплей, і за допомогою старого заточеного паяльника вирізав під дисплей віконце. Після чого обробив грані за допомогою абразивного паперу.</p>
+<p><img alt="Віконце під дисплей" src="https://so1der.github.io/images/gps-clock/case.jpg" title="Віконце під дисплей"></p>
+<p>Трішки кривувато вийшло, але нехай. За рахунок тертя дисплей надійно тримається в корпусі. Так як в корпусі і без того мало місця, я вирішив прибрати джампери на мікроконтролері, і на їх місце зробити звичайні перемички з припою, так як міняти їх положення я не планую:</p>
+<p><img alt="Перемички" src="https://so1der.github.io/images/gps-clock/jumpers.jpg" title="Перемички"></p>
+<p>Далі я спаяв все за схемою, використовуючи макетну плату, але трішки навиворіт. Вона тут здебільшого лише фіксує елементи, а з'єднання я робив дротиками напряму. Для контрасту дисплея я спочатку вирішив використати резистивний дільник замість змінного резистора, але так як потрібних резисторів в мене не було, я вирішив збільшити опір дільника в 10 разів. Нічого гарного з цієї ідеї не вийшло, тим паче я ще й не раз сплутав їх місцями, та переполюсовав живлення дисплею, тому я вирішив повернутись до змінного резистору.</p>
+<p>Для живлення годинника я вирішив використати ось роз'єм під штекер 5.5 на 2.5, для якого довелось просвердлити 8ми міліметровий отвір в корпусі годинника. Також я просвердлив отвір під фідер антени. Ну і під саморізи щоб кріпити задню кришку.</p>
+<p><img alt="Спаяний годинник" src="https://so1der.github.io/images/gps-clock/soldering.jpg" title="Спаяний годинник"></p>
+<p>Тепер коли годинник зібраний, саме час поговорити, як він працює. При першому включенні, так як RTC не налаштований, годинник почне шукати GPS супутники, щоб взяти з них час. На це може піти немало часу, так як модуль повинен завантажити там всякі альманахи, ефемериди, PRN коди, і так далі, і все це використовуючи ту хіленьку пасивну антену. </p>
+<p>Тому в будівлі цього взагалі може не відбутись, і краще для першої синхронізації вийти на вулицю. На відкритому небі модуль запросто отримає всі необхідні дані, і зможе синхронізувати RTC. А маючи необхідні дані, він зможе ловити супутники навіть в будівлі, якщо пощастить. Особливо біля вікна. А якщо не ловить, то можна використовувати антену покраще, або виносити годинник на вулицю для синхронізації. Не думаю що це треба буде робити прям дуже часто.</p>
+<p>Точність синхронізації до речі прям дуже гарна, годинник секунда в секунду йде з часом з інтернету:</p>
+<p><img alt="Точність синхронізації" src="https://so1der.github.io/images/gps-clock/sync.jpg" title="Точність синхронізації"></p>
+<p>А як тільки похибка зросте до 5 секунд, при наявності сигналу з супутників, наявність яких до речі можна побачити на дисплеї, годинник автоматично синхронізується. Я вирішив зробити саме 5 секунд, щоб не мучити RTC частим перезаписуванням, та і на мою думку це не дуже велика похибка, але якщо що, то на <a href="https://github.com/so1der/GPS_Clock/blob/main/src/main.cpp#L63">63-му рядку коду</a> це можна змінити.</p>
+<p>Ось такий ось вийшов годинник. Він доволі непогано виглядає як для годиннику з символьним дисплеєм, вміє підлаштовувати яскравість підсвітки в залежності від часу доби, сам виставляє потрібний часовий пояс, автоматично за потреби синхронізується з супутниками при наявності сигналу, та відображає їх кількість для інформативності. </p>
+<p>Звісно корпус міг би бути краще, але мене і так все влаштовує.</p>
+<p>А на цьому в мене все! Про всяк випадок дублюю <a href="https://github.com/so1der/GPS_Clock/">посилання на репозиторій проєкту</a>.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія відео з мого YouTube каналу. Відео можна переглянути за <a href="">ось цим посиланням</a>.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/godinnik.html">годинник</a>
+      <a href="https://so1der.github.io/tag/suputniki.html">супутники</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
