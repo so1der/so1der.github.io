@@ -20,6 +20,10 @@ main article {
   padding: 0 60px;
 }
 
+.index {
+  max-width:850px;
+}
+
 img {
   display: block;
   margin-left: auto;
@@ -31,7 +35,6 @@ img {
 .preview {
   display: inline;
   transition: all 0.3s ease;
-  max-width: 60%;
   height: auto;
 }
 
