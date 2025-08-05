@@ -46,7 +46,7 @@
 
 <meta name="author" content="so1der" />
 <meta name="description" content="В цій статті я розповім, як я за допомогою Raspberry Pi та RTL-SDR повністю автоматизував прийом зображень з супутників NOAA!" />
-<meta name="keywords" content="зв&#39;язок, космос, супутники, Linux, embedded">
+<meta name="keywords" content="зв&#39;язок, космос, супутники, Linux, embedded, Raspberry Pi">
 
 
   <meta property="og:site_name" content="so1der"/>
@@ -64,6 +64,7 @@
   <meta property="article:tag" content="супутники"/>
   <meta property="article:tag" content="Linux"/>
   <meta property="article:tag" content="embedded"/>
+  <meta property="article:tag" content="Raspberry Pi"/>
   <meta property="og:image" content="/logo.png">
 
   <title>so1der &ndash; Автоматизуємо процес прийому зображень з супутників NOAA</title>
@@ -193,7 +194,7 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <div class="highlight"><pre><span></span><code>-filter &#39;ADMIN == &quot;Ukraine&quot;&#39;
 </code></pre></div>
 
-<p>Тепер, ввівши флаг -o, від слова Output, можна зберегти нові шейпфайли, і якщо підмінити файл кантріс який використовує програма, вона буде малювати лише Україну:</p>
+<p>Тепер, ввівши флаг -o, від слова Output, можна зберегти нові шейпфайли, і якщо підмінити файл <code>countries.shp</code> який використовує програма, вона буде малювати лише Україну:</p>
 <div class="highlight"><pre><span></span><code>-o ukraine_only.shp
 </code></pre></div>
 
@@ -392,6 +393,7 @@ mv<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><spa
       <a href="https://so1der.github.io/tag/suputniki.html">супутники</a>
       <a href="https://so1der.github.io/tag/linux.html">Linux</a>
       <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+      <a href="https://so1der.github.io/tag/raspberry-pi.html">Raspberry Pi</a>
     </p>
   </div>
 
