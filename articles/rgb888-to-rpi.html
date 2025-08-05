@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статті підключимо 24х бітний дисплей (RGB888), прямо до Raspberry Pi, через DPI - Display Parallel Interface. Це доволі цікаве рішення, яке має свої сильні та слабкі сторони." />
+<meta name="keywords" content="diy, Linux, embedded, Raspberry Pi">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Підключаємо RGB888 дисплей по DPI до Raspberry Pi!"/>
+  <meta property="og:description" content="В даній статті підключимо 24х бітний дисплей (RGB888), прямо до Raspberry Pi, через DPI - Display Parallel Interface. Це доволі цікаве рішення, яке має свої сильні та слабкі сторони."/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/rgb888-to-rpi.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-08-05 17:01:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="Linux"/>
+  <meta property="article:tag" content="embedded"/>
+  <meta property="article:tag" content="Raspberry Pi"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Підключаємо RGB888 дисплей по DPI до Raspberry Pi!</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="rgb888-to-rpi">Підключаємо RGB888 дисплей по DPI до Raspberry Pi!</h1>
+    <p>
+      Опубліковано 05.08.2025, 17:01 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>В будь якої людини яка займається електронікою або ремонтами, крізь роки збирається просто купа непотрібну.  В мене наприклад є ціла купа екранчиків з різних пристроїв.  Викинути їх шкода, а повторно використати або дуже складно, або навіть неможливо.  Але в даному відео я покажу як можна підключити ось такий 40-ка піновий дисплей прямо до Raspberry Pi.</p>
+<p><img alt="Дисплей" src="https://so1der.github.io/images/rgb888-to-rpi/display.jpg" title="Дисплей"></p>
+<p>Наявність 40-ка пінового шлейфу скоріше за все вказує на те, що цей дисплей працює в 24-х бітному паралельному RGB режимі, або ж <strong>RGB888</strong>.  Це означає що окрім низки інших контактів керування, на ньому є аж 24 контакти для передачі кольору.  Тобто в одиницю часу передається 24 біти інформації — по 8 біт на кожен з трьох кольорів - червоний, зелений, та синій.  Такий тип керування ще називається <strong>DPI</strong> - <strong>Display Parallel Interface</strong>, і на наше щастя, Raspberry Pi вміє з ним працювати без всяких додаткових модулів або мікросхем!</p>
+<p>Але все таки кількість пінів на шлейфі це не 100% гарантія того, що це саме DPI, тому необхідно знайти даташит на дисплейчик.  Підказки що саме шукати зазвичай знаходяться прямо на шлейфі дисплея.  Мені вдалось знайти ось <a href="https://so1der.github.io/files/rgb888-to-rpi/T43P12.pdf">такий ось даташит</a>, який підтверджує наші здогадки стосовно 24-х бітного режиму.  Також в цьому даташиті є і распіновка дисплея, яка допоможе нам під'єднати дисплей до Raspberry Pi, хоча зазвичай в таких дисплейчиків распіновка однакова:</p>
+<table>
+<thead>
+<tr>
+<th>PIN №</th>
+<th>Символ</th>
+<th>I/O</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LED-</td>
+<td>P</td>
+<td>Катод підсвітки</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LED+</td>
+<td>P</td>
+<td>Анод підсвітки</td>
+</tr>
+<tr>
+<td>3</td>
+<td>GND</td>
+<td>P</td>
+<td>Мінус живлення, GND</td>
+</tr>
+<tr>
+<td>4</td>
+<td>VDD</td>
+<td>P</td>
+<td>Плюс живлення, +3.3В</td>
+</tr>
+<tr>
+<td>5-12</td>
+<td>R0-R7</td>
+<td>I</td>
+<td>Дані червоного кольору</td>
+</tr>
+<tr>
+<td>13-20</td>
+<td>G0-G7</td>
+<td>I</td>
+<td>Дані зеленого кольору</td>
+</tr>
+<tr>
+<td>21-28</td>
+<td>B0-B7</td>
+<td>I</td>
+<td>Дані синього кольору</td>
+</tr>
+<tr>
+<td>29</td>
+<td>GND</td>
+<td>P</td>
+<td>Мінус живлення, GND</td>
+</tr>
+<tr>
+<td>30</td>
+<td>DCLK</td>
+<td>I</td>
+<td>Pixel clock, Тактування пікселів</td>
+</tr>
+<tr>
+<td>31</td>
+<td>DISP</td>
+<td>I</td>
+<td>ВКЛ/ВИКЛ Дисплея</td>
+</tr>
+<tr>
+<td>32</td>
+<td>HSYNC</td>
+<td>I</td>
+<td>Горизонтальна синхронізація</td>
+</tr>
+<tr>
+<td>33</td>
+<td>VSYNC</td>
+<td>I</td>
+<td>Вертикальна синхронізація</td>
+</tr>
+<tr>
+<td>34</td>
+<td>DEN</td>
+<td>I</td>
+<td>Data enable, Увімкнення даних</td>
+</tr>
+<tr>
+<td>35</td>
+<td>NC</td>
+<td>-</td>
+<td>Не підключено</td>
+</tr>
+<tr>
+<td>36</td>
+<td>GND</td>
+<td>P</td>
+<td>Мінус живлення, GND</td>
+</tr>
+<tr>
+<td>37</td>
+<td>XR</td>
+<td>-</td>
+<td>Сенсорна панель</td>
+</tr>
+<tr>
+<td>38</td>
+<td>YD</td>
+<td>-</td>
+<td>Сенсорна панель</td>
+</tr>
+<tr>
+<td>39</td>
+<td>XL</td>
+<td>-</td>
+<td>Сенсорна панель</td>
+</tr>
+<tr>
+<td>40</td>
+<td>YU</td>
+<td>-</td>
+<td>Сенсорна панель</td>
+</tr>
+</tbody>
+</table>
+<p>Тож можна впевнитись в тому що це потрібний дисплей по першим двом та останнім чотирьом контактами - там повинна бути підсвітка, та місце під резистивну сенсорну панель.</p>
+<p>А стосовно Raspberry Pi, існує дуже зручний сайт, <a href="https://pinout.xyz/">pinout.xyz</a>, де можна подивитись зручну розпіновку, тобто що куди підключати, для різних речей: наприклад як підключити SD карту, або щось по I2C шині, або, як раз як в нашому випадку - <a href="https://pinout.xyz/pinout/dpi">дисплей через Display Parallel Interface</a>.  Тобто просто відкриваємо даташит дисплея, і дивимось що куди повинно підключатись. Також підключаємо живлення дисплея, GND до GND, а VDD до +3.3В.  DISP, який відповідає за вмикання та вимикання дисплея, слід також підключити до +3.3В, так як вільних GPIO під нього в нас немає.  Останні 4 контакти, як я вже й казав, відповідають за резистивний сенсор, тому їх підключати не треба. А про перші два, підсвітку, поговоримо пізніше. </p>
+<p>Тобто наразі наша задача правильно під'єднати все до Raspberry Pi. Припаюватись до шлейфа не сама краща ідея, тому раджу використати ось таку ось платку, яка перетворить SMD шлейф на звичайний DIP з кроком 2.54.</p>
+<p><img alt="Перехідник для шлейфа" src="https://so1der.github.io/images/rgb888-to-rpi/fpc-adapter.png" title="Перехідник для шлейфа"></p>
+<p>Це значно спростить роботу зі шлейфом дисплея, і можна не боятись його пошкодити.  Єдине що варто зазначити, що через те що шлейф підключається догори дриґом, правильна нумерація контактів буде на зворотній стороні плати.</p>
+<p>Щоб під'єданти потім все це до Raspberry Pi, я взяв  штирьовий роз'єм, який ідеально підходить до контактної гребінки Raspberry Pi.  Ну і для зручності я вирішив розмістити все це на невеличкій макетній платі розміром 4 на 6 см.</p>
+<p><img alt="Роз'єм та плата" src="https://so1der.github.io/images/rgb888-to-rpi/connector-and-board.png" title="Роз'єм та плата"></p>
+<p>Отже, озброюємось даташитом дисплея, разпіновкою Raspberry Pi, паяльником, та паяємо все до купи.  В мене вийшло якось так. </p>
+<p><img alt="Припаяні дроти" src="https://so1der.github.io/images/rgb888-to-rpi/soldered.jpg" title="Припаяні дроти"></p>
+<p>Якщо будете повторювати таке, то раджу обрати якийсь дріт з дуже тонкою ізоляцією.  Я використовував AWG26, і як бачите місця тут взагалі не лишилось, бо він має доволі товсту ізоляцію.  Дуже часто доводилось відпаювати вже запаяні дроти, щоб запаяти інший.  Тож для таких задач мабуть краще підійшло б щось на кшталт МГТФ, або якийсь інший монтажний дріт.</p>
+<p>Особисто я це все роблю чисто щоб протестувати екранчик, бо я не впевнений в його працездатності, тому мене влаштовує і ось такий варіант.  Але для постійного використання ясна річ що потрібно щось більш якісне та надійне, тому я хотів спроєктувати плату для цих задач, але як виявилось, плати вже давно існують.  Наприклад ось <a href="https://othermod.com/product/raspberry-pi-dpi-topper-for-40-pin-lcd-24-bit-rgb-888-version/">є від othermod</a>. Вони продають такі плати, але не дивлячись на це, все одно виклали <a href="https://github.com/othermod/DPI-Topper-888/blob/main/PCB%20Files%20(Rev%201.0)/DPI_Topper_888_Gerber_1.0.zip">їх гербер файл</a> у відкритий доступ.  Тому будь хто може завантажити його, і зробити собі плати, бо як раз на сайті othermod вони зараз не в наявності.  А замовити їх можна наприклад на <a href="https://www.pcbway.com/">PCBWay</a>.</p>
+<h2>Підсвітка дисплея</h2>
+<p>Тепер коли основні з'єднання зроблені, час поговорити про доволі каверзне місце - підсвітку дисплея.  Давайте знайдемо якусь інформацію про неї в даташиті:</p>
+<p><img alt="Інформація про підсвітку" src="https://so1der.github.io/images/rgb888-to-rpi/backlight.png" title="Інформація про підсвітку"></p>
+<p>Як бачимо, в моєму випадку це 8 послідовно з'єднаних світлодіодів.  Якщо припустити що там стоять білі світлодіоди з напругою переходу 3В, то для нормального функціонування такої стрічки діодів потрібно аж 24В!  Але напруга в даному випадку це найменша з проблем, для світлодіодів важливіше струм.  Підсвітку треба забезпечити стабільним струмом.  Для цих задач зазвичай використовують спеціалізовані драйвери підсвітки.  Порившись в своїх запасах SMD деталей, я знайшов ось таку мікросхемку - <strong>LTYN</strong>. Або ж в перекладі з SMD-шної - <strong>LT1937ES5</strong>.</p>
+<p><img alt="LT1937ES5" src="https://so1der.github.io/images/rgb888-to-rpi/ltyn.jpg" title="LT1937ES5"></p>
+<p>Це спеціалізований драйвер для живлення підсвітки напругою 36В. Він забезпечить її стабільним струмом, що позитивно вплине на довговічність світлодіодів, якість пісдвітки, і при цьому це буде  доволі енергоефективно.  Але так як дістати в нас цю мікросхему не дуже то й просто, було б не чесно якби я використав її просто тому що вона в мене є.  Тому буде легкий і доступний, але менш ефективний та надійний спосіб - а саме живити світлодіоди підсвітки від звичайного DC DC перетворювача, і обмежувати струм резистором.</p>
+<p>Це мабуть так собі вплине на стабільність та довговічність світлодіодів, але зато підвищувальний DC-DC перетворювач точно знайдеться в будь якого електронщика вдома.  Або його можна навіть власноруч зробити, як я показував в <a href="/articles/how-to-use-vfds.html">статті про VFD індикатори</a>. </p>
+<p>Спочатку я виставив 24 вольти на DC-DC перетворювачі, після чого підібрав резистор, з яким струм живлення підсвітки буде максимально близький до струму зазначеного в даташиті - 7 мА. Хоча як виявилось пізніше, там йшлась мова про зовсім інший струм, і для світлодіодів підійде струм в діапазоні 20-35 мА, хоча навіть при 9 мА, яскравості підсвітки мого дисплея вистачає для використання в приміщенні. Підібравши номінал резистора, я припаяв все до нижньої сторони макетної плати. </p>
+<p><img alt="Живлення підсвітки" src="https://so1der.github.io/images/rgb888-to-rpi/backlight-schematic.png" title="Живлення підсвітки"></p>
+<h2 id="raspberry-pi-setup">Налаштовуємо Raspberry Pi</h2>
+<p>Тепер дисплей повністю готовий до підключення. Але, робити це поки що немає сенсу, так як нам ще треба налаштувати Raspberry Pi.  Для цього треба відредагувати файл <code>config.txt</code> який знаходиться в директорії <code>/boot/</code> накопичувача Raspberry Pi, я використав vim:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo vim /boot/config.txt</span>
+</code></pre></div>
+
+<p>Перш за все впевнюємось що в нас відключені різні шини типу I2C, SPI, і тд. Їх необхідно вимкнути, так як дисплей займає всі GPIO піни. Можна або видалити або закоментувати строки:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#dtparam=i2c_arm=on</span>
+<span class="c1">#dtparam=i2s=on</span>
+<span class="c1">#dtparam=spi=on</span>
+</code></pre></div>
+
+<p>Хоча на сайті othermod написано що можна не підключати HSYNC та VSYNC, і тим самим звільнити I2C шину, але особисто в мене дисплей при такому підключенні не працював.  Можливо я щось не так зробив в налаштуваннях. Далі вимикаємо стандартний відеодрайвер, і на його місце додаємо драйвер для DPI дисплеїв:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#dtoverlay=vc4-kms-v3d</span>
+<span class="na">dtoverlay</span><span class="o">=</span><span class="s">vc4-kms-dpi-generic</span>
+</code></pre></div>
+
+<p>Після цього треба всі піни налаштувати як другий альтернативний режим, <strong>a2</strong>, яким якраз і є <strong>Display Parallel Interface</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">gpio</span><span class="o">=</span><span class="s">0-27=a2</span>
+</code></pre></div>
+
+<p>Ну і тепер можна налаштувати сам DPI.  Спочатку треба налаштувати розмір фреймбуфера, відповідно до роздільної здатності вашого дисплея.  Далі включити сам DPI, і назначити цей дисплей як основний.  Ну і найскладніше - формат виводу та тайминги:</p>
+<div class="highlight"><pre><span></span><code><span class="na">framebuffer_width</span><span class="o">=</span><span class="s">480</span>
+<span class="na">framebuffer_height</span><span class="o">=</span><span class="s">272</span>
+<span class="na">enable_dpi_lcd</span><span class="o">=</span><span class="s">1</span>
+<span class="na">display_default_lcd</span><span class="o">=</span><span class="s">1</span>
+<span class="na">dpi_output_format</span><span class="o">=</span><span class="s">0x7f017</span>
+<span class="na">dpi_timings</span><span class="o">=</span><span class="s">480 0 5 0 40 272 0 8 0 8 0 0 0 60 0 9600000 3</span>
+</code></pre></div>
+
+<h2>dpi_output_format</h2>
+<p>Стосовно формату виводу - число яке ви бачили вище, <code>0x7f017</code>, це 32-х бітне число.  Якщо перевести його в двійковий формат, то ми отримаємо наступне число, в якому кожен біт щось значить:</p>
+<p><strong>1111111000000010111</strong></p>
+<p>Наприклад перші 4 біти (найправіші), визначають режим роботи дисплея - 24-х бітний, або 16-ти бітний, і тд:</p>
+<p>111111100000001<strong><code>0111</code></strong></p>
+<ul>
+<li><strong>0001</strong>: 9BIT 666            </li>
+<li><strong>0010</strong>: 16BIT 565 CFG1</li>
+<li><strong>0011</strong>: 16BIT 565 CFG2</li>
+<li><strong>0100</strong>: 16BIT 565 CFG3</li>
+<li><strong>0101</strong>: 18BIT 666 CFG1</li>
+<li><strong>0110</strong>: 18BIT 666 CFG2</li>
+<li><strong>0111</strong>: 24BIT 888 </li>
+</ul>
+<p>Наступні 4 біти - порядок кольору, тобто RGB, або BGR, або GRB, і так далі:</p>
+<p>11111110000<strong><code>0001</code></strong>0111</p>
+<ul>
+<li><strong>0001</strong>: RGB</li>
+<li><strong>0010</strong>: BGR</li>
+<li><strong>0011</strong>: GRB</li>
+<li><strong>0100</strong>: BRG</li>
+</ul>
+<p>А всі наступні біти, це конфігураційні біти, які вказують особливості роботи дисплея, наприклад чи інвертовані там <strong>HSYNC</strong>, <strong>VSYNC</strong>, <strong>DE</strong>, або коли саме вони активні - на фронті імпульсу чи на спаді.  Це все зазвичай можна подивитись в даташиті, або визначити експериментальним шляхом - наприклад якщо у вас дивно виглядають кольори, то вочевидь треба змінити порядок кольорів, і так далі.  Тобто треба скомпонувати двійкове число, і перевести його потім в шістнадцяткове або десяткове, і вказати в конфігу. Ось таблиця, в якій розписана інформація про кожний біт:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значення</th>
+<th>Ширина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Формат виводу</td>
+<td>0b0001: 9BIT 666</td>
+<td>4 біти</td>
+</tr>
+<tr>
+<td></td>
+<td>0b0010: 16BIT 565 CFG1</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0011: 16BIT 565 CFG2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0100: 16BIT 565 CFG3</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0101: 18BIT 666 CFG1</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0110: 18BIT 666 CFG2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0111: 24BIT 888</td>
+<td></td>
+</tr>
+<tr>
+<td>Кодування кольору</td>
+<td>0b0001: RGB</td>
+<td>4 біти</td>
+</tr>
+<tr>
+<td></td>
+<td>0b0010: BGR</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0011: GRB</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0b0100: BRG</td>
+<td></td>
+</tr>
+<tr>
+<td>Режим синхронізації</td>
+<td>0: DE mode /1: HVsync mode</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Полярність Pixel Clock</td>
+<td>0: Idle high /1: Idle low</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Відключити Hsync</td>
+<td>0: Enable/ 1: Disable</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Відключити Vsync</td>
+<td>0: Enable/ 1: Disable</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Відключити DE</td>
+<td>0: Enable/ 1: Disable</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Полярність Hsync</td>
+<td>0: Normal/ 1: Inverted</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Полярність Vsync</td>
+<td>0: Normal/ 1: Inverted</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Полярність DE</td>
+<td>0: Normal/ 1: Inverted</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Фаза Hsync</td>
+<td>0: Rising edge/ 1: Falling edge</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Фаза Vsync</td>
+<td>0: Rising edge/ 1: Falling edge</td>
+<td>1bit</td>
+</tr>
+<tr>
+<td>Фаза DE</td>
+<td>0: Rising edge/ 1: Falling edge</td>
+<td>1bit</td>
+</tr>
+</tbody>
+</table>
+<p>Ось кілька прикладів можливих конфігурацій даного параметра:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#1111111000000010111</span>
+<span class="na">dpi_output_format</span><span class="o">=</span><span class="s">0x7f017</span>
+
+<span class="c1">#1101111000000010111</span>
+<span class="na">dpi_output_format</span><span class="o">=</span><span class="s">0x6f017</span>
+
+<span class="c1">#1111011000000100111</span>
+<span class="na">dpi_output_format</span><span class="o">=</span><span class="s">0x7b027</span>
+
+<span class="c1">#1101111000000010101</span>
+<span class="na">dpi_output_format</span><span class="o">=</span><span class="s">0x6f015</span>
+</code></pre></div>
+
+<h2>dpi_timings</h2>
+<p>Наступний параметр - таймінги. Він має приблизно ось такий формат, і заповнюється теж виходячи з інформації з даташиту:</p>
+<table>
+<thead>
+<tr>
+<th>Назва</th>
+<th>Опис / величина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horizontal active</td>
+<td>pixels</td>
+</tr>
+<tr>
+<td>Horizontal sync polarity</td>
+<td>0: Low active/ 1: High active</td>
+</tr>
+<tr>
+<td>Horizontal front porch</td>
+<td>cycles</td>
+</tr>
+<tr>
+<td>Horizontal sync width</td>
+<td>cycles</td>
+</tr>
+<tr>
+<td>Horizontal back porch</td>
+<td>cycles</td>
+</tr>
+<tr>
+<td>Vertical active</td>
+<td>lines</td>
+</tr>
+<tr>
+<td>Vertical sync polarity</td>
+<td>0: Low active/ 1: High active</td>
+</tr>
+<tr>
+<td>Vertical front porch</td>
+<td>cycles</td>
+</tr>
+<tr>
+<td>Vertical sync width</td>
+<td>cycles</td>
+</tr>
+<tr>
+<td>Vertical back porch</td>
+<td>cycles</td>
+</tr>
+<tr>
+<td>Vertical sync offset A</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vertical sync offset B</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pixel repitition</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Frame rate</td>
+<td>Hz</td>
+</tr>
+<tr>
+<td>Interleave</td>
+<td>frames</td>
+</tr>
+<tr>
+<td>Pixel rate</td>
+<td>Hz</td>
+</tr>
+<tr>
+<td>Aspect ratio</td>
+<td>1：4:3</td>
+</tr>
+<tr>
+<td></td>
+<td>2：14:9</td>
+</tr>
+<tr>
+<td></td>
+<td>3：16:9</td>
+</tr>
+<tr>
+<td></td>
+<td>4：5:4</td>
+</tr>
+<tr>
+<td></td>
+<td>5：16:10</td>
+</tr>
+<tr>
+<td></td>
+<td>6：15:9</td>
+</tr>
+<tr>
+<td></td>
+<td>7：21:9</td>
+</tr>
+<tr>
+<td></td>
+<td>8：64:27</td>
+</tr>
+</tbody>
+</table>
+<p>Більшість інформації береться з розділу <strong>Timing Characteristics</strong> даташиту дисплея. Давайте розберемо використані мною таймінги:</p>
+<div class="highlight"><pre><span></span><code><span class="na">dpi_timings</span><span class="o">=</span><span class="s">480 0 5 0 40 272 0 8 0 8 0 0 0 60 0 9600000 3</span>
+</code></pre></div>
+
+<ul>
+<li>480 - Кількість пікселів по горизонталі</li>
+<li>0 - Полярність HSYNC (0 = активний при логічному нулі)</li>
+<li>5 - Горизонтальний передній інтервал (5 циклів, Thfp з даташиту дисплея)</li>
+<li>0 - Тривалість горизонтального синхроімпульсу (0 циклів, не впевнений чому саме))00 )</li>
+<li>40 - Горизонтальний задній інтервал (40 циклів, Thbp з даташиту дисплея)</li>
+<li>272 - Кількість ліній (пікселів) по вертикалі</li>
+<li>0 - Полярність VSYNC (0 = активний при логічному нулі)</li>
+<li>8 - Вертикальний передній інтервал (8 циклів, Tvfp з даташиту дисплея)</li>
+<li>0 - Тривалість вертикального синхроімпульсу (0 циклів, знову таки, не знаю чому))00 )</li>
+<li>8 - Вертикальний задній інтервал (8 циклів, Tvbp з даташиту дисплея)</li>
+<li>0 - Vertical sync offset A - Не використовується</li>
+<li>0 - Vertical sync offset B - Не використовується </li>
+<li>0 - Pixel repitition - Не використовується </li>
+<li>60 - Частота оновлення дисплея в герцах (Frames Per Second, кадрів на секунду)</li>
+<li>0 - Чергування рядків (Черезрядкова розгортка?) - не впевнений коли це потрібно, нехай буде 0</li>
+<li>9600000 - частота виводу пікселів в Гц (9.6 МГц, fclk з даташиту дисплея)</li>
+<li>3 - Співвідношення сторін дисплея (з таблиці, 3 = 16:9. Можна визначити з роздільної здатності: 470/272 ~= 16/9)</li>
+</ul>
+<p>Тож відкриваєте даташит вашого дисплея, та заповнюєте по черзі кожний параметр. Але доволі часто таймінги співпадають між дисплеями, наприклад я взяв їх з <a href="https://github.com/othermod/DPI-Topper-888">репозиторія othermod</a>, і в мене все працює як слід.  Що <strong>output_format</strong>, що <strong>таймінги</strong>, так собі задокументовані в <a href="https://pip-assets.raspberrypi.com/categories/685-app-notes-guides-whitepapers/documents/RP-003471-WP/Using-a-DPI-display.pdf">офіційній документації Raspberry Pi</a>, тому додалось додатково шукати різну інформацію по форумам, і тд. Більшість інформації стосовно цих параметрів була взята з <a href="https://www.zephray.me/post/rpi_dpi/">ось цього сайту</a>.</p>
+<p>Зберігаємо файл, вимикаємо Raspberry Pi, і нарешті можна підключати дисплей. Трішки боязно звісно підключати таке до Raspberry Pi, але сподіваюсь все буде гаразд.  Подаємо живлення, і дивимось чи працює дисплей. </p>
+<p><img alt="Працюючий дисплей!" src="https://so1der.github.io/images/rgb888-to-rpi/boot.jpg" title="Працюючий дисплей!"></p>
+<p>Чудово! Дуже приємно бачити, як після такої кропіткої пайки десятків дротів, все чудово працює.  Щоправда, дисплей таки виявився трішки проблемним - присутня горизонтальна лінія з таких собі битих чи мертвих пікселів. Дуже сумно звісно, але що ж поробиш.</p>
+<p><img alt="Мертві пикселі" src="https://so1der.github.io/images/rgb888-to-rpi/pixels.jpg" title="Мертві пикселі"></p>
+<p>Головне що все інше працює без проблем.  Цей дисплей до речі сприймається Raspberry Pi як звичайний повноцінний дисплей, тому в мене тут наприклад можна побачити стандартний prompt на логін в Linux, бо в мене тут встановлений <a href="https://archlinuxarm.org/">Arch Linux ARM</a> без графічного середовища.  Якщо ж у вас встановлено Raspberry Pi OS, то ви мабуть побачили б її звичний Desktop Environment.</p>
+<p>Тож тепер цим дисплеєм можна користуватись як вам тільки заманеться.  Наприклад я поставив сюди <strong>Xorg</strong>, та встановив віконний менеджер <strong>i3wm</strong>, і цим всім тепер можна користуватись як і на звичайному комп'ютері.</p>
+<p><img alt="i3wm" src="https://so1der.github.io/images/rgb888-to-rpi/i3wm.jpg" title="i3w"></p>
+<p>Наприклад можна переглядати відео, або наприклад запустити Doom, та інші ігри.  Ну або використовувати дисплей для відображення різного роду корисної інформації.</p>
+<p><img alt="Bad Apple та DOOM" src="https://so1der.github.io/images/rgb888-to-rpi/bad-apple-and-doom.jpg" title="Bad Apple та DOOM"></p>
+<h2>Доцільність такого рішення</h2>
+<p>Ну і тепер найголовніше - наскільки все це було доцільно.  Якщо ви хочете прям по максимуму зекономити, то такий варіант дійсно має право на життя, адже такі дисплейчики можна купити досить задешево на  AliExpress.  Також, якщо у вас вже є такий дисплей, використати його теж доволі гарна ідея, адже потрібно всього лише замовити або спаяти плату перехідник.  Ну і на додачу він виходить ще й більш енергоефективним, так як тут немає додаткових мікросхем між дисплеєм та одноплатним комп'ютером.</p>
+<p>Але і в вже готових рішень також є свої переваги - вони більш охайно та надійно виглядають, часто мають кращу роздільну здатність, яскравість підсвітки та кути огляду, ну і також не займають всі GPIO піни.  Тож обирайте що буде найкращим для вас.</p>
+<p>Мені в цілому сподобалось що вийшло, і в мене вже є деякі цікаві плани на цей дисплейчик, але мабуть я таки спроєктую і замовлю для нього свою плату, з якимось більш поширеним в нас драйвером підсвітки.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео, доступного за <a href="">ось цим посиланням</a>.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/linux.html">Linux</a>
+      <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+      <a href="https://so1der.github.io/tag/raspberry-pi.html">Raspberry Pi</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
