@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /files/
+
+Sitemap: https://so1der.github.io/sitemap.xml
