@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light)"
+          href="https://so1der.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статі розглянемо, як можна використовувати основний функціонал PlatformIO не використовуючи редактор коду Visual Studio Code!" />
+<meta name="keywords" content="Linux">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Використовуємо PlatformIO без Visual Studio Code!"/>
+  <meta property="og:description" content="В даній статі розглянемо, як можна використовувати основний функціонал PlatformIO не використовуючи редактор коду Visual Studio Code!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/pio.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-08-07 09:58:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="Гайди"/>
+  <meta property="article:tag" content="Linux"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Використовуємо PlatformIO без Visual Studio Code!</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="pio">Використовуємо PlatformIO без Visual Studio Code!</h1>
+    <p>
+      Опубліковано 07.08.2025, 09:58 в категорії <a href="https://so1der.github.io/category/gaidi.html">Гайди</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="Превью" src="https://so1der.github.io/images/pio/preview.jpg"></p>
+<h2>Зміст</h2>
+<ul>
+<li><a href="#install">Встановлюємо PlatformIO Core</a></li>
+<li><a href="#compiling">Компілюємо готові проєкти</a></li>
+<li><a href="#project-init">Створюємо новий проєкт</a></li>
+<li><a href="#good-to-know">Корисно знати</a></li>
+</ul>
+<hr>
+<p>Нещодавно я перейшов з Pop!_OS на <strong>Arch Linux</strong>, а отже мені довелось заново налаштовувати систему, встановлювати програми, і тд. Обдумуючи що слід встановити, а без чого можна обійтись - в число програм які я не хочу встановлювати потрапив редактор коду <strong>Visual Studio Code</strong>. Він мені був потрібен лише для проєктів пов'язаних з <a href="https://platformio.org/">PlatformIO</a>, але як виявляється, основним функціоналом PlatformIO можна користуватись і без VS Code!</p>
+<h2>Що таке той ваш PlatformIO</h2>
+<p>Насправді PlatformIO складається з двох частин:</p>
+<ul>
+<li>PlatformIO Core</li>
+<li>PlatformIO IDE</li>
+</ul>
+<p>PlatformIO Core - це ядро всього проєкту, це CLI-застосунок, який займається підготовкою проєкта, компіляцією, завантаженням необхідних бібліотек, інструментів для прошивки мікроконтролера, тощо. Тобто всім тим, що нам як раз і треба.</p>
+<p>PlatformIO IDE - це умовний "враппер", обгортка  для PlatformIO Core, щоб не писати команди в термінал, а натискати кнопочки в Visual Studio Code, ну і при цьому користуватись іншими перевагами саме IDE.</p>
+<p>Тож у підсумку PlatformIO IDE не є обов'язковим, і відповідно ми маємо змогу використовувати PlatformIO Core і без нього, а код при цьому писати де вам зручно - vim, nano, та хоч у звичайному блокноті. </p>
+<hr>
+<h2 id="install">Встановлюємо PlatformIO Core</h2>
+<p>Для почату треба встановити PlatformIO Core. На Arch Linux він присутній в офіційних репозиторіях дистрибутива, тому достатньо всього лише ввести наступну команду щоб встановити його:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo pacman -S platformio-core</span>
+</code></pre></div>
+
+<p>На інших дистрибутивах, якщо в вашому пакетному менеджері він відсутній, то можна скористатись спеціальним <a href="https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py">скриптом</a> для встановлення. Достатньо просто завантажити його наприклад через curl, wget, або навіть просто через браузер, та запустити через python:</p>
+<div class="highlight"><pre><span></span><code><span class="go">curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py</span>
+<span class="go">python3 get-platformio.py</span>
+</code></pre></div>
+
+<p>Тепер PlatformIO Core встановлений. Впевнитись в цьому можна виконавши наступну команду:</p>
+<div class="highlight"><pre><span></span><code><span class="go">pio --version</span>
+</code></pre></div>
+
+<p>Або:</p>
+<div class="highlight"><pre><span></span><code><span class="go">platformio --version</span>
+</code></pre></div>
+
+<p><code>pio</code> та <code>platformio</code> це одне й те саме. В подальшому, в даній статі буде використовуватись саме <code>pio</code>, але ви можете вводити і <code>platformio</code>.</p>
+<h2>Встановлюємо udev правила</h2>
+<p>Пізніше, при спробі прошити мікроконтролер не від імені Root-а, ви скоріш за все зіштовхнетесь з якоюсь помилкою на кшталт "Permission Denied". Справа в тому, що за замовчуванням в Linux, користувач не має доступу до різного роду зовнішніх девайсів - наприклад мікросхема CH340, яка стоїть на багатьох девбордах Arduino, і використовується для їх прошивки - один з таких девайсів.</p>
+<p>Тому щоб не використовувати для цих задач root доступ, нам треба "прокинути" ці девайси в user space. Для цього існують так звані udev правила (від user space /dev). На Arch Linux для цих задач знову таки існує окремий пакет, тому достатньо лише ввести:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo pacman -S platformio-core-udev</span>
+</code></pre></div>
+
+<p>На інших дистрибутивах встановити його теж не складно, адже ці udev правила, це не що інше, як звичайний <a href="https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules">текстовий файлик</a>. Тому можна використати <code>tee</code> щоб помістити його куди треба за допомогою наступної команди:</p>
+<div class="highlight"><pre><span></span><code><span class="go">curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules</span>
+</code></pre></div>
+
+<p>Тепер коли правила встановлені, нам треба перезавантажити і тригернути udev, щоб нові правила вступили в дію:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo udevadm control --reload &amp;&amp; sudo udevadm trigger</span>
+</code></pre></div>
+
+<hr>
+<h2 id="compiling">Компілюємо готові проєкти</h2>
+<p>Тепер PlatformIO Core повністю готовий до роботи. Розпочати пропоную з роботи з вже готовими проєктами, наприклад коли ви знайшли якийсь цікавий проєкт і хочете його протестувати. Принцип тут такий самий як і в VS Code:</p>
+<ul>
+<li>клонуємо репозиторій проєкта</li>
+<li>відкриваємо його</li>
+<li>компілюємо </li>
+<li>прошиваємо</li>
+</ul>
+<p>Компіляція проєкта (а також всі інші дрібниці, по типу завантаження бібліотек, інструментів, тощо) виконується за допомогою команди <code>pio run</code>, в директорії в який лежить <code>platformio.ini</code> файл. Ця команда робить те саме, що робить галочка "Build" в VS Code.</p>
+<p>Прошивка/програмування мікроконтролера, те що в VS Code робилось за допомогою стрілочки "Upload", в CLI робиться за допомогою команди <code>pio run --target upload</code>. </p>
+<p>Для прикладу візьмемо <a href="/articles/gps-clock.html#gps-clock">годинник з однієї з попередніх статей</a>, і зробимо все описане вище:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/so1der/GPS_Clock<span class="w"> </span><span class="c1"># клонуємо гіт репозиторій проєкта</span>
+<span class="nb">cd</span><span class="w"> </span>GPS_Clock<span class="w"> </span><span class="c1"># відкриваємо директорію проєкта (в якій лежить platformio.ini)</span>
+pio<span class="w"> </span>run<span class="w"> </span><span class="c1"># компілюємо проєкт</span>
+pio<span class="w"> </span>run<span class="w"> </span>--targer<span class="w"> </span>upload<span class="w"> </span><span class="c1"># прошиваємо підключений мікроконтролер</span>
+</code></pre></div>
+
+<p>Тобто ось настільки все просто. Хоча звісно бувають й більш комплексні проєкти, де може бути багато середовищ (env) під різні девборди/мікроконтролери/пристрої. В таких випадках можна піти одним з наступних шляхів:</p>
+<ul>
+<li>вказати необхідний <code>env</code> в файлі <code>platformio.ini</code> </li>
+<li>вказати необхідний <code>env</code> на етапі компіляції та прошивки</li>
+</ul>
+<p>Давайте розглянемо на практичному прикладі - візьмемо <a href="https://meshtastic.org/">Meshtastic</a>. Початок такий самий - клонуємо репо та відкриваємо його:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/meshtastic/firmware
+<span class="nb">cd</span><span class="w"> </span>firmware
+</code></pre></div>
+
+<p>Переглянувши <code>platformio.ini</code>, можемо побачити, що там вже заздалегідь вказано якийсь <code>env</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[platformio]</span>
+<span class="na">default_envs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tbeam</span>
+</code></pre></div>
+
+<p>Уявімо що нам потрібно щось інше, нехай <code>diy-v1</code>, який часто обирають для саморобних Meshtastic вузлів. Щоб дізнатись правильне ім'я середовища, можна пошукати його в файлі platformio.ini, але дуже часто в комплексних проєктів буває багато різних platformio.ini файлів, тому в даній ситуації можна також використати <code>pio</code>. Для того щоб подивитись доступні середовища, можна виконати наступну команду:</p>
+<div class="highlight"><pre><span></span><code><span class="go">pio project config</span>
+</code></pre></div>
+
+<p>Вона покаже всі доступні середовища та їх налаштування. Але якщо середовищ дуже багато, знайти щось в такій стіні тексту буде дуже складно (хоча ніхто звісно не забороняє використати grep). На цей випадок є обхідний шлях - вказати заздалегідь неправильний env, щоб PlatformIO підказав нам лише список доступних середовищ:</p>
+<div class="highlight"><pre><span></span><code><span class="go">pio run -e 123</span>
+</code></pre></div>
+
+<p>З нього дізнаємось, що потрібне нам середовище має назву <code>meshtastic-diy-v1</code>. Відповідно тепер ми можемо або замінити <code>default_envs</code> в platformio.ini, та скомпілювати проєкт/прошити мікроконтролер:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[platformio]</span>
+<span class="na">default_envs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">meshtastic-diy-v1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>pio<span class="w"> </span>run
+pio<span class="w"> </span>run<span class="w"> </span>--target<span class="w"> </span>upload
+</code></pre></div>
+
+<p>Або вказати цей env на етапі компіляції та прошивки:</p>
+<div class="highlight"><pre><span></span><code>pio<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span>meshtastic-diy-v1
+pio<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span>meshtastic-diy-v1<span class="w"> </span>--target<span class="w"> </span>upload
+</code></pre></div>
+
+<hr>
+<h2 id="project-init">Створюємо новий проєкт</h2>
+<p>Тепер поговоримо про те, як за допомогою PlatformIO Core створити новий проєкт. Спочатку треба створити для нього директорію:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>test_project
+<span class="nb">cd</span><span class="w"> </span>test_project
+</code></pre></div>
+
+<p>Тепер можна створити новий проєкт, використовуючи команду <code>pio project init</code>, але для неї треба вказати правильний id необхідної плати. Уявімо що я хочу використати мікроконтролер STM32 на чипі <strong>STM32F030F4P6</strong>. Переглянути список плат можна за допомогою наступної команди (можна не вводити назву чипу повністю):</p>
+<div class="highlight"><pre><span></span><code>pio<span class="w"> </span>boards<span class="w"> </span>stm32f03
+</code></pre></div>
+
+<p>Вона виведе щось на кшталт цього:</p>
+<div class="highlight"><pre><span></span><code><span class="o">================================================================================</span>
+ID<span class="w">             </span>MCU<span class="w">            </span>Frequency<span class="w">    </span>Flash<span class="w">    </span>RAM<span class="w">    </span>Name
+-------------<span class="w">  </span>-------------<span class="w">  </span>-----------<span class="w">  </span>-------<span class="w">  </span>-----<span class="w">  </span>----------------------
+demo_f030f4<span class="w">    </span>STM32F030F4P6<span class="w">  </span>48MHz<span class="w">        </span>16KB<span class="w">     </span>4KB<span class="w">    </span>Demo<span class="w"> </span>F030F4
+nucleo_f030r8<span class="w">  </span>STM32F030R8T6<span class="w">  </span>48MHz<span class="w">        </span>64KB<span class="w">     </span>8KB<span class="w">    </span>ST<span class="w"> </span>Nucleo<span class="w"> </span>F030R8
+nucleo_f031k6<span class="w">  </span>STM32F031K6T6<span class="w">  </span>48MHz<span class="w">        </span>32KB<span class="w">     </span>4KB<span class="w">    </span>ST<span class="w"> </span>Nucleo<span class="w"> </span>F031K6
+disco_f030r8<span class="w">   </span>STM32F030R8T6<span class="w">  </span>48MHz<span class="w">        </span>64KB<span class="w">     </span>8KB<span class="w">    </span>ST<span class="w"> </span>STM32F0308DISCOVERY
+</code></pre></div>
+
+<p>Якщо ж потрібно знайти плату ESP8266, то команда буде виглядати наступним чином:</p>
+<div class="highlight"><pre><span></span><code>pio<span class="w"> </span>boards<span class="w"> </span>esp8266
+</code></pre></div>
+
+<p>Також можна знайти необхідну плату на відповідній <a href="https://docs.platformio.org/en/latest/boards/">сторінці wiki PlatformIO</a>. Тож тепер, коли ми знаємо id плати, достатньо просто ввести наступну команду:</p>
+<div class="highlight"><pre><span></span><code>pio<span class="w"> </span>project<span class="w"> </span>init<span class="w"> </span>--board<span class="w"> </span>demo_f030f4
+</code></pre></div>
+
+<p>Отримуємо наступний текст, який свідчить про те що все виконалось успішно, і дає нам декілька порад стосовно того що де і куди:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">ctl@arch:~/test_project$ </span>pio<span class="w"> </span>project<span class="w"> </span>init<span class="w"> </span>--board<span class="w"> </span>demo_f030f4
+<span class="go">The following files/directories have been created in /home/ctl/test_project</span>
+<span class="go">include - Put project header files here</span>
+<span class="go">lib - Put project specific (private) libraries here</span>
+<span class="go">src - Put project source files here</span>
+<span class="go">platformio.ini - Project Configuration File</span>
+<span class="go">Resolving demo_f030f4 dependencies...</span>
+<span class="go">Already up-to-date.</span>
+<span class="go">Project has been successfully initialized!</span>
+</code></pre></div>
+
+<p>Тож тепер проєкт створений, і залишилось лише написати код, відредагувати platformio.ini, тощо, тобто все як і було раніше в VS Code! Єдине що автоматично не створився файл <code>main.cpp</code>, в директорії <code>src</code>, тому його треба створити власноруч. За потреби також можна змінити фреймворк в файлі platformio.ini</p>
+<hr>
+<h2 id="good-to-know">Корисно знати</h2>
+<h3>Директорія .platformio</h3>
+<p>PlatformIO Core створює директорію <code>.platformio</code> в $HOME директорії користувача. В цю директорію йдуть різні інструменти, тулчейни, і тд, тому вона може важити доволі багато:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">ctl@arch:~$ </span>du<span class="w"> </span>-hs<span class="w"> </span>.platformio/
+<span class="go">3.6G    .platformio/</span>
+</code></pre></div>
+
+<p>Якщо у вас такої директорії немає, виконайте команду <code>pio system info</code> щоб дізнатись її місцезнаходження. З часом ця директорія буде тільки рости. Можна чистити її вручну, а можна виконати спеціальну команду для того щоб видалити кеш та непотрібні пакети:</p>
+<div class="highlight"><pre><span></span><code>pio<span class="w"> </span>system<span class="w"> </span>prune
+</code></pre></div>
+
+<h3>Встановлення бібліотек</h3>
+<p>Щоб не клонувати/завантажувати бібліотеки вручну в директорію <code>lib/</code>, їх можна додати в файл <code>platformio.ini</code>. Наприклад так це виглядає в файлі вже раніше згаданого годинника:</p>
+<div class="highlight"><pre><span></span><code><span class="na">lib_deps</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="na">mikalhart/TinyGPSPlus@^1.0.3</span>
+<span class="w">  </span><span class="na">arduino-libraries/LiquidCrystal@^1.0.7</span>
+<span class="w">  </span><span class="na">jchristensen/Timezone@^1.2.5</span>
+<span class="w">  </span><span class="na">stm32duino/STM32duino RTC@^1.7.0</span>
+</code></pre></div>
+
+<p>При виконанні команди <code>pio run</code>, PlatformIO Core автоматично завантажить ці бібліотеки для компіляції проєкта. Подивитись актуальну версію, а також правильний запис необхідної вам бібліотеки можна в <a href="https://registry.platformio.org/search">Реєстрі PlatformIO</a>. Вводимо там необхідну бібліотеку, знаходимо її, відкриваємо пункт "Installation", і бачимо яку строку необхідно додати в <code>lib_deps</code>. </p>
+<h3>Документація PlatformIO Core</h3>
+<p>На сайті PlatformIO є дуже детальна документація стосовно PlatformIO Core. Там є і приклади, і інші команди які не було розглянуто в даній статті. Тож якщо у вас залишились питання, або ви хочете дослідити все це більш детально, раджу ознайомитись з документацією <a href="https://docs.platformio.org/en/latest/core/">за посиланням</a>.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/linux.html">Linux</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+  <span class="footer-separator">|</span>
+  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
+  <script id="dark-theme-script"
+          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
