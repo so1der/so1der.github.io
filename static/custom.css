@@ -5,12 +5,12 @@ main nav a {
 
 aside nav ul li {
    display: block;
-   padding: 0 10px;Add commentMore actions
+   padding: 0 10px;
 }
 
 body {
    text-align: justify;
-   line-height: 1.5;
+   line-height: 1.3;
    font-size: 18px;
 }
 
