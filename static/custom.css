@@ -24,18 +24,17 @@ main article {
   max-width:850px;
 }
 
-img {
+img, video {
   display: block;
   margin-left: auto;
   margin-right: auto;
   height: auto;
   max-height: 600px;
+  max-width: 100%;
 }
 
 .preview {
-  display: inline;
   transition: all 0.3s ease;
-  height: auto;
 }
 
 .preview:hover {
@@ -45,7 +44,7 @@ img {
 }
 
 @media (max-width: 600px) {
-  main article, .preview, img{
+  main article, .preview, img, video{
     width: 90%;
     max-width: 400px;
     margin: 0 auto;

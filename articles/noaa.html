@@ -12,15 +12,10 @@
     <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
 
     <link id="dark-theme-style" rel="stylesheet" type="text/css"
-          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
     href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
 
     <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
           href="https://so1der.github.io/theme/pygments/monokai.min.css">
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: light)"
-          href="https://so1der.github.io/theme/pygments/github.min.css">
 
 
 
@@ -67,7 +62,7 @@
 
 
 </head>
-<body >
+<body class="dark-theme">
 
 <aside>
   <div>
@@ -158,13 +153,16 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 
   <div>
     <blockquote>
-<p><strong>06.06.2025 було вимкнуто супутник NOAA 18</strong>, тому інформація в статті частково устаріла. NOAA 15 та NOAA 19 все ще функціонують.</p>
+<h3><strong>06.06.2025 було вимкнуто супутник NOAA 18</strong>,</h3>
+<h3><strong>13.08.2025 було вимкнуто супутник NOAA 19</strong>,</h3>
+<h3><strong><a href="/articles/farewell-noaa.html#farewell-noaa">19.03.2025 було вимкнуто супутник NOAA 15</a></strong>,</h3>
+<p>Тому інформація в статті на сьогоднішній день застаріла.</p>
 </blockquote>
 <p><img alt="&quot;Зірки&quot;" src="https://so1der.github.io/images/noaa/stars.jpg" title="Зірки"></p>
-<p>А чи знали ви, що зараз на низькій орбіті землі знаходиться принаймні 3 супутники (upd: вже 2 D: ), які в режимі реального часу транслюють нам зображення Землі, і будь хто, навіть без дорогого обладнання та супер наукових знань, може прийняти їх сигнал, та декодувати його в повноцінне зображення?</p>
+<p>А чи знали ви, що зараз на низькій орбіті землі знаходиться принаймні 3 супутники (upd: вже 0 D: ), які в режимі реального часу транслюють нам зображення Землі, і будь хто, навіть без дорогого обладнання та супер наукових знань, може прийняти їх сигнал, та декодувати його в повноцінне зображення?</p>
 <p>В даній статті мова піде про погодні супутники <strong>NOAА</strong>. Це серія спеціальних супутників, які були запущені <strong><em>National Oceanic and Atmospheric Administration</em></strong>. Їх найбільш цікава нам мета - це транслювати на Землю зображення того, що вони бачать, тобто зображення Землі з низької орбіти. Поки цей супутник летить, він в режимі реального часу транслює те, що бачать його камери.</p>
 <p><img alt="&quot;Супутник NOAA 19&quot;" src="https://so1der.github.io/images/noaa/noaa19.png" title="Супутник NOAA 19"></p>
-<p>Наразі функціонує 2 таких супутники - NOAA 15, та NOAA 19. Але останнім часом, NOAA 15, найстаріший з функціонуючих NOAA супутників, почав трішки барахлити. Тому я б вам радив уникати його і починати саме з NOAA 19, хоча з точки зору процесу прийому сигналу супутники однакові.</p>
+<p>Наразі функціонує 3 таких супутники - NOAA 15, NOAA 18, та NOAA 19. Але останнім часом, NOAA 15, найстаріший з функціонуючих NOAA супутників, почав трішки барахлити. Тому я б вам радив уникати його і починати саме з NOAA 18 та NOAA 19, хоча з точки зору процесу прийому сигналу супутники однакові.</p>
 <p>Ці супутники літають вже дуже давно, ось в травні цього року NOAA 18 виповниться аж 20 років (upd: а в червні його взагалі вимкнули). Ця цифра здається ще більшою, коли дізнаєшся що запускали його з тривалістю місії "мінімум 2 роки". Тому якщо вас подібне цікавить, раджу поскоріше цим зайнятись, бо хто його знає скільки ці супутники будуть ще функціонувати. Тим паче як можна здогадатись з цифр, були й інші супутники NOAA, які вже на жаль не літають.</p>
 <p>Перш ніж перейти до безпосередньо прийому, треба все ж таки трішки зануритись в теорію. Одразу скажу що я не ліцензований радіоаматор, в мене немає позивного, тому не нульова вірогідність того, що я щось кажу не так.</p>
 <p>І так, як я вже й казав, ці супутники літають на низькій орбіті землі. Орбіту на якій вони літають ще називають Sun-synchronous orbit, тобто орбіта синхронізована з сонцем, і це не просто так.</p>
@@ -202,6 +200,7 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p><img alt="&quot;Схема адаптера (потрібен лише звук та земля)&quot;" src="https://so1der.github.io/images/noaa/diy-adapter.png" title="Схема адаптера (потрібен лише звук та земля)"></p>
 <p>Але таким чином, записуючи на телефон, ви не будете чути сигнал, і не зможете на слух визначати наскільки він якісний, і чи відсутні завади. В такому випадку вже краще використовувати ноутбук для запису, адже можна використати наприклад програму <a href="https://tenacityaudio.org/">Tenacity</a>, де є функція <strong>Software Playthrough of Input</strong>, тобто ви зможете в режимі реального часу чути те що записуєте.</p>
 <p><img alt="&quot;Software Playthrough of Input&quot;" src="https://so1der.github.io/images/noaa/software-playthrough.jpg" title="Software Playthrough of Input"></p>
+<h2 id="antenna">Антена Yagi-Uda на 137 МГц</h2>
 <p>А стосовно першого ж - якості прийому сигналу - можна спробувати вийти на більш відкриту місцевість, подалі від будівель та інших завад, абооо ж створити антену по-краще! Мало того що вона буде спрямована, так ще й розрахована спеціально на потрібні частоти.</p>
 <p><img alt="&quot;Yagi-Uda на 137 МГц&quot;" src="https://so1der.github.io/images/noaa/yagi.png" title="Yagi-Uda на 137 МГц"></p>
 <p>Перед вами схема спрямованої антени Ягі Уда, на 137 МГц. 
@@ -265,14 +264,6 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p>&copy; 2025 </p>
 <p>
 Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
-  <span class="footer-separator">|</span>
-  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
-  <script id="dark-theme-script"
-          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
-          data-enable-auto-detect-theme="True"
-          data-default-theme="dark"
-          type="text/javascript">
-  </script>
 </p></footer>  </main>
 
 <script type="application/ld+json">

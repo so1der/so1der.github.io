@@ -12,15 +12,10 @@
     <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
 
     <link id="dark-theme-style" rel="stylesheet" type="text/css"
-          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
     href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
 
     <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
           href="https://so1der.github.io/theme/pygments/monokai.min.css">
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: light)"
-          href="https://so1der.github.io/theme/pygments/github.min.css">
 
 
 
@@ -66,7 +61,7 @@
 
 
 </head>
-<body >
+<body class="dark-theme">
 
 <aside>
   <div>
@@ -159,7 +154,7 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
     <blockquote>
 <p>Дисклеймер: Розбираючи роутер, ви втрачаєте гарантію, а також можете пошкодити роутер. Сприймайте всю інформацію зі статті виключно як інформацію для ознайомлення. Вся відповідальність за ваші дії буде лежати виключно на вас.</p>
 </blockquote>
-<p>Ось і друга частина в серії відео по хакінгу, або ж реверсінжинірингу роутера. Нагадаю що в <a href="/articles/wr840n-hacking-1.html">попередній частині</a> ми знайшли UART шину роутера, та отримали через неї Root доступ до роутеру. Але UART шина була захищена паролем, і щоб його дізнатись, мені довелось здампити прошивку роутера, про це сьогодні і піде мова.</p>
+<p>Ось і друга частина в серії відео по хакінгу, або ж реверсінжинірингу роутера. Нагадаю що в <a href="/articles/wr840n-hacking-1#wr840n-hacking-1">попередній частині</a> ми знайшли UART шину роутера, та отримали через неї Root доступ до роутеру. Але UART шина була захищена паролем, і щоб його дізнатись, мені довелось здампити прошивку роутера, про це сьогодні і піде мова.</p>
 <p><strong>Дампінгом</strong> називається процес вилучення прошивки з пам'яті пристрою. В минулій статті я вже казав де саме лежить прошивка роутера, - в ось цій SPI флешці. </p>
 <p><img alt="&quot;SPI флешка на платі&quot;" src="https://so1der.github.io/images/wr840n-hacking-2/spi-on-pcb.jpg" title="SPI флешка на платі"></p>
 <p>Відповідно якщо випаяти її, та помістити в спеціальний програматор, її можна не тільки зчитати, а й перезаписати. Звісно є способи вилучення прошивки і без випаювання мікросхеми, але ця стаття не про це. Я буду випаювати мікросхему за допомогою термофену. Але спершу давайте детальніше про саму мікросхему пам'яті.</p>
@@ -299,7 +294,7 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p>А на цьому в мене все. Наступна частина, по встановленню OpenWrt обов'язково колись буде, сподіваюсь, але я вимушений відкласти її на невизначений термін. Справа в тому, що цей роутер вже давненько не підтримується OpenWrt через малі обсяги пам'яті, тому доступні лише старі версії прошивки. </p>
 <p>Це все одно краще ніж стокова прошивка, але не настільки краще, наскільки могло би бути. Тому я думаю урізноманітнити цей процес, і провести апгрейд мікросхем пам'яті, замінити флеш пам'ять та ОЗП, і зібрати під цього франкенштейна актуальну версію OpenWrt. Чи доцільно це? Ну, мабуть ні, особливо якщо мова йде про ваш основний роутер - легше просто купити новий роутер з нормальним обсягом пам'яті, та і все. </p>
 <p>Але цей апгрейд був би точно цікавим та пізнавальним, це набагато цікавіше ніж просто розповісти, як встановити OpenWrt, бо такого контенту в інтернеті вже безліч. Проте, на пошук необхідних мікросхем доведеться витратити певний час, томуу, не можу нічого гарантувати.</p>
-<h2><a href="/articles/wr840n-hacking-3">Фінальна частина</a></h2>
+<h2><a href="/articles/wr840n-hacking-3#wr840n-hacking-3">Фінальна частина</a></h2>
 <h2>Post Scriptum</h2>
 <p>Це текстова версія мого відео на YouTube. Раджу подивитись відео, так як там все більш детально показано. Зробити це можна за <a href="https://www.youtube.com/watch?v=ww-qwmP9HdI">ось цим посиланням.</a></p>
   </div>
@@ -322,14 +317,6 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p>&copy; 2025 </p>
 <p>
 Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
-  <span class="footer-separator">|</span>
-  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
-  <script id="dark-theme-script"
-          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
-          data-enable-auto-detect-theme="True"
-          data-default-theme="dark"
-          type="text/javascript">
-  </script>
 </p></footer>  </main>
 
 <script type="application/ld+json">

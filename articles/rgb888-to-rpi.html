@@ -12,15 +12,10 @@
     <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
 
     <link id="dark-theme-style" rel="stylesheet" type="text/css"
-          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
     href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
 
     <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
           href="https://so1der.github.io/theme/pygments/monokai.min.css">
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: light)"
-          href="https://so1der.github.io/theme/pygments/github.min.css">
 
 
 
@@ -68,7 +63,7 @@
 
 
 </head>
-<body >
+<body class="dark-theme">
 
 <aside>
   <div>
@@ -305,7 +300,7 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p>Як бачимо, в моєму випадку це 8 послідовно з'єднаних світлодіодів.  Якщо припустити що там стоять білі світлодіоди з напругою переходу 3В, то для нормального функціонування такої стрічки діодів потрібно аж 24В!  Але напруга в даному випадку це найменша з проблем, для світлодіодів важливіше струм.  Підсвітку треба забезпечити стабільним струмом.  Для цих задач зазвичай використовують спеціалізовані драйвери підсвітки.  Порившись в своїх запасах SMD деталей, я знайшов ось таку мікросхемку - <strong>LTYN</strong>. Або ж в перекладі з SMD-шної - <strong>LT1937ES5</strong>.</p>
 <p><img alt="LT1937ES5" src="https://so1der.github.io/images/rgb888-to-rpi/ltyn.jpg" title="LT1937ES5"></p>
 <p>Це спеціалізований драйвер для живлення підсвітки напругою 36В. Він забезпечить її стабільним струмом, що позитивно вплине на довговічність світлодіодів, якість пісдвітки, і при цьому це буде  доволі енергоефективно.  Але так як дістати в нас цю мікросхему не дуже то й просто, було б не чесно якби я використав її просто тому що вона в мене є.  Тому буде легкий і доступний, але менш ефективний та надійний спосіб - а саме живити світлодіоди підсвітки від звичайного DC DC перетворювача, і обмежувати струм резистором.</p>
-<p>Це мабуть так собі вплине на стабільність та довговічність світлодіодів, але зато підвищувальний DC-DC перетворювач точно знайдеться в будь якого електронщика вдома.  Або його можна навіть власноруч зробити, як я показував в <a href="/articles/how-to-use-vfds.html">статті про VFD індикатори</a>. </p>
+<p>Це мабуть так собі вплине на стабільність та довговічність світлодіодів, але зато підвищувальний DC-DC перетворювач точно знайдеться в будь якого електронщика вдома.  Або його можна навіть власноруч зробити, як я показував в <a href="/articles/how-to-use-vfds#how-to-use-vfds.html">статті про VFD індикатори</a>. </p>
 <p>Спочатку я виставив 24 вольти на DC-DC перетворювачі, після чого підібрав резистор, з яким струм живлення підсвітки буде максимально близький до струму зазначеного в даташиті - 7 мА. Хоча як виявилось пізніше, там йшлась мова про зовсім інший струм, і для світлодіодів підійде струм в діапазоні 20-35 мА, хоча навіть при 9 мА, яскравості підсвітки мого дисплея вистачає для використання в приміщенні. Підібравши номінал резистора, я припаяв все до нижньої сторони макетної плати. </p>
 <p><img alt="Живлення підсвітки" src="https://so1der.github.io/images/rgb888-to-rpi/backlight-schematic.png" title="Живлення підсвітки"></p>
 <h2 id="raspberry-pi-setup">Налаштовуємо Raspberry Pi</h2>
@@ -664,14 +659,6 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p>&copy; 2025 </p>
 <p>
 Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
-  <span class="footer-separator">|</span>
-  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
-  <script id="dark-theme-script"
-          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
-          data-enable-auto-detect-theme="True"
-          data-default-theme="dark"
-          type="text/javascript">
-  </script>
 </p></footer>  </main>
 
 <script type="application/ld+json">

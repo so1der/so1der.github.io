@@ -12,15 +12,10 @@
     <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
 
     <link id="dark-theme-style" rel="stylesheet" type="text/css"
-          media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
     href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
 
     <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)"
           href="https://so1der.github.io/theme/pygments/monokai.min.css">
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-              media="(prefers-color-scheme: light)"
-          href="https://so1der.github.io/theme/pygments/github.min.css">
 
 
 
@@ -66,7 +61,7 @@
 
 
 </head>
-<body >
+<body class="dark-theme">
 
 <aside>
   <div>
@@ -199,7 +194,7 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p><img alt="&quot;VHF та UHF на рації&quot;" src="https://so1der.github.io/images/rtl-sdr/uhf-vhf.jpg" title="VHF та UHF на рації"></p>
 <p>Місто ж в свою чергу дає більше завад, але з іншого боку - є висока вірогідність почути радіоаматорів, або хоча б охоронців в АТБ :D Але в даній статті я розповім про дві речі, які +- доступні всім, незалежно від місцезнаходження - це супутники та короткі хвилі.</p>
 <h2>Супутники</h2>
-<p>Стосовно супутників, можна приймати ті ж <strong>NOAA</strong> про які в мене є <a href="/articles/noaa.html">окрема стаття</a>. Якщо коротко, то налаштовуємо SDR на частоту потрібного супутнику, обираємо режим модуляції <strong>FM</strong>, тобто <strong>Frequeicy Modulation</strong>, та ставимо Bandwidth приблизно <strong>45 кГц</strong>, щоб уникнути ефекту Доплера. Чекаємо коли супутник буде поруч, та включаємо запис аудіо. Після цього аудіо доріжку можна перетворити на зображення Землі. Більш детально знову ж таки, в попередній статті. Якщо у вас є якісь проблеми з прийомом, то можете спробувати відключити <strong>Auto Gain Control</strong>, і спробувати налаштувати підсилення вручну. Це особливо актуально для міст, адже там може бути якась потужна завада, або FM станція поруч, яка повпливає на роботу автоматичного режиму.</p>
+<p>Стосовно супутників, можна приймати ті ж <strong>NOAA</strong> про які в мене є <a href="/articles/noaa#noaa.html">окрема стаття</a>. Якщо коротко, то налаштовуємо SDR на частоту потрібного супутнику, обираємо режим модуляції <strong>FM</strong>, тобто <strong>Frequeicy Modulation</strong>, та ставимо Bandwidth приблизно <strong>45 кГц</strong>, щоб уникнути ефекту Доплера. Чекаємо коли супутник буде поруч, та включаємо запис аудіо. Після цього аудіо доріжку можна перетворити на зображення Землі. Більш детально знову ж таки, в попередній статті. Якщо у вас є якісь проблеми з прийомом, то можете спробувати відключити <strong>Auto Gain Control</strong>, і спробувати налаштувати підсилення вручну. Це особливо актуально для міст, адже там може бути якась потужна завада, або FM станція поруч, яка повпливає на роботу автоматичного режиму.</p>
 <p>До речі з RTL-SDR ці супутники можна декодувати навіть в режимі реального часу. І ще можна декодувати купу всякого іншого - раджу ознайомитись з програмою <a href="https://www.satdump.org/">SatDump</a>.</p>
 <p><img alt="&quot;HRPT з NOAA 18&quot;" src="https://so1der.github.io/images/rtl-sdr/noaa-18-hrpt.jpg" title="HRPT з NOAA 18"></p>
 <p>Окрім APT, в погодних супутників є ще більш цікава штука - <strong>HRPT. High Resolution Picture Transition</strong>. Результат виходить набагато крутіше ніж <strong>APT</strong>, хоча через доволі високі частоти на рацію таке вже не зловиш, тут потрібний саме SDR. Окрім SDR, потрібна ще доволі складна антена, а також спеціальний фільтр та підсилювач. Коштує такий навіть більше ніж сам RTL-SDR, і використовується лише для погодних супутників, тому придбання такого я навіть не розглядаю, хоча тема доволі цікава. В інтернеті є відео на цю тему, наприклад від каналу <a href="https://www.youtube.com/@saveitforparts">saveitforparts</a>, тож можете ознайомитись більш детально.</p>
@@ -366,14 +361,6 @@ rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
 <p>&copy; 2025 </p>
 <p>
 Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
-  <span class="footer-separator">|</span>
-  Обрати <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> тему
-  <script id="dark-theme-script"
-          src="https://so1der.github.io/theme/dark-theme/dark-theme.min.js"
-          data-enable-auto-detect-theme="True"
-          data-default-theme="dark"
-          type="text/javascript">
-  </script>
 </p></footer>  </main>
 
 <script type="application/ld+json">
