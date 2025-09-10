@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статті я опишу процес створення спрямованої Yagi-Uda антени на 433 МГц" />
+<meta name="keywords" content="diy, антени, зв&#39;язок, meshtastic">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Саморобна спрямована антена на 433 МГц"/>
+  <meta property="og:description" content="В даній статті я опишу процес створення спрямованої Yagi-Uda антени на 433 МГц"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/yagi-433mhz.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-09-10 17:04:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="антени"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="article:tag" content="meshtastic"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Саморобна спрямована антена на 433 МГц</title>
+
+
+</head>
+<body class="dark-theme">
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="yagi-433mhz">Саморобна спрямована антена на 433 МГц</h1>
+    <p>
+      Опубліковано 10.09.2025, 17:04 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>В даній статті я покажу процес створення простої спрямованої антени на 433 МГц. Така антена буде корисна в парі з рацією, вузлом Meshtastic, або навіть SDR приймачем.</p>
+<p><img alt="Антена Yagi-Uda" src="https://so1der.github.io/images/yagi-433mhz/yagi-preview.jpg" title="Антена Yagi-Uda"></p>
+<p>І так, мова сьогодні піде про антену Yagi Uda, або як її ще називають в нашій літературі - <strong>Хвильовий Канал</strong>. Це одна з найпростіших спрямованих антен яку можна зробити. Серйозно, її можна навіть зробити буквально з того що валяється під ногами, як я показував в <a href="/articles/noaa.html#noaa">статті про супутники NOAA</a>.  І хоч на прийом та антена працювала непогано, передавати щось нею я не став би, так як є ризик спалити передавач.  Тому сьогодні не буде ніякого колхозингу, і будемо робити антену якісно та надійно.</p>
+<h2>Компоненти</h2>
+<p><img alt="Труба" src="https://so1der.github.io/images/yagi-433mhz/pipe.jpg" title="Труба"></p>
+<p>Перш за все, у якості траверси, я вирішив обрати звичайну поліпропіленову трубу діаметром 25 мм.  В місцевому магазині вона обійшлась мені приблизно в 50 гривень за метр.  Вона достатньо товста щоб її було зручно тримати, і при цьому не дуже хитка.</p>
+<p><img alt="Алюмінієва трубка" src="https://so1der.github.io/images/yagi-433mhz/alum.jpg" title="Алюмінієва трубка"></p>
+<p>В якості елементів для антени я нарешті вирішив використати нормальні алюмінієві трубки, а не якийсь там дріт як раніше.  Конкретно це - анодована алюмінієва трубка діаметром 8 мм, з товщиною стінки 1 мм.  Придбав я їх на <a href="https://alu.kiev.ua/product75.html">сайті Корпорація "Алюміній"</a>, і метр такої трубки обійшовся мені в 26 гривень. Я купував з запасом, 12 відрізків по метру.  Варто зазначити що я не купував їх спеціально для цієї антени, я придбав їх щоб переробити свою <a href="/articles/ata.html#ata">Asymmetric Turnstile антену</a> з однієї з попередніх статей.</p>
+<p><img alt="Переробка ATA" src="https://so1der.github.io/images/yagi-433mhz/ata-remake.jpg" title="Переробка ATA"></p>
+<p><img alt="Нова ATA" src="https://so1der.github.io/images/yagi-433mhz/new-ata.jpg" title="Нова ATA"></p>
+<p>Антена після переробки вийшла дуже крутою, і дуже гарно приймала сигнал з супутників, але нажаль 19-го серпня було <a href="/articles/farewell-noaa.html#farewell-noaa">вимкнуто останній супутник</a>, і тепер вона сумно стоїть без діла.  Однак після цієї антени, в мене залишилась ціла купа зайвих відрізків цієї трубки, які я сьогодні і використаю.</p>
+<p><img alt="Труборіз" src="https://so1der.github.io/images/yagi-433mhz/pipe-cutter.jpg" title="Труборіз"></p>
+<p>Щоб нарізати трубки на відрізки необхідної довжини, я використовую ось такий ось труборіз, який обійшовся мені в 141 гривню.  Він має відрізний диск, який притискає трубку до двох підшипників, за рахунок яких трубка може обертатись, і обертаючи трубку, диск потроху її відрізає.  Звісно різ виходить не настільки гарний як заводський, але не думаю що це суттєва проблема.</p>
+<h2>Розрахунок антени</h2>
+<p>Для того щоб визначити довжини відрізків для антени я використав <a href="https://www.changpuak.ch/electronics/yagi_uda_antenna_DL6WU.php">ось такий калькулятор</a>. Перш за все треба ввести необхідну вам частоту.  Я вводжу <strong>433.125</strong> так як основна мета цієї антени це використання її в мережі <strong>Meshtastic</strong>. </p>
+<p>Далі вводимо кількість елементів. Мінімально можлива кількість елементів в такої антени це 3 штуки - рефлектор, диполь, та дайректор:</p>
+<p><img alt="Яґі-Уда" src="https://so1der.github.io/images/yagi-433mhz/yagi.png" title="Яґі-Уда"></p>
+<p>До диполя підключається кабель, а два інших елементи забезпечують необхідну спрямованість анетни.  Збільшуючи в калькуляторі кількість елементів, ми додаємо додаткові дайректори до антени. Це збільшує підсилення антени, але натомість робить її умовний промінь більш вузьким.  Можна провести аналогію з фокусуванням ліхтарика - чим більше дайректорів, тим сфокусованіше ліхтарик.  Тобто промінь стає більш потужним, але натомість зменшується кут охоплення.</p>
+<p>Для себе я обрав антену з п'яти елементів - тобто рефлектор, диполь, та 3 дайректори. Це дасть немале підсилення, але й при цьому не зробить кут антени занадто вузьким.  Далі вводимо діаметр елементів антени, та діаметр траверси, і отримуємо ось такий текстовий вивід зі всією необхідною інформацією:</p>
+<div class="highlight"><pre><span></span><code><span class="c">https://www</span><span class="nt">.</span><span class="c">changpuak</span><span class="nt">.</span><span class="c">ch/electronics/yagi_uda_antenna</span><span class="nt">.</span><span class="c">php</span>
+<span class="c">Javascript Version 12</span><span class="nt">.</span><span class="c">01</span><span class="nt">.</span><span class="c">2014</span><span class="nt">,</span><span class="c"> based on Rothammel / DL6WU</span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Frequency     :  433</span><span class="nt">.</span><span class="c">125  MHz</span><span class="nt">,</span><span class="c"> (useful from 424</span><span class="nt">.</span><span class="c">4625 to 441</span><span class="nt">.</span><span class="c">7875)</span>
+<span class="c">Wavelength    :  693  mm</span>
+<span class="c">Rod Diameter  :  8  mm</span>
+<span class="c">Boom Diameter :  25  mm</span>
+<span class="c">Boom Length   :  508  mm</span>
+<span class="c">d/lambda      :  0</span><span class="nt">.</span><span class="c">012    ( min</span><span class="nt">.</span><span class="c">: 0</span><span class="nt">.</span><span class="c">002 </span><span class="nt">,</span><span class="c"> max</span><span class="nt">.</span><span class="c">: 0</span><span class="nt">.</span><span class="c">01 )</span>
+<span class="c">D/lambda      :  0</span><span class="nt">.</span><span class="c">036    ( min</span><span class="nt">.</span><span class="c">: 0</span><span class="nt">.</span><span class="c">01 </span><span class="nt">,</span><span class="c"> max</span><span class="nt">.</span><span class="c">: 0</span><span class="nt">.</span><span class="c">05 )</span>
+<span class="c">Elements      :  5</span>
+<span class="c">Gain          :  7</span><span class="nt">.</span><span class="c">99 dBd (approx</span><span class="nt">.</span><span class="c">)</span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Reflector Length   : 334 mm</span>
+<span class="c">Reflector Position :  0 mm</span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Dipole Position    : 166 mm</span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Director #1 Position : 218 mm </span><span class="nt">,</span><span class="c">  Length : 315 mm</span>
+<span class="c">Distance Dipole </span><span class="nb">-</span><span class="c"> Dir</span><span class="nt">.</span><span class="c"> #1 : 52 mm </span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Director #2 Position : 343 mm </span><span class="nt">,</span><span class="c">  Length : 312 mm</span>
+<span class="c">Distance Dir</span><span class="nt">.</span><span class="c"> #1 </span><span class="nb">-</span><span class="c"> Dir</span><span class="nt">.</span><span class="c"> #2 : 125 mm </span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Director #3 Position : 492 mm </span><span class="nt">,</span><span class="c">  Length : 309 mm</span>
+<span class="c">Distance Dir</span><span class="nt">.</span><span class="c"> #2 </span><span class="nb">-</span><span class="c"> Dir</span><span class="nt">.</span><span class="c"> #3 : 149 mm </span>
+<span class="nb">-------------------------------------------------------------</span>
+<span class="c">Directors / Parasitics are isolated</span><span class="nt">.</span>
+<span class="c">Please choose an isolater thicker than : 13 mm</span>
+</code></pre></div>
+
+<p>Стосовно диполя - для нього на цьому сайті є <a href="https://www.changpuak.ch/electronics/Dipole_straight.php">окремий калькулятор</a>. Вводимо тут також частоту, та діаметр елементів, і отримуємо розміри плечей диполя, а також бажану довжину зазору між ними:</p>
+<p><img alt="Калькулятор диполя" src="https://so1der.github.io/images/yagi-433mhz/dipole-calc.jpg" title="Калькулятор диполя"></p>
+<p>Для моїх потреб вийшло приблизно ось таке ось креслення. </p>
+<p><img alt="Креслення антени" src="https://so1der.github.io/images/yagi-433mhz/antenna-drawing.png" title="Креслення антени"></p>
+<p>Якщо у вас немає якихось конкретних задач, або вам, як і мені, просто потрібна якась спрямована антена для мережі Meshtastic - то можете повторити її не перераховуючи.</p>
+<h2>Збираємо антену</h2>
+<p>Використовуючи спеціальні ножиці, я відрізав шматок поліпропіленової труби довжиною 65 сантиметрів. Я взяв невеличкий запас, щоб її зручно було тримати в руці.  І використовуючи труборіз, нарізав шматочки алюмінієвої трубки: </p>
+<p><img alt="Елементи антени" src="https://so1der.github.io/images/yagi-433mhz/elements.jpg" title="Елементи анетни"></p>
+<p>Тепер коли в нас є траверса та елементи антени, треба якимось чином скріпити все це за раніше зазначеним кресленням.  Спочатку я думав просвердлити отвори в тримачах для труб, і вставити елементи антени туди, але дуже швидко дійшов висновку, що свердлити настільки глибокі отвори без свердлильного верстата - не сама краща ідея.  Принаймні в мене не вийшло це нормально зробити. Тому від цієї ідеї я відмовився.  Ще один з варіантів - просвердлити отвори безпосередньо в самій траверсі.  Але знову ж таки, без верстата рівно просвердлити такі отвори буде не так вже й легко, та і це врази ускладнить підключення кабелю до диполя антени.</p>
+<p>Тому вперше в своєму житті, я вирішив вдатись до 3D друку.</p>
+<p>Швиденько пошукавши в інтернеті, я знайшов <a href="https://www.thingiverse.com/thing:1860122">ось таку модель</a>, яка дозволить зручно та головне - <strong>рівно</strong> кріпити елементи до траверси.  Але я не був впевнений стосовно того, що на такій деталі можна буде нормально реалізувати підключення кабелю, а інших під ці задачі не знайшов.</p>
+<p>І тут я згадав, що бачив в <a href="https://t.me/Ukraine_Amateur_Radio_Operators">чаті UARO</a> -  <strong>Олександра</strong>. Він мало того що займається 3D друком, так ще й радіоаматор, тому я вирішив звернутись до нього за порадою.  В результаті він спроєктував та надрукував мені зовсім іншу деталь, яка набагато більше підходила під мої задачі, ну і також зробив окрему деталь для підключення кабелю.</p>
+<p><img alt="Деталі для 3D друку" src="https://so1der.github.io/images/yagi-433mhz/3d.png" title="Деталі для 3D друку"></p>
+<p>Якщо у вас є 3D принтер, то можете знайти ці моделі для друку <a href="https://www.thingiverse.com/thing:7131684">на thingiverse</a>, або в <a href="#files">додатках</a> вкінці цієї статті.  А якщо 3D принтеру немає, то можете як і я <a href="https://t.me/Alex_radioamator">звернутись до Олександра</a>.</p>
+<p>Кріплення мають спеціальний отвір, і їх можна стягнути за допомогою гвинтиків <strong>М2.5</strong>, за рахунок чого вони будуть надійно триматись на траверсі, але особисто в мене навіть без гвинтів вони гарно тримаються.  А от елементи антени слід таки зафіксувати, цими ж М2.5 гвинтиками. Отвір спеціально зроблений трішки менше за діаметр гвинта, щоб він сам собі нарізав різьбу.</p>
+<p><img alt="Фіксація елемента" src="https://so1der.github.io/images/yagi-433mhz/screw.jpg" title="Фіксація елемента"></p>
+<p>Для цих задач підійдуть гвинтики довжиною приблизно від 6 до 8 мм.  8ми міліметровий гвинтик трішки виступає, можливо можна було б його вкоротити, але не думаю що це дуже критично, адже по центру елементів такої антени потенціал все одно відсутній.</p>
+<p>Тобто тепер залишилось лише зібрати все за кресленням, і підключити кабель до антени.  Для того щоб під'єднати дріт до активних елементів антени, я трішки сплюснув кінець елементів, після чого обточив їх на точильному верстаті.  Замість точильного верстату можна використовувати звичайний абразивний папір.  Це необхідно для того щоб зняти діелектричне анодне покриття, та зменшити ширину плоскої частини.</p>
+<p><img alt="Модифікація активних елементів" src="https://so1der.github.io/images/yagi-433mhz/dipole-elements.jpg" title="Модифікація активних елементів"></p>
+<p>Звісно бажано уникати таких геометричних змін на елементах антени, але думаю це не дуже критично.</p>
+<p>Далі я просвердлив двох міліметровий отвір під М2 гвинтик в елементах, і тепер за допомогою кільцевих клем можна буде прикрутити кабель до елементів не паяючи при цьому сам алюміній.  Так як після шліфування трубка грубо кажучи разполовинилась, туди можна засунути гайку, і вийде дуже надійна та зручна конструкція. До одного елемента слід підпаяти центральну жилу, а до іншого - екран.</p>
+<p><img alt="Клеми для кабелю" src="https://so1der.github.io/images/yagi-433mhz/connector.jpg" title="Клеми для кабелю"></p>
+<p>Звісно це лише один з можливих варіантів підключення кабелю, і ви можете робити так, як вам зручно.  Якщо у вас є якісь поради стосовно того, як краще приєднувати кабель до елементів - був би радий їх почути.</p>
+<p>Пару слів слід сказати і про сам кабель. Я взяв коаксіальний кабель <strong>RG-58</strong>.  Перш ніж підключати його до антени, нам слід провести з ним одну маніпуляцію, а саме реалізувати <strong>симетруючий короткозамикаючий шлейф</strong>.  Я вже розповідав про нього в <a href="/articles/ata.html#ata">статті про Asymmetric Turnstile антену</a>, але якщо коротко то це досить важлива частина антени, яка не тільки поліпшить її характеристики, а ще й захистить підключений пристрій від статики. Хоча натомість зробить антену більш вузькосмуговою (тобто її bandwidth буде менше).</p>
+<p>Для реалізації шлейфу потрібен якийсь одножильний ізольований дріт, наприклад з витої пари.</p>
+<p><img alt="Симетруючий КЗ шлейф" src="https://so1der.github.io/images/yagi-433mhz/stub.png" title="Симетруючий КЗ шлейф"></p>
+<p>Треба відрізати відрізок рівний по довжині чверті хвилі бажаної частоти антени.  На 433.125 це буде приблизно 17.3 сантиметрів:</p>
+<ul>
+<li>Довжина хвилі:</li>
+</ul>
+<div class="math">$$ λ = \frac{300}{F_{МГц}} = \frac{300}{433,125} = 0,693м $$</div>
+<ul>
+<li>Довжина КЗ шлейфа:</li>
+</ul>
+<div class="math">$$  λ \cdot 0,25 = 0,693 \cdot 0,25 = 0,173м $$</div>
+<p>Одну сторону цього дроту припаюємо до центральної жили зі сторони підключення антени, іншу до екрану вниз по кабелю.  Тобто зачищаємо там ізоляцію, і акуратно припаюємо інший кінець дроту туди, після чого ізолюємо те місце.  Може здатись що це щось дивне, але повірте, так треба.</p>
+<p><img alt="Пайка КЗ шлейфа" src="https://so1der.github.io/images/yagi-433mhz/stub-soldering.jpg" title="Пайка КЗ шлейфа"></p>
+<p>З іншої сторони кабелю я обтиснув коннектор SMA. Можна використати й інші коннектори, виходячи з ваших задач, або навіть використати якісь перехідники.  Тепер залишилось лише все зібрати до купи, і антена готова.</p>
+<p><img alt="Збір антени" src="https://so1der.github.io/images/yagi-433mhz/assembling.jpg" title="Збір антени"></p>
+<h2>Тести антени</h2>
+<p><img alt="Зібрана антена" src="https://so1der.github.io/images/yagi-433mhz/antenna.jpg" title="Зібрана антена"></p>
+<p>Я вважаю що виглядає вона просто чудово.  Але вигляд це одне, а як вона буде працювати - це інше. Давайте подивимось на її параметри за допомогою векторного аналізатора.</p>
+<p><img alt="Резонанс антени" src="https://so1der.github.io/images/yagi-433mhz/swr.jpg" title="Резонанс антени"></p>
+<p>Як бачите, по частотам я трішки промазав - резонанс спостерігається десь на <strong>430 МГц</strong>, тобто на 3 МГц менше, ніж потрібно.  Думаю це цілком нормальна картина, адже все робилось моїми кривими руцятами, а не якимись там точними верстатами.  Десь більше більше відрізав, десь округлив, і так далі.  А через симметруючий КЗ шлейф, антена вийшла доволі таки вузькосмугова, і на потрібних мені частотах КСХ становить майже п'ять одиниць!  Звісно втрати потужності певною мірою компенсуються за рахунок підсилення антени, але це таке собі.</p>
+<p>Однак, раз резонанс на меншій частоті ніж потрібно, це доволі легко виправити - треба просто потроху вкорочувати елементи, поки резонанс не підніметься на потрібну частоту.  Цим я за потім і займусь, але мені стало цікаво протестувати антену і без цього.  Все ж таки не у всіх є векторний аналізатор, тому зімітуємо ситуацію що в мене його нема, і я просто зібрав антену за кресленням.  Підключивши антену до свого вузла Meshtastic, я спрямував антену на сусіднє місто.  Перевіривши вузол через годинку, я побачив що він зміг підключитись до невеличкої локальної мережі в цьому місті!  Ще й при цьому співвідношення шуму до сигналу виглядає просто прекрасно.</p>
+<p><img alt="Мережа Meshtastic" src="https://so1der.github.io/images/yagi-433mhz/mesh.png" title="Мережа Meshtastic"></p>
+<p>Від мене до цього вузла майже 10 кілометрів, і інші антени його не ловили.  Тобто уявіть що буде, якщо довести антену до ладу та підняти її ще вище.  Результати тоді повинні бути взагалі чудові.  Тож антеною я дуже задоволений. </p>
+<p>До речі різати нічого не довелось, я зміг вивести її на резонанс на 433,125 МГц просто підлаштувавши відстань між елементами. Але як бачите, навіть без цього вона цілком виконувала свої задачі.  Тож можу сміливо радити її вам до повторення!</p>
+<hr>
+<h2 id="files">Додатки:</h2>
+<ul>
+<li>Креслення антени: <a href="/files/yagi-433mhz/antenna_drawing.svg">antenna_drawing.svg</a></li>
+<li>Тримач елементів: <a href="/files/yagi-433mhz/holder.STL">holder.STL</a></li>
+<li>Диполь з вводом під кабель: <a href="/files/yagi-433mhz/dipole.STL">dipole.STL</a></li>
+<li>Кришечка для диполя: <a href="/files/yagi-433mhz/dipole_cover.STL">dipole_cover.STL</a></li>
+<li><a href="https://www.youtube.com/watch?v=kajdmuvqLKs">Дуже гарна відео лекція з теорією роботи Yagi-Uda</a></li>
+</ul>
+<hr>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія мого відео доступного <a href="null">за посиланням</a>.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = "https://so1der.github.io/theme/MathJax/es5/tex-chtml-full.js";
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/anteni.html">антени</a>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+      <a href="https://so1der.github.io/tag/meshtastic.html">meshtastic</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

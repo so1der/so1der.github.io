@@ -323,7 +323,7 @@ rm<span class="w"> </span><span class="nv">$image_name</span>
 python<span class="w"> </span>poster.py<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w">  </span>&gt;&gt;<span class="w"> </span>logfile_python
 </code></pre></div>
 
-<p><strong>post_image.sh</strong> навіть скриптом назвати важко - це просто невеличкий враппер, який запускає пайтонівський скрипт, і передає йому необхідні параметри. Ну і про всяк випадок ще записує аутпут скрипта в логфайл. Я вирішив зробити саме окремий скрипт для цього, бо для запуску пайтонівського скрипта треба спочатку активувати віртуальне середовище, щоб Python зміг використовувати бібліотеку <a href="https://pypi.org/project/Mastodon.py/">Mastodon.py</a> - тому, щоб все виглядало гарненько, використовується окремий скрипт.</p>
+<p><strong>post_image.sh</strong> навіть скриптом назвати важко - це просто невеличкий враппер, який запускає пайтонівський скрипт, і передає йому необхідні параметри. Ну і про всяк випадок ще записує output скрипта в логфайл. Я вирішив зробити саме окремий скрипт для цього, бо для запуску пайтонівського скрипта треба спочатку активувати віртуальне середовище, щоб Python зміг використовувати бібліотеку <a href="https://pypi.org/project/Mastodon.py/">Mastodon.py</a> - тому, щоб все виглядало гарненько, використовується окремий скрипт.</p>
 <hr>
 <h3>poster.py</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
