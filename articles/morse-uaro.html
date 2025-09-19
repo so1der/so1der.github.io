@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Простий саморобний перехідник щоб підключити ямбічний ключ до Морзе тренажерів на кшталт Morse Mania." />
+<meta name="keywords" content="diy, зв&#39;язок">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Перехідник з ямбічного ключа на Морзе тренажери"/>
+  <meta property="og:description" content="Простий саморобний перехідник щоб підключити ямбічний ключ до Морзе тренажерів на кшталт Morse Mania."/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/morse-uaro.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-09-19 09:26:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="Гайди"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Перехідник з ямбічного ключа на Морзе тренажери</title>
+
+
+</head>
+<body class="dark-theme">
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="morse-uaro">Перехідник з ямбічного ключа на Морзе тренажери</h1>
+    <p>
+      Опубліковано 19.09.2025, 09:26 в категорії <a href="https://so1der.github.io/category/gaidi.html">Гайди</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="Прев'ю" src="https://so1der.github.io/images/morse-uaro/preview.png"></p>
+<p>В даній статі поглянемо на один з проєктів <a href="https://uaro.org.ua/">UARO</a> - спеціальний перехідник для ямбічних Морзе ключів, який дозволить їх підключати до різного роду Морзе тренажерів на телефоні та ПК!</p>
+<hr>
+<h2>Компоненти</h2>
+<p>В основі даного перехідника лежить мікроконтролер RP2040, а якщо конкретніше - двеборди Raspberry Pi Pico. Найкраще всього себе зарекомендували девборди <strong>RP2040-Zero</strong> від Waveshare, через свій доволі маленький розмір. Окрім мікроконтролера також знадобиться <strong>гніздо під штекер 3.5мм</strong>, так як більшість ямбічних ключів мають саме такий спосіб підключення.</p>
+<p>Приклад компонентів в магазині  rcscomponents:</p>
+<ul>
+<li><a href="https://www.rcscomponents.kiev.ua/product/rp2040-zero_186292.html">RP2040-Zero</a></li>
+<li><a href="https://www.rcscomponents.kiev.ua/product/hnizdo-jack-3-5mm-stereo-pj-392_198525.html">Гніздо 3.5мм</a></li>
+</ul>
+<p><img alt="Компоненти" src="https://so1der.github.io/images/morse-uaro/components.png" title="Компоненти"></p>
+<hr>
+<h2>Схема</h2>
+<p>Підключити все доволі просто: на перший контакт 3.5мм гнізда йде земля з мікроконтролера - GND. А другий та третій підключаються до GPIO 14 та GPIO 15. Більше нічого підключати не треба.</p>
+<p><img alt="Схема з'єднань" src="https://so1der.github.io/images/morse-uaro/schematic.png" title="Схема з'єднань"></p>
+<p><img alt="Приклад реалізації" src="https://so1der.github.io/images/morse-uaro/assembled.jpg" title="Приклад реалізації"></p>
+<p><img alt="Приклад реалізації" src="https://so1der.github.io/images/morse-uaro/assembled2.jpg" title="Приклад реалізації"></p>
+<hr>
+<h2>Прошивка мікроконтролера</h2>
+<p><img alt="Кнопка BOOT" src="https://so1der.github.io/images/morse-uaro/button.png" title="Кнопка BOOT"></p>
+<p>Для того щоб прошити мікроконтролер, необхідно затиснути кнопку BOOT на платі мікроконтролера, та підключити його до комп'ютера. Комп'ютер побачить мікроконтролер як звичайну флешку, з назвою на кшталт <strong>RPI-RP2</strong>, та приблизно ось таким змістом всередині:</p>
+<p><img alt="Вміст &quot;флешки&quot; мікроконтролера" src="https://so1der.github.io/images/morse-uaro/rpi.png" title="Вміст &quot;флешки&quot; мікроконтролера"> </p>
+<p>В такому режимі мікроконтролер очікує прошивку в форматі <code>.uf2</code>. Проєкт базується на прошивці <strong>CircuitPython</strong>, щоб користувачі могли легко його налаштовувати, без потреби в перекомпіляції прошивки. Необхідно завантажити <a href="https://downloads.circuitpython.org/bin/waveshare_rp2040_zero/en_US/adafruit-circuitpython-waveshare_rp2040_zero-en_US-9.2.9.uf2">відповідний .uf2 файл</a>, та копіювати його на мікроконтролер.</p>
+<p>Після цього мікроконтролер перезавантажиться, і буде знову доступний як звичайна флешка, але на цей раз з назвою <strong>CIRCUITPY</strong>, та ось таким змістом:</p>
+<p><img alt="Вміст &quot;флешки&quot; після прошивки" src="https://so1der.github.io/images/morse-uaro/circuitpy.png" title="Вміст &quot;флешки&quot; після прошивки"> </p>
+<p>Спочатку треба в директорію lib (створіть якщо не існує) помістити бібліотеку <strong>adafruit_hid</strong> - просто створити директорію <strong>adafruit_hid</strong> з <a href="https://github.com/adafruit/Adafruit_CircuitPython_HID/tree/main/adafruit_hid">наступним змістом</a>.</p>
+<p>Далі необхідно відкрити та редагувати файл <code>code.py</code>. Видаліть попередній зміст, та копіюйте туди наступний код:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">board</span>
+<span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="kn">import</span> <span class="nn">usb_hid</span>
+<span class="kn">from</span> <span class="nn">adafruit_hid.keyboard</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="kn">from</span> <span class="nn">adafruit_hid.keycode</span> <span class="kn">import</span> <span class="n">Keycode</span>
+
+<span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="p">(</span><span class="n">usb_hid</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span>
+
+<span class="n">button_s</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">GP14</span><span class="p">)</span>
+<span class="n">button_s</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span>
+<span class="n">button_s</span><span class="o">.</span><span class="n">pull</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Pull</span><span class="o">.</span><span class="n">UP</span>
+
+<span class="n">button_a</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">GP15</span><span class="p">)</span>
+<span class="n">button_a</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span>
+<span class="n">button_a</span><span class="o">.</span><span class="n">pull</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Pull</span><span class="o">.</span><span class="n">UP</span>
+
+<span class="n">prev_s</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">prev_a</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">curr_s</span> <span class="o">=</span> <span class="n">button_s</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">curr_a</span> <span class="o">=</span> <span class="n">button_a</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="c1"># Налаштування кнопок. Наприклад якщо потрібна кнопка Q замість S: міняємо обидва Keycode.S на Keycode.Q</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">curr_s</span> <span class="ow">and</span> <span class="n">prev_s</span><span class="p">:</span>
+        <span class="n">kbd</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Keycode</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">curr_s</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">prev_s</span><span class="p">:</span>
+        <span class="n">kbd</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Keycode</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">curr_a</span> <span class="ow">and</span> <span class="n">prev_a</span><span class="p">:</span>
+        <span class="n">kbd</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Keycode</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">curr_a</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">prev_a</span><span class="p">:</span>
+        <span class="n">kbd</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Keycode</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="n">prev_s</span> <span class="o">=</span> <span class="n">curr_s</span>
+    <span class="n">prev_a</span> <span class="o">=</span> <span class="n">curr_a</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</code></pre></div>
+
+<p>В цілому, перехідник вже готовий до використання. Але пристрої до яких він буде підключений (комп'ютер, телефон) будуть продовжувати бачити його як флеш накопичувач. Щоб цього позбутись, треба в корені флеш накопичувача мікроконтролера (там де знаходиться <code>code.py</code>) створити ще один файл - <code>boot.py</code> з наступним вмістом:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">board</span>
+<span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="kn">import</span> <span class="nn">storage</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">button</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">GP14</span><span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">switch_to_input</span><span class="p">(</span><span class="n">pull</span><span class="o">=</span><span class="n">digitalio</span><span class="o">.</span><span class="n">Pull</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+    <span class="n">storage</span><span class="o">.</span><span class="n">enable_usb_drive</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">storage</span><span class="o">.</span><span class="n">disable_usb_drive</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Таким чином, мікроконтролер в подальшому не буде підключатись як флеш накопичувач. А якщо треба модифікувати налаштування, то можна затиснути одну зі сторін ямбічного ключа при підключенні (та, яка була припаяна до GPIO 14), і тоді мікроконтролер знову підключиться як флеш накопичувач, що дасть змогу модифікувати код.</p>
+<p>В додатках нижче можна завантажити архів, в якому я зібрав всі необхідні файли, які треба помістити в корінь флеш накопичувача після прошивки CircuitPython. Тобто просто копіюєте все з архіву в корінь флеш накопичувача, погоджуючись на заміну файлів, і пристрій буде готовий до роботи.</p>
+<hr>
+<h2>Використання</h2>
+<p>Для того щоб користуватись перехідником, достатньо просто підключити його за допомогою Type-C кабелю до необхідного пристрою. Пристрій побачить перехідник як звичайну клавіатуру, і буде імітувати натискання клавіш <code>A</code> та <code>S</code> в залежності від натискання ключа. Клавіші <code>A</code> та <code>S</code> можна замінити на будь які необхідні в файлі <code>code.py</code> - після прошивки перед підключенням перехідника затисніть одну зі сторін ключа (ту, яка була підключена до GPIO 14, тобто ту яка імітує клавішу <code>S</code>), і перехідник підключиться як флеш накопичувач. Далі відкрийте <code>code.py</code>, та відредагуйте строки коду з <code>kbd.press</code>.</p>
+<hr>
+<h2>Додатки</h2>
+<ul>
+<li><a href="https://downloads.circuitpython.org/bin/waveshare_rp2040_zero/en_US/adafruit-circuitpython-waveshare_rp2040_zero-en_US-9.2.9.uf2">CircuitPython.uf2</a></li>
+<li><a href="/files/morse-uaro/rpi.zip">Архів проєкту</a></li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
