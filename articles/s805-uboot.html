@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="Невеличка інструкція по компіляції u-boot для систем на SoC s805." />
+<meta name="keywords" content="Linux, embedded">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Збираємо u-boot для Андроїд-ТВ приставки на s805!"/>
+  <meta property="og:description" content="Невеличка інструкція по компіляції u-boot для систем на SoC s805."/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/s805-uboot.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-12-09 12:39:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="Гайди"/>
+  <meta property="article:tag" content="Linux"/>
+  <meta property="article:tag" content="embedded"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Збираємо u-boot для Андроїд-ТВ приставки на s805!</title>
+
+
+</head>
+<body class="dark-theme">
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/category/gaidi.html" >Гайди</a>
+          </li>
+          <li>
+            <a target="_self" href="/category/blog.html" >Блог</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="s805-uboot">Збираємо u-boot для Андроїд-ТВ приставки на s805!</h1>
+    <p>
+      Опубліковано 09.12.2025, 12:39 в категорії <a href="https://so1der.github.io/category/gaidi.html">Гайди</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h2>Пролог</h2>
+<p><img alt="&quot;Arch Linux ARM на s805 приставці&quot;" src="https://so1der.github.io/images/s805-uboot/s805.jpg" title="Arch Linux ARM на s805 приставці"></p>
+<p>Є в мене ось такий Android-TV бокс, на SoC - s805. Доволі довгий час на ньому стояв або Armbian або Arch Linux, і там крутились деякі мої невеличкі проєкти. І от одного разу, я вирішив випаяти звідти NAND пам'ять, щоб впаяти її в USB перехідник, і тим самим сдампити прошивку, тобто зробити повний образ наявної там системи, бо з під Armbian-а NAND пам'ять не була доступна, а з іншими способами возитись мені було лінь. Нічого гарного з цього не вийшло, і в решті решт я залишився з мертвим NAND чіпом, та цегляним Android-TV боксом :D</p>
+<p><img alt="&quot;Місце під мікросхему пам'яті&quot;" src="https://so1der.github.io/images/s805-uboot/nand.jpg" title="Місце під мікросхему пам'яті"></p>
+<p>Linux стояв на SD картці, чому ж тоді бокс перетворився на цеглу? А все просто - в NAND пам'яті був bootloader - <a href="https://docs.u-boot.org/en/latest/">u-boot</a>, який і завантажував систему з SD картки.</p>
+<p>Пошукавши в інтернеті образи для прошивки таких ТВ-боксів, звідти можна легко витягти bootloader, та записати його в початок картки пам'яті, і ТВ-бокс магічним чином оживе. Але є одна проблема - bootloader з тих образів компілювався таким чином, що він очікує побачити певний Recovery скрипт в пам'яті. Там же він шукає і налаштування для себе, і тому змінити їх як на звичайному u-boot-і неможливо. Тобто такий bootloader ніяким чином (мабуть) не зможе автоматично завантажити систему з SD картки, і при кожному запуску ТВ-бокса, треба буде підключатись до нього по UART, та робити запуск системи руцями. Погодьтесь, таке собі. Тому сьогодні я розповім, як налаштувати та скомпілювати u-boot власноруч!</p>
+<h2>Компілюємо u-boot</h2>
+<h3>Підготовка build environment-у</h3>
+<p>Перш за все, треба підготувати ваш Linux для того щоб збирати та компілювати код. Велика вірогідність того, що в вас вже встановлені всі необхідні пакети. Якщо ні, то зазвичай більшість речей можна встановити, встановивши відповідний пакет - наприклад <code>base-devel</code> якщо у вас Arch Linux, або <code>build-essential</code> якщо Ubuntu/Debian. Туди входять різного роду інструменти, наприклад gcc, make, bison, flex, і тд, які знадобляться для того, щоб скомпілювати u-boot. Також треба ще встановити git, wget, тощо. Через варіативність дистрибутивів, детально я на цьому зупинятись не буду - ви можете знайти інформацію для вашого дистрибутива в інтернеті.</p>
+<p>Також в подальшому будуть використовуватись <strong>32х бітні</strong> бінарники, і щоб ваша система могла їх запустити, так як у вас скоріше за все х64, треба провести певні маніпуляції. Наприклад на Arch Linux треба встановити два пакети - <code>lib32-glibc</code> та <code>lib32-gcc-libs</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>lib32-glibc<span class="w"> </span>lib32-gcc-libs
+</code></pre></div>
+
+<p>Також довелось ще встановити <strong>lib32-zlib</strong> з репозиторія Multilib. Тож все дуже ситуативно, і залежить від вашого дистрибутиву, а також системи - щось у вас вже встановлено, щось ні. Так чи інакше, в подальшому по помилкам це можна буде побачити.</p>
+<h3>Встановлюємо toolchain</h3>
+<p>Наступна задача - встановити toolchain. Це ще один набір інструментів, необхідних для компіляції u-boot. Але разом з цим, він виконує ще одну важливу роль, а саме забезпечує умови для кросскомпіляції - справа в тому що ви скоріше за все використовуєте комп'ютер/ноутбук з архітектурою x64, в той час як u-boot ви збираєте під <strong>ARMv7-A</strong>.</p>
+<p>Завантажуємо архів з необхідними бінарниками toolchain-а:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>http://releases.linaro.org/archive/14.04/components/toolchain/binaries/gcc-linaro-arm-none-eabi-4.8-2014.04_linux.tar.xz
+</code></pre></div>
+
+<p>Разархівовуємо його в зручне місце на системі:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/toolchains
+sudo<span class="w"> </span>tar<span class="w"> </span>xJvf<span class="w"> </span>gcc-linaro-arm-none-eabi-4.8-2014.04_linux.tar.xz<span class="w"> </span>-C<span class="w"> </span>/opt/toolchains/
+</code></pre></div>
+
+<p>Та додаємо в <strong>$PATH</strong>, щоб користувач або скрипти могли використовувати бінарники не прописуючи шлях до них. Це можна зробити двома способами - тимчасово та постійно.</p>
+<hr>
+<p>Тимчасово:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/toolchains/gcc-linaro-arm-none-eabi-4.8-2014.04_linux/bin:<span class="nv">$PATH</span>
+</code></pre></div>
+
+<p>Тимчасовий спосіб додасть бінарники в <strong>$PATH</strong> лише для поточного вікна терміналу. Якщо ви його закриєте, або відкриєте інший, треба буде знову виконувати команду вище. </p>
+<hr>
+<p>Постійно:</p>
+<p>Щоб уникнути цього, можна додати цю команду в кінець вашого <code>.bashrc</code> файлу, який знаходиться в $HOME директорії. Це можна зробити вручну через текстовий редактор, а можна виконати наступну команду:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export PATH=/opt/toolchains/gcc-linaro-arm-none-eabi-4.8-2014.04_linux/bin:\$PATH&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>--append<span class="w"> </span>~/.bashrc<span class="w"> </span>
+</code></pre></div>
+
+<p>Тепер треба оновити зміни за допомогою наступної команди:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+
+<hr>
+<p>І можна впевнитись в тому що система бачить бінарники, перевіривши їх версію:</p>
+<div class="highlight"><pre><span></span><code>arm-none-eabi-gcc<span class="w"> </span>-v
+</code></pre></div>
+
+<p>Повинно вивестись багато інформації:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Using</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">specs</span><span class="o">.</span>
+<span class="n">COLLECT_GCC</span><span class="o">=</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">gcc</span>
+<span class="n">COLLECT_LTO_WRAPPER</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">toolchains</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="n">linaro</span><span class="o">-</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="mf">4.8</span><span class="o">-</span><span class="mf">2014.04</span><span class="n">_linux</span><span class="o">/</span><span class="n">bin</span><span class="o">/../</span><span class="n">libexec</span><span class="o">/</span><span class="n">gcc</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="mf">4.8</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">lto</span><span class="o">-</span><span class="n">wrapper</span>
+<span class="n">Target</span><span class="p">:</span><span class="w"> </span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span>
+<span class="n">Configured</span><span class="w"> </span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="n">linaro</span><span class="o">-</span><span class="mf">4.8</span><span class="o">-</span><span class="mf">2014.04</span><span class="o">/</span><span class="n">configure</span><span class="w"> </span><span class="o">--</span><span class="n">build</span><span class="o">=</span><span class="n">i686</span><span class="o">-</span><span class="n">build_pc</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="w"> </span><span class="o">--</span><span class="n">host</span><span class="o">=</span><span class="n">i686</span><span class="o">-</span><span class="n">build_pc</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="w"> </span><span class="o">--</span><span class="n">target</span><span class="o">=</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="n">install</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">prefix</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="w"> </span><span class="o">--</span><span class="n">without</span><span class="o">-</span><span class="n">headers</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">newlib</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">threads</span><span class="o">=</span><span class="n">no</span><span class="w"> </span><span class="o">--</span><span class="n">disable</span><span class="o">-</span><span class="n">shared</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">pkgversion</span><span class="o">=</span><span class="s1">&#39;crosstool-NG linaro-1.13.1-4.8-2014.04 - Linaro GCC 4.8-2014.04&#39;</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">bugurl</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bugs</span><span class="o">.</span><span class="n">launchpad</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="n">linaro</span><span class="w"> </span><span class="o">--</span><span class="n">disable</span><span class="o">-</span><span class="n">__cxa_atexit</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">gmp</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="k">static</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">mpfr</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="k">static</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">mpc</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="k">static</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">isl</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="k">static</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">cloog</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="k">static</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">libelf</span><span class="o">=/</span><span class="n">cbuild</span><span class="o">/</span><span class="n">slaves</span><span class="o">/</span><span class="n">oorts</span><span class="o">/</span><span class="n">crosstool</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">builds</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">linux</span><span class="o">/.</span><span class="n">build</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="k">static</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">lto</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">linker</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">libmudflap</span><span class="w"> </span><span class="o">--</span><span class="n">disable</span><span class="o">-</span><span class="n">libgomp</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">libssp</span><span class="w"> </span><span class="o">--</span><span class="n">disable</span><span class="o">-</span><span class="n">libstdcxx</span><span class="o">-</span><span class="n">pch</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">multilib</span><span class="w"> </span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">languages</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="n">c</span><span class="o">++</span><span class="p">,</span><span class="n">fortran</span><span class="w"> </span><span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">multilib</span><span class="o">-</span><span class="n">list</span><span class="o">=</span><span class="n">aprofile</span>
+<span class="n">Thread</span><span class="w"> </span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="n">single</span>
+<span class="n">gcc</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mf">4.8</span><span class="o">.</span><span class="mi">3</span><span class="w"> </span><span class="mi">20140401</span><span class="w"> </span><span class="p">(</span><span class="n">prerelease</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">crosstool</span><span class="o">-</span><span class="n">NG</span><span class="w"> </span><span class="n">linaro</span><span class="o">-</span><span class="mf">1.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">4.8</span><span class="o">-</span><span class="mf">2014.04</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Linaro</span><span class="w"> </span><span class="n">GCC</span><span class="w"> </span><span class="mf">4.8</span><span class="o">-</span><span class="mf">2014.04</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+
+<p>Якщо у вас такий самий вивід - все зроблено правильно. Якщо пише щось на кшталт - <strong>command not found</strong> - переконайтесь що ви правильно додали все в $PATH. Якщо <strong>cannot execute: required file not found</strong> - переконайтеся що забезпечили всі умови для виконання 32х бітних бінарників на вашій 64х бітній системі.</p>
+<h3>Завантажуємо вихідний код та компілюємо</h3>
+<p>В якості джерела вихідного коду для u-boot під s805 я раджу вам обрати <a href="https://github.com/hzyitc/u-boot-onecloud">ось цей репозиторій</a>. Клонуємо та відкриваємо його: </p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hzyitc/u-boot-onecloud
+<span class="nb">cd</span><span class="w"> </span>u-boot-onecloud
+</code></pre></div>
+
+<hr>
+<h4>Виправляємо баг з <code>sha1.h</code></h4>
+<p>В цій версії u-boot присутній баг, через який компілятор буде намагатись використати системний файл <code>sha1.h</code> за шляхом <code>/usr/include/sha1.h</code>, в той час як в репозиторії лежить інший, який йому необхідно використати. Найлегше що можна зробити - забекапити, за наявності, системний файл:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/usr/include/sha1.h<span class="w"> </span>/usr/include/sha1.hBAK
+</code></pre></div>
+
+<p>І додати на його місце файл з репозиторія:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span><span class="nv">cp</span><span class="w"> </span><span class="k">include</span><span class="o">/</span><span class="nv">sha1</span>.<span class="nv">h</span><span class="w"> </span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="k">include</span><span class="o">/</span>
+</code></pre></div>
+
+<p>Після компіляції можна повернути все назад:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>/usr/include/sha1.h
+sudo<span class="w"> </span>mv<span class="w"> </span>/usr/include/sha1.hBAK<span class="w"> </span>/usr/include/sha1.h
+</code></pre></div>
+
+<hr>
+<p>В цілому, тепер можна компілювати u-boot - для цього готуємо кофіг файл для нашої плати, та запускаємо процес компіляції:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>m8b_onecloud_config
+make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</code></pre></div>
+
+<p>Бінарник u-boot з'явиться в папці <code>build</code>, про що свідчить кінець логів команди <code>make</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">uclpack</span><span class="o">:</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">block</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">262144</span><span class="w"> </span><span class="n">bytes</span>
+<span class="n">uclpack</span><span class="o">:</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="n">NRV2D</span><span class="o">-</span><span class="mi">99</span><span class="o">/</span><span class="mi">7</span><span class="o">,</span><span class="w"> </span><span class="n">compressed</span><span class="w"> </span><span class="mi">639608</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="mi">313205</span><span class="w"> </span><span class="n">bytes</span>
+<span class="sr">/home/ctl/u-boot-onecloud/build/tools/convert --soc m8b  -s /home/ctl/u-boot-onecloud/build/firmware.bin -i /home/ctl/u-boot-onecloud/build/u-boot-comp.bin -o /home/ctl/u-boot-onecloud/build/</span><span class="n">u</span><span class="o">-</span><span class="n">boot</span><span class="o">.</span><span class="na">bin</span>
+</code></pre></div>
+
+<p>Якщо процес компіляції обривається помилкою, запустіть make без флагу <code>-j</code>, та шукайте більш детальну помилку - скоріше за все відсутні якісь 32х бітні бібліотеки чи щось таке.</p>
+<div class="highlight"><pre><span></span><code>make
+</code></pre></div>
+
+<p>Тож, u-boot готовий, але для моїх цілей він не підходить через відсутність NAND пам'яті, і на відміну від u-boot витягнутого з образів для прошивки - взагалі висне і не запускається :0</p>
+<h2>Налаштовуємо u-boot</h2>
+<p>Більшість налаштувань можна змінити у відповідному <code>.h</code> файлі для нашого ТВ бокса. Цей файл знаходиться за шляхом <code>board/amlogic/configs/m8b_onecloud.h</code>.</p>
+<p>Мені наприклад треба вимкнути параметр <code>CONFIG_STORE_COMPATIBLE</code>. Наскільки я розумію - він відповідає за можливість зберігання конфігу/змінних для u-boot на накопичувачі. І через те, що в мене відсутня nand пам'ять - u-boot висне через цей параметр. Тож я знайшов його і закоментував:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//#define CONFIG_STORE_COMPATIBLE</span>
+</code></pre></div>
+
+<p>Також, раз вже ми модифікуємо файл плати, можна поглянути і на параметр <code>CONFIG_BOOTCOMMAND</code>. Цей параметр, як видно з назви, вказує як саме u-boot буде намагатись запустити ядро Linux при старті. Стандартний виглядає так:</p>
+<div class="highlight"><pre><span></span><code><span class="gh">#</span>define CONFIG_BOOTCOMMAND &quot;print &#39;Autobooting...&#39;; run boot_usb_armbian; run boot_sdcard_armbian; run boot_emmc_armbian; print &#39;Failed to boot&#39;; &quot;
+</code></pre></div>
+
+<p>Тобто він:</p>
+<ul>
+<li>Пише по UART "<em>Autobooting...</em>" </li>
+<li>Намагається запуститись з USB (<em>boot_usb_armbian</em>)</li>
+<li>Далі намагається запуститись з SD карти (<em>boot_sdcard_armbian</em>)</li>
+<li>Потім намагається запуститись з eMMC/NAND (<em>boot_emmc_armbian</em>)</li>
+<li>Пише "<em>Failed to boot</em>"</li>
+</ul>
+<p>З USB я запускати систему не планую. З NAND пам'яті - вочевидь, теж. Тому я модифікував цей параметр, залишивши лише запуск з SD картки:</p>
+<div class="highlight"><pre><span></span><code><span class="gh">#</span>define CONFIG_BOOTCOMMAND  &quot;print &#39;Autobooting...&#39;; run boot_sdcard_armbian; print &#39;Failed to boot&#39;; &quot;
+</code></pre></div>
+
+<p>Чудово. Але, що ж таке цей <code>boot_sdcard_armbian</code>?  А це не що інше, як така собі умовна функція, записана в параметр <code>CONFIG_EXTRA_ENV_SETTINGS</code>.</p>
+<p>Там можна знайти, і подивитись, що саме вона робить:</p>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="s2">&quot;boot_sdcard_armbian=&quot;</span><span class="w"> </span>\
+<span class="w">                </span><span class="s2">&quot;print -n &#39;Try to boot from SDCard...&#39;; &quot;</span><span class="w"> </span>\
+<span class="w">                </span><span class="s2">&quot;mmc rescan 0; &quot;</span><span class="w"> </span>\
+<span class="w">                </span><span class="s2">&quot;setenv bootdev &#39;mmc 0&#39;; &quot;</span><span class="w"> </span>\
+<span class="w">                </span><span class="s2">&quot;fatload ${bootdev} ${loadaddr} boot.scr &amp;&amp; autoscr ${loadaddr}; &quot;</span><span class="w"> </span>\
+<span class="w">                </span><span class="s2">&quot;print &#39;Fail&#39;; &quot;</span><span class="w"> </span>\
+<span class="w">                </span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span><span class="w"> </span>\
+</code></pre></div>
+
+<p>Тобто вона:</p>
+<ul>
+<li>Пише по UART "<em>Try to boot from SDCard...</em>"</li>
+<li>Сканує доступні <strong>MMC девайси</strong> (0 - це наче режим роботи MMC, legacy)</li>
+<li>Встановлює змінну середовища <code>bootdev</code> яка містить "<strong>mmc 0</strong>", тобто найперший <strong>MMC девайс</strong>, з якого і буде здійснюватись запуск</li>
+<li>Завантажує за допомогою команди <strong>fatload</strong> з FAT розділу на <strong>MMC</strong> скрипт <code>boot.src</code> в пам'ять за адресою <em>loadaddr</em>, після чого запускає його за допомогою <code>autoscr</code> (наче в більш нових версіях <strong>u-boot</strong> <code>autoscr</code> замінили командою <code>source</code>)</li>
+<li>Відповідно цей скрипт і завантажує ядро Linux, тобто якщо все гаразд - ви потрапили в Linux. Якщо запустити Linux не вдалось, по UART виводиться "<em>Fail</em>"</li>
+</ul>
+<p>Тож тепер ви хоч трохи знаєте, що там відбувається під капотом, та що і де можна якщо що підлаштувати під себе!</p>
+<h2>Записуємо U-Boot на SD картку</h2>
+<p>Тепер найцікавіше - а як же записати U-Boot на картку пам'яті? Адже він повинен знаходитись на початку карти пам'яті, і якщо просто записати його поверх записаного туди Armbian-а або Arch Linux-а, ми просто зітремо таблицю розділів, і нічого не буде працювати (ну, окрім U-Boot :D).</p>
+<p>Щоб уникнути затирання таблиці з розділами, нам треба записати bootloader в два місця - невеличку частину в спеціально призначене для цього місце (перші 442 байти MBR сектору), і потім весь bootloader повністю, після таблиці з розділами. Зробити це можна таким чином:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span><span class="nv">umount</span><span class="w"> </span><span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">sdX</span>
+<span class="nv">sudo</span><span class="w"> </span><span class="nv">dd</span><span class="w"> </span><span class="k">if</span><span class="o">=</span><span class="nv">u</span><span class="o">-</span><span class="nv">boot</span>.<span class="nv">bin</span><span class="w"> </span><span class="nv">of</span><span class="o">=/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">sdX</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="mi">442</span>
+<span class="nv">sudo</span><span class="w"> </span><span class="nv">dd</span><span class="w"> </span><span class="k">if</span><span class="o">=</span><span class="nv">u</span><span class="o">-</span><span class="nv">boot</span>.<span class="nv">bin</span><span class="w"> </span><span class="nv">of</span><span class="o">=/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">sdX</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="nv">skip</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="mi">512</span>
+<span class="nv">sync</span>
+</code></pre></div>
+
+<p>Де <strong>sdX</strong> - ваша SD картка. Правильну назву можна подивитись, виконавши команду <code>lsblk</code>, але ДУЖЕ ВАЖЛИВО не переплутати SD картку з іншим девайсом, адже іншим девайсом може бути ваш системний диск (якщо ви використовуєте SATA SSD/HDD, а не NVMe), і якщо записати bootloader туди, це може призвести до втрати даних.</p>
+<hr>
+<h2>Епілог</h2>
+<p>Більшість інформації для цієї статті я взяв з <a href="https://wiki.odroid.com/odroid-c1/software/building_u-boot">Wiki ODROID-C1</a>. В них навіть є свій форк u-boot для процесора s805. Чого ж ми тоді використали інший? Справа в тому, що в них є спеціальний "1st stage bootloader", який потрібен для нормального функціонування їх u-boot-у:</p>
+<ul>
+<li><em>The 1st stage bootloader, bl1.bin.hardkernel, is provided as prebuilt binary only.</em></li>
+</ul>
+<p>І от що цей <strong>bl1</strong> робить, так це перевіряє умовний Serial Number (в процесорі, або десь платі, не впевнений), і порівнює його зі своїм якимось списком та/або ключами. Якщо серійний номер не співпадає - bootloader не запуститься :D А він звісно не співпаде, так як в нас не ODROID плата, а AndroidTV приставка.</p>
+<p><img alt="&quot;u-boot від ODROID&quot;" src="https://so1der.github.io/images/s805-uboot/odroid.jpg" title="u-boot від ODROID"></p>
+<p>Тому й довелось використовувати сторонній форк u-boot від onecloud - якоїсь іншої китайської AndoidTV приставки чи чогось схожого </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/linux.html">Linux</a>
+      <a href="https://so1der.github.io/tag/embedded.html">embedded</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
