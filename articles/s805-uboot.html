@@ -237,7 +237,7 @@ sudo<span class="w"> </span>mv<span class="w"> </span>/usr/include/sha1.hBAK<spa
 </code></pre></div>
 
 <hr>
-<p>В цілому, тепер можна компілювати u-boot - для цього готуємо кофіг файл для нашої плати, та запускаємо процес компіляції:</p>
+<p>В цілому, тепер можна компілювати u-boot - для цього готуємо конфіг файл для нашої плати, та запускаємо процес компіляції:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>m8b_onecloud_config
 make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
 </code></pre></div>
@@ -311,7 +311,7 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 <ul>
 <li><em>The 1st stage bootloader, bl1.bin.hardkernel, is provided as prebuilt binary only.</em></li>
 </ul>
-<p>І от що цей <strong>bl1</strong> робить, так це перевіряє умовний Serial Number (в процесорі, або десь платі, не впевнений), і порівнює його зі своїм якимось списком та/або ключами. Якщо серійний номер не співпадає - bootloader не запуститься :D А він звісно не співпаде, так як в нас не ODROID плата, а AndroidTV приставка.</p>
+<p>І от що цей <strong>bl1</strong> робить, так це перевіряє умовний Serial Number (в процесорі, або десь на платі, не впевнений), і порівнює його зі своїм якимось списком та/або ключами. Якщо серійний номер не співпадає - bootloader не запуститься :D А він звісно не співпаде, так як в нас не ODROID плата, а AndroidTV приставка.</p>
 <p><img alt="&quot;u-boot від ODROID&quot;" src="https://so1der.github.io/images/s805-uboot/odroid.jpg" title="u-boot від ODROID"></p>
 <p>Тому й довелось використовувати сторонній форк u-boot від onecloud - якоїсь іншої китайської AndoidTV приставки чи чогось схожого </p>
   </div>

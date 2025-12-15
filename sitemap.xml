@@ -6,14 +6,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://so1der.github.io/</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/archives.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -124,6 +124,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://so1der.github.io/articles/ocfd.html</loc>
+<lastmod>2025-12-15T17:16:00+02:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://so1der.github.io/articles/peertube.html</loc>
 <lastmod>2025-11-26T21:50:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -209,294 +216,294 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://so1der.github.io/author/so1der.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/author/so1der2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/author/so1der3.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/author/so1der4.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/author/so1der5.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/author/so1der6.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/authors.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/categories.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/blog.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/gaidi.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/youtube.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/youtube2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/youtube3.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/youtube4.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/category/youtube5.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/index2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/index3.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/index4.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/index5.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/index6.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/anteni.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/diy.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/diy2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/diy3.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/diy4.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/embedded.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/embedded2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/fotografiia.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/godinnik.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/khaking.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/kosmos.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/lilka.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/linux.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/linux2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/meshtastic.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/openwrt.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/raspberry-pi.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/suputniki.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/suputniki2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/zviazok.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tag/zviazok2.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://so1der.github.io/tags.html</loc>
-<lastmod>2025-12-09T19:48:44-00:00</lastmod>
+<lastmod>2025-12-15T17:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

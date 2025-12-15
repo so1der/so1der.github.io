@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статті я покажу, як я зі звичайного монтажного дроту зробив непогану антену для зв&#39;язків на коротких хвилях! Подивимось на процес створення, а також на те, що мені вдалось прийняти на цю антену!" />
+<meta name="keywords" content="diy, антени, зв&#39;язок">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="OCFD Антена для зв&#39;язку на тисячі кілометрів!"/>
+  <meta property="og:description" content="В даній статті я покажу, як я зі звичайного монтажного дроту зробив непогану антену для зв&#39;язків на коротких хвилях! Подивимось на процес створення, а також на те, що мені вдалось прийняти на цю антену!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/ocfd.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-12-15 17:16:00+02:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="diy"/>
+  <meta property="article:tag" content="антени"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; OCFD Антена для зв&#39;язку на тисячі кілометрів!</title>
+
+
+</head>
+<body class="dark-theme">
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/category/gaidi.html" >Гайди</a>
+          </li>
+          <li>
+            <a target="_self" href="/category/blog.html" >Блог</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="ocfd">OCFD Антена для зв'язку на тисячі кілометрів!</h1>
+    <p>
+      Опубліковано 15.12.2025, 17:16 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="Off Center Fed Dipole" src="https://so1der.github.io/images/ocfd/preview.jpg" title="Off Center Fed Dipole"></p>
+<p>Антена про яку сьогодні піде мова, носить назву <strong>Off Center Fed Dipole</strong>.  Як можна зрозуміти з назви, це звичайний <strong>диполь</strong>, але точка підключення антени до радіоприймача або передавача знаходиться не по центру антени, а зміщена трохи в сторону.  Як правило, точка підключення в таких антенах ділить шмат дроту довжиною пів хвилі в співвідношенні 2:1.  Хоча це не обов'язково, і точку підключення можна зміщати в різні сторони, змінюючи при цьому імпеданс антени.</p>
+<p>Але навіщо це взагалі робити? Справа в тому, що змістивши точку заживлення антени, ми підняли її імпеданс, приблизно з 70 Ом до 200 Ом.  Звучить як щось погане, але насправді ні, адже якщо за допомогою спеціального трансформатора імпедансу понизити ці 200 Ом, то ми отримаємо 50 Ом не тільки на основній частоті під яку проєктувалась антена, а і на її гармоніках.</p>
+<p>Таким чином, зробивши Off Center Fed Dipole наприклад на радіаоматорський діапазон <strong>80 метрів</strong>, антена буде добре працювати і на всіх інших діапазонах які кратні по частоті - <strong>40, 20, та 10 метрів</strong>.  І хоч зробити антену на 80 метровий діапазон звучить дуже привабливо, мені на жаль немає де повісити 40-а метровий шмат дроту, тому я буду робити робити антену на 20 метровий діапазон.</p>
+<h2>Розрахунок антени</h2>
+<p><img alt="Калькулятор" src="https://so1der.github.io/images/ocfd/calc.jpg" title="Калькулятор"></p>
+<p>Для більш точного розрахунку антени раджу вам скористатись <a href="https://portable-antennas.com/ocfd.php">ось таким калькулятором</a>.  В ньому можна обирати велику кількість параметрів - необхідний частотний діапазон, параметри дроту, його ізоляції, і так далі, і на основі цього всього, він не тільки розрахує вам необхідні довжини, а ще й з робить багато корисних візуалізацій.</p>
+<p>За моїми даними вийшла ось така антена, яка має коротке плече довжиною 2 метри, і довге довжиною 8 метрів.  Я вирішив обрати саме таке співвідношення, так як з ним калькулятор показував розрахунковий імпеданс саме 200 Ом, та і якщо що вкоротити довге плече буде набагато легше, ніж шукати довший шматок дроту.</p>
+<p><img alt="Калькулятор" src="https://so1der.github.io/images/ocfd/antenna.jpg" title="Калькулятор"></p>
+<p>До речі стосовно нього - в якості дроту я обрав кабель ШШВП 2х1.5, який має дві жили перерізом 1.5 мм кв.  В мене як раз був зайвий відрізок довжиною 10 метрів, і якщо розділити його, можна отримати два окремих шматка дроту, яких буде більш ніж достатньо для антени. Розмітивши дріт, я зробив два відрізки необхідної довжини.  Після цього, щоб дріт можна було зручно приєднувати до штуки про яку поговоримо пізніше, я обтиснув на одному з кінців дротів кільцеву клему.</p>
+<p><img alt="Клеми" src="https://so1der.github.io/images/ocfd/wire.jpg" title="Клеми"></p>
+<p>Ці клеми не зовсім підходять під мій крімпер, але інших в мене під рукою немає, тому поки буде так. Для додаткової надійності я також пропаяв дріт. </p>
+<p>Щоб з іншої сторони дріт можна було розтягнути мотузками, з пластикових відходів я зробив ось такі ось ізолятори.</p>
+<p><img alt="Ізолятори" src="https://so1der.github.io/images/ocfd/insulators.jpg" title="Ізолятори"></p>
+<p>Вони мають серію отворів, в яку можна продіти дріт, завдяки чому він дуже надійно там зафіксується без жодних вузлів. А інший отвір можна використати для мотузки, яка натягне дріт.</p>
+<h2>Трансформатор імпедансу</h2>
+<p>Наступна, дуже важлива частина антени - <strong>трансформатор імпедансу</strong>. </p>
+<p>Як я вже казав, така антена має імпеданс приблизно <strong>200 Ом</strong>, в той час як антенний вхід більшості радіопристроїв має імпеданс <strong>50 Ом</strong>.  Тож для ефективної та правильної роботи антени, нам треба якимось чином узгодити опори, тобто понизити імпеданс антени до <strong>50 Ом</strong>. </p>
+<p>Цим як раз і займається трансформатор імпедансу, який ще часто називають <strong>Balun, або Unun</strong>, в залежності від того, до якої антени він підключається:</p>
+<ul>
+<li><strong>Balun</strong>: <strong>Bal</strong>anced to <strong>Un</strong>balanced</li>
+<li><strong>Unun</strong>: <strong>Un</strong>balanced to <strong>Un</strong>balanced</li>
+</ul>
+<p>Як і звичайний трансформатор, він має коефіцієнт трансформації, відповідно щоб нам з 200 Ом зробити 50 Ом, потрібен трансформатор з коефіцієнтом трансформації <strong>1:4</strong>.  В інтернеті є безліч інформації по таким трансформаторам. Я за основу взяв ось цю схему:</p>
+<p><img alt="Схема трансформатора 1:4" src="https://so1der.github.io/images/ocfd/balun.png" title="Схема трансформатора 1:4"></p>
+<p>Ітак, для створення такого трансформатора нам знадобиться: </p>
+<ul>
+<li>якийсь герметичний корпус</li>
+<li>якийсь роз'єм для коаксіального кабелю</li>
+<li>коннектори для підключення дроту антени</li>
+<li>моножильний дріт з емалевою ізоляцією</li>
+<li>феритове тороїдальне осердя.</li>
+</ul>
+<p><img alt="Компоненти для трансформатора" src="https://so1der.github.io/images/ocfd/components.jpg" title="Компоненти для трансформатора"></p>
+<p>З останніми двома пунктами може виникнути найбільше проблем, бо там де особисто я зазвичай купую радіодеталі, не буває ні того, ні іншого.  Тому дріт я взяв зі старого непотрібного трансформатора, а ферити довелось замовляти окремо.</p>
+<p>Вивчаючи статті в інтернеті, ви точно всюди будете бачити ферити фірми <strong>Amidon</strong>.  Вони мають дуже круті характеристики, але купити їх в нас доволі проблематично, та і коштують вони теж немало, тому я вирішив почати з чогось простіше, і замовив феритові кільця <strong>М1500</strong> на <a href="https://radiokomponent.com.ua/ua/product/m1500nm-k38kh24kh7-serdechnik-ferritovyy-koltsevoy/">ось цьому сайті</a>. </p>
+<p>За основу для трансформатора я взяв ось таке кільце, <strong>М1500НМ9</strong>, вартістю 18 гривень:</p>
+<p><img alt="М1500НМ9" src="https://so1der.github.io/images/ocfd/ferrite.jpg" title="М1500НМ9"></p>
+<p>Слід також зазначити, що ці ферити мають дуже гострі грані, які з радістю пошкодять ізоляцію дроту коли ви будете мотати трансформатор, і так як такі кільця не зовсім діелектрик, це проблема.  Щоб цьому запобігти, можна взяти тефлонову стрічку, яку ще називають фум стрічкою, і обмотати нею осердя.  Набагато зручніше це робити, якщо попередньо відмотати стрічку наприклад на шматочок зубочистки довжиною трохи менше за внутрішній діаметр осердя.  Намотавши декілька шарів тефлону, ферит точно не пошкодить ізоляцію дроту.</p>
+<p>Тепер можна мотати трансформатор. Для зручності я перемалював раніше зазначену схему:</p>
+<p><img alt="Схема трансформатора 1:4" src="https://so1der.github.io/images/ocfd/balun2.png" title="Схема трансформатора 1:4"></p>
+<p>З кількістю витків можна поекспериментувати, в залежності від осердя, діаметру дроту, і так далі.  Для мого осердя та дроту діаметром <strong>1мм</strong> я взяв <strong>10 витків</strong>, для яких мені знадобилось два відрізки дроту довжиною приблизно <strong>50 см</strong>, але краще брати з невеличким запасом.</p>
+<p>Спочатку я намотав першу обмотку, та позначив її за допомогою маркеру.  Далі намотав другу. По ітогу вийшло щось таке:</p>
+<p><img alt="Обмотки" src="https://so1der.github.io/images/ocfd/winding.jpg" title="Обмотки"></p>
+<p>Тепер обмотки треба з'єднати ось таким чином, по раніше зазначеній схемі:</p>
+<p><img alt="З'єднання" src="https://so1der.github.io/images/ocfd/connection.jpg" title="З'єднання"></p>
+<p>Я зробив це вже всередині корпусу, в якому заздалегідь встановив необхідні роз'єми:</p>
+<p><img alt="Запаяний трансформатор" src="https://so1der.github.io/images/ocfd/transformer.jpg" title="Запаяний трансформатор"></p>
+<p>Звісно можна було б зробити краще, і як мінімум рівномірно намотати обмотки, але як ви вже могли зрозуміти по попереднім статтям, це не моя фішка)00</p>
+<p>Під камерою робити це дуже незручно, але вас я закликаю зробити це більш якісно, адже як мені сказали в чаті <strong>UARO</strong>, неякісне намотування обмоток призведе до втрат при трансформації.  Ось наприклад набагато більш якісна реалізація такого трансформатора від пана з позивним <strong>UT0UG</strong>, з каналу <a href="https://www.youtube.com/@my-involution/videos">my-involution</a>:</p>
+<p><img alt="UT0UG" src="https://so1der.github.io/images/ocfd/UT0UG_1.jpg" title="Трансформатор від UT0UG"></p>
+<p>Ферит також можна приклеїти до корпусу, але через доволі тугий дріт, він в мене і так сидить нерухомо.  Давайте перевіримо, чи виконує трансформатор свою функцію. 
+В цьому нам допоможе векторний аналізатор, та звичайнісінький резистор.  Резистор має чисто активний характер, а отже імпеданс наприклад резистора на 200 Ом буде виглядати як 200 активних Ом та 0 реактивних (Z=200+ j0), що майже ідеально імітує Off Center Fed Dipole.</p>
+<p>Звісно, в реальності завжди будуть присутні різні реактивні домішки, але для тестування трансформатора це не критично.  Резистора на 200 Ом в мене немає, тому я підключив резистор на 220 Ом - я затиснув його в коннектори та підключив трансформатор до векторного аналізатора.  Мультиметр тут не підійде, адже ми міряємо не просто постійний активний опір, а саме імпеданс.</p>
+<p>Щоб не мучити вас зйомкою екрана NanoVNA як я це робив раніше, я буду виводити графіки на комп'ютер за допомогою програми <a href="https://nanovna.com/?page_id=90">nanovna-saver</a>.  Заміри проводились на частотах від <strong>3 до 30 МГц</strong>.</p>
+<p><img alt="Заміри трансформатора" src="https://so1der.github.io/images/ocfd/charts_1.png" title="Заміри трансформатора"></p>
+<p>Ітак, Перед вами діаграма Сміта (зліва) яка відображає імпеданс, та графік КСХ (справа) даного трансформатора.  Як бачите, імпеданс перетворився з 220 Ом на 50 Ом, а отже трансформатор виконує свою функцію, що дуже радує.  Але з ростом частоти, можна побачити що КСХ в мене поступово підіймається.</p>
+<p>Це можне бути зумовлено багатьма факторами, наприклад, матеріалом осердя, кількістю витків, діаметром дроту, може навіть тим як я криво намотав обмотки))0 Ось так  наприклад виглядають параметри якісного трансформатора від <strong>UT0UG</strong>:</p>
+<p><img alt="UT0UG" src="https://so1der.github.io/images/ocfd/UT0UG_2.jpg" title="Трансформатор від UT0UG"></p>
+<p>Якщо поглянути на мою діаграму Сміта, то можна побачити що на ній лінія йде вгору, а отже в вузлі присутня надлишкова індуктивність.  Її можна спробувати компенсувати за допомогою звичайного конденсатора. Я взяв ось такий, на 47 pF:</p>
+<p><img alt="Конденсатор на 47 pF" src="https://so1der.github.io/images/ocfd/c.png" title="Конденсатор на 47 pF"></p>
+<p><img alt="Замріи трансформатора після додавання конденсатора" src="https://so1der.github.io/images/ocfd/charts_2.jpg" title="Замріи трансформатора після додавання конденсатора"></p>
+<p>Додавши в схему додаткову ємність, баланс трохи вирівнюється, і параметри трансформатора починають виглядати краще.  Для мого трансформатора 47 pF підійшли майже ідеально, тому я запаяв цей конденсатор паралельно входу.  Тепер трансформатор можна вважати повністю готовим.</p>
+<h2>Тестуємо антену</h2>
+<p><img alt="Місце для антени" src="https://so1der.github.io/images/ocfd/antenna-place.jpg" title="Місце для антени"></p>
+<p>Якщо ви дивились моє відео про антену Yagi Uda, то можливо пам'ятаєте ось це місце, куди я встановлював тоді антену.  Це насипний підвал, висотою приблизно метри 2. На ньому є вентиляційна труба, до якої були приварені гайки, в які можна вставити металеву арматуру.  Відповідно до неї я і причепив одне з плечей антени. Загальна його висота над землею становить десь метрів 5-6. Це не дуже багато, але краще ніж нічого.  Інше ж плече я натягнув до огорожі неподалік, яка знаходиться нижче, через що антена висить під кутом. </p>
+<p>В ідеалі вона повинна бути горизонтальною, тому згодом я натягнув це плече на дерево, але навіть і без цього антена гарно приймала сигнал, просто мабуть була інша діаграма спрямованості.  Арматура звісно не дуже підходить для таких навантажень, але що ж поробиш.</p>
+<p>В процесі запису відео до речі неодноразово починав йти дощ, тому хоч я і не планую залишати антену на вулиці надовго, герметизація трансформатора точно не була зайвою.</p>
+<h2>RF Choke</h2>
+<p>Одним з мінусів такої антени є її інколи надмірна чутливість до шумів та так званого common mode струму. Щоб мінімізувати їх вплив, треба зробити так званий RF Choke, дросель, який погасить ці шуми.  В інтернеті є доволі багато різних реалізацій такого дроселя. Можете обрати той, який вам по душі.</p>
+<p>Особисто я взяв дріт подовжувач RG-174 з комплекту <strong>RTL-SDR</strong>, та намотав його на один з фертів, <strong>М1500НМ1</strong>, К45х28х16, придбаних в тому ж магазині:</p>
+<p><img alt="Запірний дросель (RF Choke)" src="https://so1der.github.io/images/ocfd/rf-choke.jpg" title="Запірний дросель (RF Choke)"></p>
+<p>Знову ж таки, якщо ви будете використовувати антену для передачі, бажано зробити обмотку якомога якіснішою.  Я ж в свою чергу не маю поки позивного, тому багато де можу скажімо так зрізати кути, адже буду використовувати все це лише для прийому.  Але навіть з таким страшним дроселем, на водоспаді суттєво помітна різниця, тож свою функцію він виконує:</p>
+<p><img alt="Різниця" src="https://so1der.github.io/images/ocfd/diff.jpg" title="Різниця"></p>
+<p>Гаразд, давайте нарешті дивитись на параметри антени:</p>
+<p><img alt="Параметри антени" src="https://so1der.github.io/images/ocfd/charts_3.png" title="Параметри антени"></p>
+<p>Ну і як завжди, резонанс не там де потрібно)0 В моєму випадку на <strong>12 МГц</strong> замість <strong>14 МГц</strong>.  Але це взагалі не критично, адже на потрібних мені бендах, 20М та 10М, КСХ все одно знаходиться в допустимих межах.  Більш того, на всьому цьому проміжку КСХ не підіймається вище за 3.5.  Це якісь неймовірні результати, і я навіть спочатку думав що допустив якусь помилку при вимірюваннях, але пізніше пошукав в інтернеті заміри цієї антени від інших людей, і картина часто була схожа.  Хоча така широкодіапазонність мабуть може і боком вийти, адже антена буде гарно приймати дуже великий відрізок діапазону, а це в свою чергу величезна кількість сигналів, які можуть перевантажувати приймач, або спотворювати корисний сигнал, через що використання фільтра стане необхідністю.</p>
+<p>А що там на Коротких Хвилях?</p>
+<p>Останнім часом я потроху розбираюсь з програмою <a href="https://wsjt.sourceforge.io/wsjtx.html">WSJT-X</a>.  Це програма з відкритим вихідним кодом для проведення різного роду цифрових зв'язків з слабким сигналом.  Сюди входить наприклад найпопулярніший <strong>FT8</strong>, а також низка інших, типу <strong>FT4, WSPR</strong>, і тд.  Ці режими цікаві тим, що дозволяють проводити дальні зв'язки навіть не маючи потужного передавача, ну і якщо я колись отримаю позивний, я буду починати саме з них, адже бажання витрачати купу грошей на якийсь наворочений трансивер я поки не маю.  А поки, у якості приймача я використовую RTL-SDR.</p>
+<p>Також FT-8 це доволі непоганий спосіб оцінити проходження радіохвиль.  Мені дуже подобається сайт <strong>PSKReporter</strong>, який гарно відображає інформацію про зв'язки в цифрових режимах, але на жаль без позивного на ньому нема чого робити - тобто в нього не можна наприклад скормити аудіопотік з радіоприймача.</p>
+<p>Але на щастя програма WSJT-X робить свій загальний лог файл, <strong>ALL.TXT</strong>, в якому записано все, що програмі вдалось декодувати.  Тому я написав невеличкий <a href="#script">пайтонівський скрипт</a>, який парсить цей файл, і на його основі будує гарну мапу, де відображає всі зв'язки.</p>
+<p>Я залишав ноутубк на деякий час на вулиці, тож давайте подивимось, що він за цей час зміг зловити:</p>
+<p><img alt="Мапа сигналів FT8" src="https://so1der.github.io/images/ocfd/qth.jpg" title="Мапа сигналів FT8"></p>
+<p>Як можете бачити, почути Європу на таку антену це взагалі не проблема. Майже вся QTH сітка забита прийнятими сигналами.  Також присутні і доволі дальні зв'язки, як от Японія, або США, або навіть Австралія Ну і деякі цікаві острови.  Хоча ця карта відображає тих кого почув я, і не факт що вони б точно почули мене. Сподіваюсь колись буде змога це перевірити.  Ще були доволі дивні сигнали з дивними позивними, і я так і не зрозумів, то була якась експедиція, чи комусь просто нічого робити)0</p>
+<p>Також вдавалось приймати і доволі багато зв'язків голосом в SSB, але через невелику висоту антени, та моє дуже східне розташування, думаю ви здогадуєтесь кого тут було переважно чути.  Така ж ситуація і з SSTV.</p>
+<p>Ще з цікавого що мені вдалось прийняти - морський погодний радіофакс.</p>
+<p>В містечку Піннеберг, неподалік Гамбургу в Німеччині, розташована короткохвильова станція яка називається DDK6. </p>
+<p><img alt="DDK6" src="https://so1der.github.io/images/ocfd/Pinneberg.jpg" title="DDK6"></p>
+<p>Ось ці величезні антени транслюють на коротких хвилях різного роду погодну інформацію для мореплавців, таку як напрямок вітру, тиск, вологість, інформацію про різні шторми, і так далі.  А відповідно люди на суднах можуть прийняти ці зображення, і тим самим отримати критично важливу для судноплавності інформацію.  Пару таких зображень прийняв і я:</p>
+<p><img alt="Погодний радіофакс" src="https://so1der.github.io/images/ocfd/fax.jpg" title="Погодний радіофакс"></p>
+<p>Раніше були навіть радіоприймачі, які автоматично друкували отриманий факс.  Подібних станцій є ціла купа по всьому світу, в інтернеті є список активних. В Японії до речі є навіть станція, яка досі таким чином транслює скани газет з новинами.</p>
+<hr>
+<p>Хотілось насправді подовше потестувати антену, але мені постійно щось заважало - то не було часу, то була погана погода, то взагалі були геомагнітні бурі, які значно погіршували розповсюдження радіохвиль.</p>
+<p>В цілому я задоволений антеною, але за час користування помітив, що використовую її здебільшого лише на 20М діапазоні, тож звідціля маю для себе питання - а чи не краще було б зробити просто диполь, який мабуть збирав би набагато менше шумів та зайвих сигналів.</p>
+<p>Так чи інакше, головне для мене тут це знання та досвід отримані в процесі!  Хочу наголосити, що це був не скільки гайд, скільки просто розповідь про мій досвід. Я ще багато чого не знаю, тому був би радий вашим порадам.  А стосовно антени - хоч я і не маю позивного, можливо скоро ви побачите її в іншому цікавому проєкті, якщо все буде гаразд.</p>
+<h2>Post Scriptum</h2>
+<p>Це текстова версія відео, доступного за <a href="https://youtu.be/5NQgEKdURBg">цим посиланням</a>.</p>
+<h2 id="script">Скрипт для WSJT-X</h2>
+<p>Для роботи скрипта слід встановити folium та maidenhead:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>folium<span class="w"> </span>maidenhead
+</code></pre></div>
+
+<p>Файл <strong>ALL.TXT</strong> слід помістити в ту ж директорію, що й скрипт.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">folium</span> <span class="kn">import</span> <span class="n">PolyLine</span>
+<span class="kn">from</span> <span class="nn">maidenhead</span> <span class="kn">import</span> <span class="n">to_location</span>
+
+<span class="n">qth_data</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">my_locator</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">my_lat</span><span class="p">,</span> <span class="n">my_lon</span> <span class="o">=</span> <span class="n">to_location</span><span class="p">(</span><span class="n">my_locator</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">count_to_color</span><span class="p">(</span><span class="n">cnt</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">cnt</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;red&#39;</span>
+    <span class="k">elif</span> <span class="mi">6</span> <span class="o">&lt;=</span> <span class="n">cnt</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;orange&#39;</span>
+    <span class="k">elif</span> <span class="mi">21</span> <span class="o">&lt;=</span> <span class="n">cnt</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;blue&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;lightgreen&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ALL.TXT&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">logs</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(R[A-Z0-9]+|U[A-Z0-9]+)&#39;</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">logs</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">line</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">logs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\bTx\b&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">qth</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[A-R]</span><span class="si">{2}</span><span class="s2">[0-9]</span><span class="si">{2}</span><span class="s2">\b&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;RR73&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+        <span class="n">callsign</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[0-9A-Z]{1,2}[0-9]{1,4}[A-Z]{1,3}\b&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">snr</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[-]?\b[0-9]{1,2}(?![.])\b&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[0-9]+[.][0-9]{2,3}&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(FT8|FT4|JT65|JT9|WSPR|MSK144|QRA64|Echo)&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">qth</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">callsign</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">call</span> <span class="o">=</span> <span class="n">callsign</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">callsign</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="n">callsign</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">q</span> <span class="o">=</span> <span class="n">qth</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">q</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">qth_data</span><span class="p">:</span>
+            <span class="n">qth_data</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">qth_data</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;call&quot;</span><span class="p">:</span> <span class="n">call</span><span class="p">,</span>
+            <span class="s2">&quot;snr&quot;</span><span class="p">:</span> <span class="n">snr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">snr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;freq&quot;</span><span class="p">:</span> <span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">freq</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">mode</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">})</span>
+
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">my_lat</span><span class="p">,</span> <span class="n">my_lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">qth</span><span class="p">,</span> <span class="n">entries</span> <span class="ow">in</span> <span class="n">qth_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">to_location</span><span class="p">(</span><span class="n">qth</span><span class="p">)</span>
+
+    <span class="n">popup_html</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;h4&gt;Locator: </span><span class="si">{</span><span class="n">qth</span><span class="si">}</span><span class="s2">&lt;/h4&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;div style=&#39;max-height:300px; overflow-y:auto; width:260px;&#39;&gt;&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+        <span class="n">popup_html</span> <span class="o">+=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Callsign:&lt;/b&gt; </span><span class="si">{</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;br&gt;&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Frequency:&lt;/b&gt; </span><span class="si">{</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> MHz&lt;br&gt;&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Mode:&lt;/b&gt; </span><span class="si">{</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;br&gt;&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;SNR:&lt;/b&gt; </span><span class="si">{</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;snr&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> dB&lt;br&gt;&lt;hr&gt;&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">popup_html</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/div&gt;&quot;</span>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="n">count_to_color</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">))</span>
+
+    <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">qth</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span><span class="si">}</span><span class="s2"> QSOs)&quot;</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">),</span>
+        <span class="n">popup</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">popup_html</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">my_lat</span><span class="p">,</span> <span class="n">my_lon</span><span class="p">],</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Home&quot;</span><span class="p">,</span>
+    <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">icon</span><span class="o">=</span><span class="s2">&quot;home&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+
+<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;qth_map.html&quot;</span><span class="p">)</span>
+</code></pre></div>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/diy.html">diy</a>
+      <a href="https://so1der.github.io/tag/anteni.html">антени</a>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2025 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
