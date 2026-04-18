@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="https://so1der.github.io/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="https://so1der.github.io/theme/pygments/monokai.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://so1der.github.io/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+
+
+
+  <link href="https://so1der.github.io/rss.xml" type="application/rss+xml" rel="alternate" title="so1der RSS">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="so1der" />
+<meta name="description" content="В даній статі я розповім, як мені вдалось зареверсінжинірити стару рацію, та модифікувати її пам&#39;ять!" />
+<meta name="keywords" content="зв&#39;язок, хакінг">
+
+
+  <meta property="og:site_name" content="so1der"/>
+  <meta property="og:title" content="Хакінг рації Tekk NT-40"/>
+  <meta property="og:description" content="В даній статі я розповім, як мені вдалось зареверсінжинірити стару рацію, та модифікувати її пам&#39;ять!"/>
+  <meta property="og:locale" content="uk"/>
+  <meta property="og:url" content="https://so1der.github.io/articles/nt40.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-04-18 17:06:00+03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://so1der.github.io/author/so1der.html">
+  <meta property="article:section" content="YouTube"/>
+  <meta property="article:tag" content="зв&#39;язок"/>
+  <meta property="article:tag" content="хакінг"/>
+  <meta property="og:image" content="/logo.png">
+
+  <title>so1der &ndash; Хакінг рації Tekk NT-40</title>
+
+
+</head>
+<body class="dark-theme">
+
+<aside>
+  <div>
+    <a href="https://so1der.github.io/">
+      <img src="/logo.png" alt="so1der" title="so1der">
+    </a>
+
+    <h1>
+      <a href="https://so1der.github.io/">so1der</a>
+    </h1>
+
+    <p>Вітаю Вас на моєму особистому сайті!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/articles/about.html#about" >Про мене</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/website.html#website" >Про вебсайт</a>
+          </li>
+          <li>
+            <a target="_self" href="/category/gaidi.html" >Гайди</a>
+          </li>
+          <li>
+            <a target="_self" href="/category/blog.html" >Блог</a>
+          </li>
+          <li>
+            <a target="_self" href="/articles/contact.html#contact" >зв'язок</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/so1der"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@CtrlD-3v3"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://soc.ua-fediland.de/@noaa_in_ukraine/"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="/rss.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://so1der.github.io/">Головна</a>
+
+  <a href="/archives.html">Архіви</a>
+  <a href="/categories.html">Категорії</a>
+  <a href="/tags.html">Теги</a>
+
+
+  <a href="https://so1der.github.io/rss.xml">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="nt40">Хакінг рації Tekk NT-40</h1>
+    <p>
+      Опубліковано 18.04.2026, 17:06 в категорії <a href="https://so1der.github.io/category/youtube.html">YouTube</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="TEKK NT-40" src="https://so1der.github.io/images/nt40/nt40.jpg" title="TEKK NT-40"></p>
+<p>Перед вами - портативна радіостанція Tekk NT-40. </p>
+<p>Цій рації вже ось ось буде 30 років, про неї майже немає інформації в інтернеті, а ще вона запрограмована на зовсім непідходящі для України частоти.  Тому в даній статті подивимось що дана рація має всередині, а також зареверсінжиніримо її пам'ять, та запишемо в неї необхідні нам частоти!</p>
+<p><img alt="OLX" src="https://so1der.github.io/images/nt40/olx.jpg" title="OLX"></p>
+<p>Одного дня, блукаючи просторами OLX, я натрапив на ось таке оголошення. В ньому, пан Іван за недорого продавав радіостанцію Tekk NT-40.  Я дуже давно хотів собі в колекцію якусь стару рацію з супергетеродиновим приймачем, тому вона мене одразу зацікавила.  Ну а додатковий челендж у вигляді відсутності інформації про те як і чим прошивати дану рацію ще сильніше підігрів мій інтерес до неї.  Тому, після теплої розмови з паном Іваном, ця рація вирушила до мене.</p>
+<p><img alt="Пакунок" src="https://so1der.github.io/images/nt40/package.jpg" title="Пакунок"></p>
+<p>Якщо спробувати пошукати інформацію про рацію в інтернеті, то окрім оголошень на eBay, а також магазинів де можна купити акумулятор для неї, інформації майже немає.  Не кажучи вже про програмне забезпечення для взаємодії з рацією - в інтернеті навіть немає згадок що воно взагалі колись існувало.  Тому єдине що залишається, це детально оглянути рацію, можливо на ній є якісь підказки.</p>
+<p><img alt="FCC ID" src="https://so1der.github.io/images/nt40/fcc.jpg" title="FCC ID"></p>
+<p>Конкретно в даному випадку мені дуже пощастило - ця рація має FCC ID, а отже вона зареєстрована в Федеральній комісії зі зв'язку США.  Якщо коротко, то ця комісія перевіряє та сертифікує пристрої, що можуть передавати радіосигнал, щоб вони працювали в дозволених діапазонах, та не створювали різних завад та перешкод.  Наявність цього айдішника показує, що пристрій успішно пройшов сертифікацію та потрапив до бази даних FCC, що для нас дуже важливо, адже з цієї бази можна отримати дуже багато різної інформації.</p>
+<p><img alt="fccid.io" src="https://so1der.github.io/images/nt40/fccidio.jpg" title="fccid.io"></p>
+<p>Наприклад на ось такому сайті, <a href="https://fccid.io/">fccid.io</a> - достатньо просто ввести ID, і перед нами розгортається просто купа корисної інформації.  Тут вам і інструкція з експлуатації, і фотографії плати, і навіть повноцінні схеми, прекрасно.  Фотографії звісно дуже низької роздільної здатності, зважаючи на вік рації, але навіть це вже набагато краще ніж нічого.  Тож тепер треба все це дослідити, і дізнатись про рацію побільше.</p>
+<hr>
+<p>Почитавши інструкцію з експлуатації, я дізнався пару не дуже приємних моментів:</p>
+<p>По перше - рація працює в діапазоні від 450 до 470 МГц - тобто вона не попадає ані в радіоаматорський діапазон в Україні, ані в безліцензійний PMR446.  По друге - частоти та налаштування рації лежать на мікросхемі 93C66 - на перший погляд звичайна EEPROM мікросхема пам'яті, але в якості шини даних в ній використовується не звичні нам SPI або I2C, а <strong>MicroWire</strong>. Це додасть невеличких труднощів при роботі з нею.</p>
+<p><img alt="Окисли" src="https://so1der.github.io/images/nt40/oxidized.jpg" title="Окисли"></p>
+<p>Гаразд, тепер маючи вдосталь інформації, рацію можна і розібрати.  Час звісно не пощадив цю рацію - всюди окисли та іржа. Треба буде обов'язково цього позбутись, щоб метал не продовжував руйнуватись.</p>
+<p><img alt="Плата" src="https://so1der.github.io/images/nt40/pcb.jpg" title="Плата"></p>
+<p>Внутрішній світ цієї рації просто вражає.  Можу годинами роздивлятись подібні старі плати, де є купа мікросхем та компонентів, а не як зараз - одна мікросхема під компаундом і все.</p>
+<p><img alt="Мікросхема пам'яті" src="https://so1der.github.io/images/nt40/eeprom.jpg" title="Мікросхема пам'яті"></p>
+<p>А ось і мікросхема пам'яті. Саме звідсіля мікроконтролер дізнається, як і на яких частотах рація повинна працювати.  До речі, навіть не маючи схеми, можна легко знайти мікросхему пам'яті - вона часто стоїть максимально близько до мікроконтролера, та зазвичай має мінімум обв'язки.  Як я вже й казав, мікросхема пам'яті тут використовує шину <strong>MicroWire</strong> - це Three Wire шина даних, яка була попередником шини SPI. Вони були багато в чому схожі, але врешті решт шина SPI витіснила MicroWire, і стала таким собі умовним стандартом.</p>
+<p>Тому, ані сучасні мікроконтролери та одноплатники, ані сучасні програматори, часто не мають хардварної підтримки даної шини.  Через це, найлегшим способом взаємодіяти з мікросхемою є так званий <strong>Bit Banging</strong>, тобто імітування шини даних використовуючи звичайні GPIO піни.</p>
+<p><img alt="Логічний аналізатор" src="https://so1der.github.io/images/nt40/logic.jpg" title="Логічний аналізатор"></p>
+<p>Але перед цим я хотів би спробувати подивитись за допомогою логічного аналізатора, що там взагалі відбувається на цій шині даних, бо Bit Banging процес не самий надійний, і мати якісь референсні дані точно не завадить.  Логічний аналізатор це дуже зручний прилад, який дозволить перехопити та проаналізувати якісь дані, не втручаючись при цьому в роботу самого пристрою.  В даному випадку ми будемо перехоплювати комунікацію між мікроконтролером, та мікросхемою пам'яті.</p>
+<p><img alt="Дротики" src="https://so1der.github.io/images/nt40/wires.jpg" title="Дротики"></p>
+<p>Для цього я підпаяв невеличкі дротики до основних пінів мікросхеми - Latch, Clock, Data Input, та Data output, а також підпаяв дріт до піна, по якому відбувається програмування рації з комп'ютера.  Забігаючи на перед, скажу, що на цьому піні взагалі ніяких даних не було, схоже він чекає якусь команду від програми на комп'ютері чи типу того, тому сфокусуємось виключно на мікросхемі.</p>
+<p>Для роботи з аналізатором я буду використовувати програму <a href="https://sigrok.org/wiki/PulseView">PulseView</a>.  Достатньо тут лише поставити кількість семплів побільше, та частоту вдвічі більшу за робочу.  Конкретно ця мікросхема може працювати зі швидкістю 2 МГц, але я дуже сильно сумніваюсь що в рації вона читається з такою швидкістю, тому 1 МГц повинно вистачити з головою.</p>
+<p><img alt="Налаштування PulseView" src="https://so1der.github.io/images/nt40/pulseview.jpg" title="Налаштування PulseView"></p>
+<p>Тепер можна чіплятись до мікросхеми, запускати аналізатор, та подавати живлення на рацію.  Я також попереключав по черзі всі канали, так як скоріше за все, мікроконтролер зчитує налаштування каналів динамічно, під час їх перемикання.</p>
+<p><img alt="Дані" src="https://so1der.github.io/images/nt40/pulseview2.jpg" title="Дані"></p>
+<p>Як можете бачити, аналізатор успішно зчитав дані, які бігали між мікроконтролером та мікросхемою пам'яті.  А щоб нам вручну не вираховувати, де тут нуль, а де одиниця, програма PulseView має цілу купу декодерів, які можна застосувати до отриманих даних.  Серед декодерів є і декодер <strong>MicroWire</strong>, але він на жаль ламається, і не працює як слід. Він намагається декодувати лише першу команду, а далі застряє.</p>
+<p><img alt="Помилки" src="https://so1der.github.io/images/nt40/error.jpg" title="Помилки"></p>
+<p>Я дуже довго не міг зрозуміти чому - багато гуглив, та читав даташити, аж допоки не звернув увагу на наступне - для того щоб зчитати комірку пам'яті з мікросхеми, потрібно 20 Clock імпульсів. Я вирішив порахувати скільки їх в мене, і як виявилось - мікроконтролер в рації перед кожним читанням робив один зайвий Clock сигнал.</p>
+<p><img alt="Зайвий clock імпульс" src="https://so1der.github.io/images/nt40/extra-clock.jpg" title="Зайвий clock імпульс"></p>
+<p>Мікросхемі на таке байдуже, це ніяк не впливає на її роботу, а от декодеру в програмі - як виявилось, не байдуже. Тому я трохи переписав код декодера, щоб він ігнорував цей перший імпульс, і після цього все запрацювало.</p>
+<p><img alt="Декодовані дані" src="https://so1der.github.io/images/nt40/decoded.jpg" title="Декодовані дані"></p>
+<p>Як можете бачити, декодер успішно декодує команду, адресу пам'яті, та дані які звідтіля відправила мікросхема.  Тепер кожен отриманий байт можна витягнути з програми для подальшого аналізу. </p>
+<div class="highlight"><pre><span></span><code><span class="nl">0000000000</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">21</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">99</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">28</span><span class="w">  </span><span class="p">|</span><span class="s">.U.U.U.U.!.....(</span><span class="p">|</span>
+<span class="nl">0000000010</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">56</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">.V..............</span><span class="p">|</span>
+<span class="nl">0000000020</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">FF</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">0A</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">FF</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">60</span><span class="w">  </span><span class="p">|</span><span class="s">...............`</span><span class="p">|</span>
+<span class="nl">0000000030</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">82</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">56</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">08</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">25</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w">  </span><span class="p">|</span><span class="s">...V...%........</span><span class="p">|</span>
+<span class="nl">0000000040</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">61</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">02</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">56</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">10</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">25</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w">  </span><span class="p">|</span><span class="s">.a...V...%......</span><span class="p">|</span>
+<span class="nl">0000000050</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">62</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">15</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">21</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">50</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w">  </span><span class="p">|</span><span class="s">...b.....!.P....</span><span class="p">|</span>
+<span class="nl">0000000060</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">67</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">50</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">75</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w">  </span><span class="p">|</span><span class="s">.....g.P...u....</span><span class="p">|</span>
+<span class="nl">0000000070</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">67</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">35</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">73</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">50</span><span class="w">  </span><span class="p">|</span><span class="s">.......g.5...s.P</span><span class="p">|</span>
+<span class="nl">0000000080</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">D1</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">65</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">90</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">59</span><span class="w">  </span><span class="p">|</span><span class="s">.........e.....Y</span><span class="p">|</span>
+<span class="nl">0000000090</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">90</span><span class="w"> </span>
+</code></pre></div>
+
+<p>Неозброєним оком видно, що байт <strong>D1</strong> розділяє налаштування каналів, тому я прибрав все зайве, прибрав зайві <strong>00</strong> байти які виникли через умовність декодера,  посортував канали в рядок, і маємо наступну картину:</p>
+<div class="highlight"><pre><span></span><code>D1 17 17 60 82 56 08 25 D1 
+D1 17 17 61 02 56 10 25 D1
+D1 17 17 62 15 06 21 50 D1
+D1 17 17 67 50 06 75 00 D1
+D1 17 17 67 35 06 73 50 D1
+D1 17 17 65 90 06 59 00 90
+</code></pre></div>
+
+<p>Чесно кажучи, я думав буде цікавіше. Тут явно видно, навіть в <em>human readable</em> форматі, частоту на якій повинна працювати рація - 4, 5, та 6 байти. Четвірка пропущена, так як рація вміє працювати лише в UHF, тобто 400 МГц, тож цю четвірку вирішили не вказувати. Якщо ж взяти якусь іншу рацію, наприклад Quansheng UV-K5, то в її пам'яті частота виглядає ось так - <code>0x30BAA402</code>. Це 32-х бітне число, записане в little-endian форматі, тобто від молодшого байта до старшого. Переводимо його в big-endian, міняючи послідовність байтів, і отримуємо наступне число: <code>0x02A4BA30</code>. Тепер його можна перевести в десяткову систему, і як можете бачити, ми отримали частоту каналу в рації - 44350000 кГц.</p>
+<p>А в Tekk NT-40 навіть переводити нічого не треба - одразу бачимо частоту.  Єдине що мені було незрозуміло, де тут зазначені CTCSS коди. Якщо згадати частоти з OLX оголошення, то на третьому каналі CTCSS тон відрізнявся від всіх інших. Тобто повинен бути якийсь байт, який однаковий на всіх шести каналах, крім третього, і такого байту я тут не бачу.</p>
+<p><img alt="CTCSS" src="https://so1der.github.io/images/nt40/ctcss.png" title="CTCSS"></p>
+<p>Тому я вирішив відкрити таблицю CTCSS тонів, та глянути, якою за номером йде частота 141.3 Гц.  Вона двадцять друга. А якщо 22 перевести в шістнадцятковий формат, то вийде 17.</p>
+<p><code>22 = 0x17</code></p>
+<p>Тобто другий та третій байти як раз повинні вказувати на CTCSS тон для прийому та передачі. Але чому ж тоді на третьому каналі він не відрізняється?</p>
+<p><img alt="Реальний CTCSS тон" src="https://so1der.github.io/images/nt40/tone.jpg" title="Реальний CTCSS тон"></p>
+<p>Я вирішив перевірити третій канал за допомогою іншої рації, і дійсно виявилось, що CTCSS тон тут стоїть на 141.3 Гц. В оголошенні була помилка.  Тож дуже зручно мати рацію типу Quansheng, адже вона дозволяє не лише подивитись частоту, а ще й CTCSS тони.</p>
+<p><img alt="Випаювання мікросхеми" src="https://so1der.github.io/images/nt40/desoldering.jpg" title="Випаювання мікросхеми"></p>
+<p>Гаразд. Тепер ми приблизно знаємо, який вміст повинна мати мікросхема пам'яті, тож можна сміливо її випаювати, та намагатись зчитати.  Я випаяв мікросхему паяльником, додавши трохи нового припою, щоб мікросхема легше відпаялась.  Після цього я запаяв мікросхему на DIP перехідник, щоб з нею було зручніше працювати.</p>
+<p>Зробити Bit Banging можна будь яким мікроконтролером, але особисто я використаю Raspberry Pi, так як на ній вже є Linux, і не треба буде вигадувати як перенести дані з мікроконтролера в файл на комп'ютері.</p>
+<p>До цього в інтернеті я <a href="https://forums.raspberrypi.com/viewtopic.php?t=140764">знаходив пайтонівські скрипти</a> для читання та запису схожих мікросхем - дякую користувачу з нікнеймом <strong>thierry81</strong> за те що поділився!</p>
+<p>Дані скрипти працють з мікросхемами <strong>93C56</strong>, тобто з меншим обсягом пам'яті, і що дуже важливо -  <strong>шістнадцятибітними</strong> словами.</p>
+<p><img alt="Пін ORG" src="https://so1der.github.io/images/nt40/org.png" title="Пін ORG"></p>
+<p>Якщо коротко, то мікросхеми цієї серії мають спеціальний пін, <strong>ORG</strong> (шостий), яким можна обирати організацію пам'яті на мікросхемі - в випадку моєї мікросхеми це або <strong>256 слів по 16 біт</strong>, або <strong>512 слів по 8 біт</strong>.</p>
+<p>Якщо зазирнути в схему рації, то можна побачити, що даний пін в ній притягнутий до землі, а отже обрана конфігурація 512 слів по 8 біт, тож саме так мікросхему краще і читати.  Тому я модифікував ці скрипти щоб по перше вони працювали з більшим обсягом пам'яті, та по друге - використовували команди для 8ми бітної організації пам'яті.  Тепер залишилось лише підключити все до мікросхеми, і запустити скрипт.</p>
+<p><img alt="Підключення" src="https://so1der.github.io/images/nt40/connection.jpg" title="Підключення"></p>
+<p>Чудово! Перед нами дамп пам'яті.</p>
+<div class="highlight"><pre><span></span><code><span class="nl">00000000</span><span class="w">  </span><span class="mh">21</span><span class="w"> </span><span class="mh">99</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">28</span><span class="w"> </span><span class="mh">56</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">0a</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="p">|</span><span class="s">!..(V...........</span><span class="p">|</span>
+<span class="nl">00000010</span><span class="w">  </span><span class="mh">60</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">49</span><span class="w"> </span><span class="mh">87</span><span class="w"> </span><span class="mh">65</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">07</span><span class="w">  </span><span class="mh">00</span><span class="w"> </span><span class="mh">12</span><span class="w"> </span><span class="mh">11</span><span class="w"> </span><span class="mh">11</span><span class="w"> </span><span class="mh">11</span><span class="w"> </span><span class="mh">11</span><span class="w"> </span><span class="mh">11</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">`..I.e..........</span><span class="p">|</span>
+<span class="nl">00000020</span><span class="w">  </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w">  </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w"> </span><span class="mh">55</span><span class="w">  </span><span class="p">|</span><span class="s">...UUUUUUUUUUUUU</span><span class="p">|</span>
+<span class="nl">00000030</span><span class="w">  </span><span class="mh">d1</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">61</span><span class="w"> </span><span class="mh">23</span><span class="w"> </span><span class="mh">56</span><span class="w"> </span><span class="mh">08</span><span class="w"> </span><span class="mh">25</span><span class="w">  </span><span class="mh">d1</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">46</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">26</span><span class="w"> </span><span class="mh">10</span><span class="w"> </span><span class="mh">25</span><span class="w">  </span><span class="p">|</span><span class="s">...a#V.%...F.&amp;.%</span><span class="p">|</span>
+<span class="nl">00000040</span><span class="w">  </span><span class="mh">d1</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">62</span><span class="w"> </span><span class="mh">15</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">21</span><span class="w"> </span><span class="mh">50</span><span class="w">  </span><span class="mh">d1</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">67</span><span class="w"> </span><span class="mh">50</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">75</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">...b..!P...gP.u.</span><span class="p">|</span>
+<span class="nl">00000050</span><span class="w">  </span><span class="mh">d1</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">67</span><span class="w"> </span><span class="mh">35</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">73</span><span class="w"> </span><span class="mh">50</span><span class="w">  </span><span class="mh">d1</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">17</span><span class="w"> </span><span class="mh">65</span><span class="w"> </span><span class="mh">90</span><span class="w"> </span><span class="mh">06</span><span class="w"> </span><span class="mh">59</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">...g5.sP...e..Y.</span><span class="p">|</span>
+<span class="nl">00000060</span><span class="w">  </span><span class="mh">90</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="mh">90</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="p">|</span><span class="s">................</span><span class="p">|</span>
+<span class="nl">00000070</span><span class="w">  </span><span class="mh">90</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="mh">10</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="p">|</span><span class="s">................</span><span class="p">|</span>
+<span class="nl">00000080</span><span class="w">  </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w"> </span><span class="mh">ff</span><span class="w">  </span><span class="p">|</span><span class="s">................</span><span class="p">|</span>
+<span class="p">*</span>
+<span class="nl">00000200</span>
+</code></pre></div>
+
+<p>Можна побачити, що присутні деякі відмінності з тим що до цього показував логічний аналізатор - наприклад там було вдвічі більше <strong><em>D1</em></strong> байтів.  Але слід розуміти, що аналізатор лише перехопив те, що зчитував мікроконтролер, який, в даному випадку зчитував пам'ять не лінійно, а за своїми певними алгоритмами.  Байт <strong><em>D1</em></strong> дублювався, так як мікроконтролер схоже використовує цей байт як такий собі умовний маркер початку та кінця налаштувань каналу.</p>
+<p>Тобто він бере цей байт за початок, і зчитує послідовно комірки пам'яті поки не зустріне ще один такий байт. І так кожного разу при перемиканні каналів, тому він і дублювався.  Щож, а тепер час перевірити теорію, і подивитись, як рація відреагує на нові частоти.  Для цього я модифікував дамп, віредагувавши пару каналів - по перше замінив частоту в межах робочого діапазону рації, і по друге - замінив частоту на частоту першого PMR каналу, тобто за межами її робочого діапазону.</p>
+<p><img alt="Модифікований дамп" src="https://so1der.github.io/images/nt40/mod-dump.jpg" title="Модифікований дамп"></p>
+<p>Тут я трохи промахнувся з PMR частотою, але не суть, перевірити ідею це не завадить.  І тепер, вже іншим скриптом, я записав новий модифікований дамп назад на мікросхему.  Залишилось тепер лише запаяти її, і перевірити.</p>
+<p><img alt="Прийом першого PMR каналу" src="https://so1der.github.io/images/nt40/pmr1.jpg" title="Прийом першого PMR каналу"></p>
+<p>Іііі, неймовірно, рація почала приймати PMR канал, який на 4 мегагерци нижче за її заявлений робочий діапазон!</p>
+<p>А от передача при цьому залишалась на попередніх частотах.  Я дуже довго не міг зрозуміти як і чому, адже в налаштуваннях каналу залишилось зовсім мало байтів, і я все ніяк не міг зрозуміти що вони значать.  Я витратив не один день, читаючи даташити мікросхем рації та розраховуючи частотні дільники синтезатора, адже саме так у ній задаються частоти прийому й передачі, аж допоки не помітив, що останній байт в усіх каналах співпадає з останніми цифрами в частоті.</p>
+<p><img alt="Частота передачі" src="https://so1der.github.io/images/nt40/tx-freq.jpg" title="Частота передачі"></p>
+<p>Ну і як виявилось частота передачі просто записана в цих байтах, в такому ж форматі як і частота прийому, яку я модифікував до цього.  Просто через трохи іншу парність цифр, я цього взагалі не помітив одразу.  Тож якщо у вас щось не виходить, слід перепочити, та подивитись на все свіжим поглядом.</p>
+<p>Ну а маючи цю інформацію, я зробив новий дамп, де записав всі 8 PMR каналів:</p>
+<p><img alt="Дамп з 8 каналами PMR" src="https://so1der.github.io/images/nt40/pmr.jpg" title="Дамп з 8 каналами PMR"></p>
+<p>Звісно, на початку дампу є ще ціла купа байтів інформації, які скоріш за все налаштовують інші параметри рації - Time Out Timer, сканування каналів, Power Saving, ширину каналу, налаштування кнопок і тд.  Але без програми, завересінжинірити їх буде вже набагато складінше, адже взагалі незрозуміло який байт за що відповідає, і які значення він може приймати.</p>
+<p>У випадку налаштування частот, в нас хоча б було шість каналів, тобто шість повторюваних місць в пам'яті, де можна побачити якусь закономірність та зробити якісь висновки.  В випадку інших байтів, такої розкоші ми не маємо, тож в рамках цієї статті обмежимось лише редагуванням частоти та субтонів.</p>
+<p>А тим частом дамп вже готовий і записаний, і тепер рацію можна використовувати на безліцензійному діапазоні! Як на прийом, так і на передачу.</p>
+<hr>
+<p><img alt="Старий акумулятор" src="https://so1der.github.io/images/nt40/old-battery.jpg" title="Старий акумулятор"></p>
+<p>До речі пару слів слід сказати і про акумулятор.  Так як рація дуже стара, в акумуляторі тут використовувались Нікель-Кадмієві елементи.  В наш час використовувати їх вже зовсім недоцільно, тому попередній власник переробив акумулятор на літій.  Але як часто буває з акумуляторами від рацій, корпус після переробки виглядає дуже непрезентабельно.</p>
+<p><img alt="FreeCAD" src="https://so1der.github.io/images/nt40/freecad.jpg" title="FreeCAD"></p>
+<p>Тому я вирішив скористатись цим моментом, та опанував <a href="https://www.freecad.org/">FreeCAD</a> - дуже потужне open source CAD середовище для моделювання.  Розібратись в ньому вийшло значно легше ніж я очікував, і я зміг нашвидкоруч спроєктувати ось такий простий корпус під акумулятор для цієї рації:</p>
+<p><img alt="Новий акумулятор" src="https://so1der.github.io/images/nt40/new-battery.jpg" title="Новий акумулятор"></p>
+<p>До речі, дуже вдячний Штефану за чудову платку для зарядки 2S акумулятора!</p>
+<hr>
+<p><img alt="Рація Tekk NT-40" src="https://so1der.github.io/images/nt40/radio.jpg" title="Рація Tekk NT-40"></p>
+<p>Ось така по ітогу вийшла крута рація.  Багато хто скаже, що все це недоцільно, і набагато легше просто купити нову сучасну рацію.  Якщо потрібна саме рація, то так - я з цим цілком згоден. </p>
+<p>Але для мене тут був цікавий саме процес. В ході подібного реверсінжинірінгу я завжди дізнаюсь щось цікаве, і покращую свої навички.  Ну і бонусом тут я ще й отримав собі в колекцію таку унікальну рацію з крутою історією.</p>
+<p>Щоправда, хоч вона тепер і працює за межами свого робочого частотного діапазону - але через це вона тепер значно менш чутлива до сигналів.  Там де навіть Baofeng ловить якість слабкі сигнали, Tekk NT-40 мовчить навіть з вимкненим шумодавом, тобто весь прикол супергетеродину втрачається.  Вся справа в тому, що робочий частотний діапазон рації визначається не просто так - хоч ми софтварно і розширили його, хардварно він не змінився - на платі залишились ті самі фільтри та компоненти, які розраховані на зовсім інші частоти.  Чого вартує лише керамічний <strong>SAW фільтр на 465 МГц</strong>:</p>
+<p><img alt="SAW фільтр" src="https://so1der.github.io/images/nt40/saw.jpg" title="SAW Фільтр"></p>
+<p>По схемі до речі мав стояти фільтр на <strong>455 МГц</strong>, тобто в моїй ревізії плати він ще далі від 446 МГц.  Такі фільтри зазвичай мають смугу шириною всього <strong>10 МГц</strong>, а отже він точно глушить сигнали на новозаписаних в рацію частотах.  Інші фільтрі рації я моделював в програмі Qucs-s, і наче вони не повинні заважати:</p>
+<p><img alt="Програма Qucs-s" src="https://so1der.github.io/images/nt40/qucs.png" title="Програма Qucs-s"></p>
+<p>Тож якщо прибрати або замінити цей SAW фільтр, то ситуація повинна покращитись.  Але, це ми вже сильно відійшли від теми статті.</p>
+<p>Метою статті було показати, як можна за допомогою недорогих інструментів зареверсінжинірити прилад, про який майже немає інформації в інтернеті. Реверсінжиніринг це завжди дуже цікаве та пізнавальне заняття, і часто ще корисне, тож якщо у вас теж є подібні пристрої - раджу спробувати. Наприклад, я також реверсінжинірив свою комп'ютерну мишку - перехоплював USB пакети через Wireshark щоб зрозуміти як працює програма для її налаштування, і завдяки цьому я зміг написати пайтонівський скрипт, щоб налаштовувати мишу на Linux, бо під Linux виробник на жаль програму не робив.</p>
+<p>Навряд чи серед тих хто читає цю статтю, є власники такої радіостанції, але про всяк випадок - все що було в статті, ви зможете знайти в кінці цієї статті в додатках: Дані з логічного аналізатора, дампи, скрипти, а також 3D моделі корпусу. Раптом комусь це колись знадобиться.</p>
+<p>А на цьому в мене все!</p>
+<p>Можливо колись таки ми з вами поговоримо про те, як вже повноцінно перетягнути рацію на інший частотний діапазон, та протестувати її чутливість.</p>
+<p>А поки що - дякую що читали!</p>
+<h1>Post Scriptum</h1>
+<p>Це текстова версія мого відео, доступного за <a href="https://youtu.be/6jovZK_P0BA">посиланням</a>.</p>
+<hr>
+<h2>Додатки</h2>
+<p><strong>3D моделі:</strong></p>
+<ul>
+<li>Корпус для акумулятора: <a href="/files/nt40/nt40_case.stl">nt40_case.stl</a></li>
+<li>Кришка для акумулятора: <a href="/files/nt40/nt40_cover.stl">nt40_cover.stl</a></li>
+<li>Проєкт в програмі FreeCAD: <a href="/files/nt40/nt40_battery_case.FCStd">nt40_battery_case.FCStd</a></li>
+</ul>
+<p><strong>Скрипти для мікросхеми 93C66:</strong></p>
+<ul>
+<li>Читання: <a href="/files/nt40/dump93c66.py">dump93c66.py</a></li>
+<li>Запис: <a href="/files/nt40/load93c66.py">load93c66.py</a></li>
+</ul>
+<p><strong>Файли для PulseView</strong></p>
+<ul>
+<li>Декодер: <a href="/files/nt40/nt40_decoder.zip">nt40_decoder.zip</a></li>
+<li>Перехоплена комунікація між мікроконтролером та мікросхемою пам'яті: <a href="/files/nt40/nt40.sr">nt40.sr</a></li>
+</ul>
+<p>Декодер треба помістити в директорію <strong>/usr/share/libsigrokdecode/decoders/</strong> на Linux.</p>
+<p><strong>Дампи пам'яті:</strong></p>
+<ul>
+<li>Оригінальний дамп пам'яті: <a href="/files/nt40/dump.bin">dump.bin</a></li>
+<li>8 PMR каналів: <a href="/files/nt40/pmr.bin">pmr.bin</a></li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://so1der.github.io/tag/zviazok.html">зв'язок</a>
+      <a href="https://so1der.github.io/tag/khaking.html">хакінг</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2026 </p>
+<p>
+Сайт створено за допомогою <a href="http://getpelican.com" target="_blank">Pelican</a> використовуючи <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> тему
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " so1der ",
+  "url" : "https://so1der.github.io",
+  "image": "/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
